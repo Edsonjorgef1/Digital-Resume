@@ -21,14 +21,6 @@
 
 }
 
-.dark-mode {
-  --mainTextColor:var(--mainTextColor-dark);
-  --secondaryTextColor:var(--secondaryTextColor-dark);
-  --mainLinkColor:var(--mainLinkColor-dark);
-  --mainBorderColor:var(--mainBorderColor-dark);
-  --mainBgColor:var(--mainBgColor-dark);
-}
-
 *{
     font-family: 'Readex Pro';
     line-height: 1.5em;
@@ -187,4 +179,28 @@ li{
         border-left: none;
         padding-left: 0;
     }
+}
+
+/* Dark Mode  */
+:target {
+  --mainTextColor:var(--mainTextColor-dark);
+  --secondaryTextColor:var(--secondaryTextColor-dark);
+  --mainLinkColor:var(--mainLinkColor-dark);
+  --mainBorderColor:var(--mainBorderColor-dark);
+  --mainBgColor:var(--mainBgColor-dark);
+}
+
+.doer {
+  position: absolute;
+}
+
+.undoer,
+:target .doer {
+  visibility: hidden;
+  opacity: 0;
+}
+
+:target .undoer {
+  visibility: visible;
+  opacity: 1;
 }
