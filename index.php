@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Edson Famanda</title>
+        <title>Digital Resume</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="./styles/main.css">
@@ -52,7 +52,7 @@
 
                 <div id="wrapper--techstack__items">
                     <div class="card--techstack"><span>Software Development, DevOps, AGILE</span></div>
-                    <div class="card--techstack"><span>PHP, Javascript, LAMP</span></div>
+                    <div class="card--techstack"><span>PHP, Javascript, LAMP, Postman</span></div>
                     <div class="card--techstack"><span>Laravel, Livewire, jQuery, JSON</span></div>
                     <div class="card--techstack"><span>Quasar Framework, VueJS</span></div>
                     <div class="card--techstack"><span>MySQL, Postgres, MongoDB</span></div>
