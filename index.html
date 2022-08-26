@@ -180,7 +180,7 @@
               <div class="card--project">
                 <p>
                   2022 - Participation in the Hackability4Moz Hackathon organised by UEM (Eduardo Mondlane University), with 2 different projects: <br>
-                  - KUKANELA, Android application designed to learn sign language, and help communicate with hearing impaired people in schools, colleges and other places.
+                  - KUKANELA, Android application designed to learn sign language, and help communicate with hearing impaired people in schools, colleges and other places. <br>
                   - W11P, a simple Web plugin that aims to help disabled people to interact with the content available on the page through voice commands, to know the content of the page, read the texts and navigate the website.
                 </p>
               </div>
