@@ -5,7 +5,7 @@
     "causes": "Relações sexuais desprotegidas; transfusão de sangue; da mãe para o bebê na gravidez, parto e amamentação e partilha de objetos cortantes.",
     "symptoms": "Febre, tosse, suores noturnos, inchaço dos glândulas linfáticas, dores de cabeça/músculos/articulações, emagrecimento, falta de apetite.",
     "prevention": "Usar sempre preservativo, ter apenas 1 parceiro, não partilhar objetos cortantes. A mulher grávida deve aderir ao programa PTV.",
-    "treatment": "Não se elimina HIV, mas para o paciente viver mais e melhor deve manter uma vida saudável, e tomar Antirretrovirais para impedir a multiplicação do vírus",,
+    "treatment": "Não se elimina HIV, mas para o paciente viver mais e melhor deve manter uma vida saudável, e tomar Antirretrovirais para impedir a multiplicação do vírus",
     "resource_url": "http://127.0.0.1:8080/admin/diseases/3"
   },
   {
@@ -14,7 +14,7 @@
     "causes": "A malária é causada pelo Plasmodium falciparum através da picada do mosquito infectado.",
     "symptoms": "Sintomas de malária: Febre, suor, tremores e calafrios, dores de cabeça e musculares, cansaço, náusea, vômito, diarreia. Pode levar à morte quando não tratada",
     "prevention": "Prevenção de malária: Dormir debaixo da rede mosquiteira. Fumigação de zonas com mosquitos, cortar capim, e drenar águas estagnadas. Usar repelentes.",
-    "treatment": "Tratamento para a Malária não complicada: Combinação de derivados de artemisinina (ACT). Quanto à Malária complicada: Artesunato.",,
+    "treatment": "Tratamento para a Malária não complicada: Combinação de derivados de artemisinina (ACT). Quanto à Malária complicada: Artesunato.",
     "resource_url": "http://127.0.0.1:8080/admin/diseases/3"
   },
   {
