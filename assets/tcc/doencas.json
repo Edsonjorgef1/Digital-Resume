@@ -1,0 +1,73 @@
+[
+  {
+    "name": "HIV/SIDA",
+    "description": "SIDA é provocada pelo Vírus da Imunodeficiência Humana (HIV) que entra no organismo por contato com uma pessoa infectada e destroi as nossas células de defesa.",
+    "causes": "Relações sexuais desprotegidas; transfusão de sangue; da mãe para o bebê na gravidez, parto e amamentação e partilha de objetos cortantes.",
+    "symptoms": "Febre, tosse, suores noturnos, inchaço dos glândulas linfáticas, dores de cabeça/músculos/articulações, emagrecimento, falta de apetite.",
+    "prevention": "Usar sempre preservativo, ter apenas 1 parceiro, não partilhar objetos cortantes. A mulher grávida deve aderir ao programa PTV.",
+    "treatment": "Não se elimina HIV, mas para o paciente viver mais e melhor deve manter uma vida saudável, e tomar Antirretrovirais para impedir a multiplicação do vírus",,
+    "resource_url": "http://127.0.0.1:8080/admin/diseases/3"
+  },
+  {
+    "name": "Malária",
+    "description": "Malaria é uma doença antecessora causada pela picada de mosquito Anopheles infectado que injeta o parasita quando a pessoa passa a alimentar-se do sangue dela.",
+    "causes": "A malária é causada pelo Plasmodium falciparum através da picada do mosquito infectado.",
+    "symptoms": "Sintomas de malária: Febre, suor, tremores e calafrios, dores de cabeça e musculares, cansaço, náusea, vômito, diarreia. Pode levar à morte quando não tratada",
+    "prevention": "Prevenção de malária: Dormir debaixo da rede mosquiteira. Fumigação de zonas com mosquitos, cortar capim, e drenar águas estagnadas. Usar repelentes.",
+    "treatment": "Tratamento para a Malária não complicada: Combinação de derivados de artemisinina (ACT). Quanto à Malária complicada: Artesunato.",,
+    "resource_url": "http://127.0.0.1:8080/admin/diseases/3"
+  },
+  {
+    "name": "Coronavirus",
+    "description": "O coronavírus é um vírus que causa doenças respiratórias que são na maioria gripes comuns. Em algumas pessoas pode causar doenças mais graves como a pneumonia.",
+    "causes": "Coronavirus transmite-se através das gotículas de saliva libertadas por uma pessoa contaminada para a outra quando tosse ou espirra",
+    "symptoms": "Os sintomas do Coronavirus assemelham-se aos da gripe comum como: febre, tosse seca, secreção nasal, dor de garganta, cabeça, vômitos e dificuldade em respirar",
+    "prevention": "Prevenção inclui medidas como lavagem frequente das mãos, uso de máscaras faciais, distanciamento social, limpeza regular de superfícies e evitando aglomerações. A vacinação contra a COVID-19 também é crucial para prevenir a doença.",
+    "treatment": "O tratamento da COVID-19 é voltado para aliviar os sintomas e, em casos graves, pode incluir oxigenoterapia, ventilação mecânica e, em situações extremas, terapia extracorpórea moderada. O uso de remdesivir e outras medicações também tem sido estudado. Importante destacar que o tratamento específico para o SARS-CoV-2 ainda está em desenvolvimento, e a prevenção continua sendo a melhor estratégia."
+  },
+  {
+    "name": "Conjuntivite",
+    "description": "A conjuntivite é uma inflamação do revestimento interno da córnea e da conjuntiva, geralmente causada por vírus, bactérias ou alergias.",
+    "causes": "Causas comuns incluem infecções virais, uso excessivo de cosméticos, irritação por poeira ou poluentes, e alergias.",
+    "symptoms": "Sintomas podem incluir vermelhidão, lacrimação exagerada, coceira nos olhos, sensibilidade à luz e acuidade visual reduzida.",
+    "prevention": "Prevenção inclui evitar tocar os olhos, lavar as mãos antes de comer, usar óculos de proteção durante atividades externas e tratar alergias.",
+    "treatment": "O tratamento varia dependendo da causa, podendo incluir medicamentos para aliviar os sintomas, antibióticos para infecções bacterianas e cuidados com os olhos.",
+    "resource_url": "http://127.0.0.1:8080/admin/diseases/3"
+  },
+  {
+    "name": "Cólera",
+    "description": "A cólera é uma doença infecciosa aguda causada por uma bactéria chamada Vibrio cholerae. Ela afeta principalmente o intestino delgado e pode levar à diarreia severa.",
+    "causes": "A cólera é transmitida através da ingestão de alimentos ou água contaminados com a bactéria Vibrio cholerae.",
+    "symptoms": "Os sintomas incluem diarreia profusa, perda de salto, desidratação, dores abdominais e, em casos graves, choque e morte.",
+    "prevention": "Prevenção envolve a higiene adequada, especialmente em áreas onde a água potável não é segura, e o uso de vacinas disponíveis.",
+    "treatment": "O tratamento foca na reidratação oral ou intravenosa, além de antibióticos para combater a bactéria Vibrio cholerae.",
+    "resource_url": "http://127.0.0.1:8080/admin/diseases/3"
+  },
+  {
+    "name": "Tuberculose",
+    "description": "A tuberculose é uma doença infecciosa causada por Mycobacterium tuberculosis, que afeta principalmente o sistema respiratório.",
+    "causes": "A tuberculose é transmitida através do ar, geralmente de pessoa para pessoa, quando uma pessoa infectada não segue o tratamento adequado.",
+    "symptoms": "Os sintomas variam desde ausência de sintomas até febre, tosse persistente, perda de peso inexplicada e suores noturnos.",
+    "prevention": "Prevenção inclui vacinação, uso de máscaras em ambientes fechados, isolamento de pacientes infectados e tratamento adequado.",
+    "treatment": "O tratamento da tuberculose é longo e envolve múltiplos medicamentos para prevenir resistência à droga.",
+    "resource_url": "http://127.0.0.1:8080/admin/diseases/3"
+  },
+  {
+    "name": "Gripe",
+    "description": "A gripe é uma doença viral que afeta o sistema respiratório, caracterizada por febre, tosse, dores de cabeça e corpo, e congestão nasal.",
+    "causes": "A gripe é causada por vírus influenza, que se espalha facilmente entre pessoas através do ar, especialmente em ambientes fechados.",
+    "symptoms": "Além dos sintomas mencionados, a gripe pode levar a complicações sérias, como pneumonia e insuficiência respiratória.",
+    "prevention": "Prevenção inclui vacinação anual, higiene pessoal, cobrir a boca ao tossir ou espirrar e evitar ambientes fechados com muitas pessoas.",
+    "treatment": "O tratamento da gripe é sintomático, focando em aliviar os sintomas. Vacinas são a melhor maneira de prevenir a doença.",
+    "resource_url": "http://127.0.0.1:8080/admin/diseases/3"
+  },
+  {
+    "name": "Leptospirose",
+    "description": "A leptospirose é uma doença infecciosa zoonótica causada por bactérias do gênero Leptospira. Afeta principalmente o sistema urinário e renal.",
+    "causes": "A leptospirose é transmitida através da urina de animais infectados, geralmente roedores, para humanos.",
+    "symptoms": "Os sintomas podem variar desde assintomática até febre, dores de cabeça, dores musculares, icterícia e insuficiência renal.",
+    "prevention": "Prevenção inclui evitar contato com animais suscetíveis, usar equipamentos de proteção em áreas rurais e tratar adequadamente a urina de animais.",
+    "treatment": "O tratamento da leptospirose é com antibióticos, sendo importante iniciar o tratamento o mais rápido possível após o diagnóstico.",
+    "resource_url": "http://127.0.0.1:8080/admin/diseases/3"
+   }
+]

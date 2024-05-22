@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "name": "Seguir a etiqueta da tosse ou usar um lenço com papel e depois deitar fora.",
+    "description": "descricao 1",
+    "image_url": null,
+    "health_tip_id": 2,
+    "resource_url": "http://127.0.0.1:8080/admin/information/1"
+  },
+  {
+    "id": 2,
+    "description": "",
+    "image_url": null,
+    "health_tip_id": 2,
+    "name": "Evitar estar em contacto com pessoas doentes.",
+    "resource_url": "http://127.0.0.1:8080/admin/information/2"
+  },
+  {
+    "id": 6,
+    "name": "Usar a mascara sempre que estiver com pessoas.",
+    "description": "",
+    "image_url": null,
+    "health_tip_id": 2,
+    "resource_url": "http://127.0.0.1:8020/admin/information/6"
+  },
+  {
+    "id": 7,
+    "name": "Lavar as mãos com e sabão por 20 seguros.",
+    "description": "",
+    "image_url": null,
+    "health_tip_id": 2,
+    "resource_url": "http://127.0.0.1:8080/admin/information/7"
+  }
+]

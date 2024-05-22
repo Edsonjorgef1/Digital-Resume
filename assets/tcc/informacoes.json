@@ -1,0 +1,50 @@
+[
+    {
+      "name": "O que fazer se suspeitar que tem COVID-19 ou se teve contato com alguém infectado",
+      "description": "Diretrizes trazidas pela MISAU",
+      "resource_url": "http://127.0.0.1:8000/admin/health-tips/1",
+      "subject": "Diretrizes sobre COVID-19"
+    },
+    {
+      "name": "Orientações sanitárias sobre COVID-19",
+      "description": "Dicas do MISAU e OMS",
+      "resource_url": "http://127.0.0.1:8000/admin/health-tips/2",
+      "subject": "Diretrizes sobre COVID-19"
+    },
+    {
+      "name": "Manutenção da Higiene Pessoal",
+      "description": "Importância do lavar as mãos, usar máscara e outras práticas de higiene",
+      "resource_url": "http://127.0.0.1:8000/admin/health-tips/3",
+      "subject": "Conselhos Gerais de Saúde"
+    },
+    {
+      "name": "Manter-se Ativo",
+      "description": "Benefícios da atividade física regular e manter-se em forma",
+      "resource_url": "http://127.0.0.1:8000/admin/health-tips/4",
+      "subject": "Conselhos Gerais de Saúde"
+    },
+    {
+      "name": "Comer Saudável",
+      "description": "Aconselhamento sobre nutrição e escolhas alimentares saudáveis",
+      "resource_url": "http://127.0.0.1:8000/admin/health-tips/5",
+      "subject": "Conselhos Gerais de Saúde"
+    },
+    {
+      "name": "Agendamento de Vacinação",
+      "description": "Vacinas importantes para se proteger contra doenças comuns",
+      "resource_url": "http://127.0.0.1:8000/admin/health-tips/6",
+      "subject": "Prevenção de Doenças"
+    },
+    {
+      "name": "Evitando Infecções",
+      "description": "Estratégias para prevenir a propagação de germes e infecções",
+      "resource_url": "http://127.0.0.1:8000/admin/health-tips/7",
+      "subject": "Prevenção de Doenças"
+    },
+    {
+      "name": "Reconhecendo Sintomas",
+      "description": "Sabendo quando procurar atendimento médico por possíveis enfermidades",
+      "resource_url": "http://127.0.0.1:8000/admin/health-tips/8",
+      "subject": "Prevenção de Doenças"
+    }
+]

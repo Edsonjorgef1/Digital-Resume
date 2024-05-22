@@ -1,0 +1,34 @@
+[
+  {
+    "id": 3,
+    "name": "Dormir num quarto isolado das outras pessoas da casa",
+    "description": "",
+    "image_url": null,
+    "health_tip_id": 1,
+    "resource_url": "http://127.0.0.1:8000/admin/information/3"
+  },
+  {
+    "id": 4,
+    "name": "Ficar em isolamento domiciliar durante 14 dias",
+    "description": "",
+    "image_url": null,
+    "health_tip_id": 1,
+    "resource_url": "http://127.0.0.1:8000/admin/information/4"
+  },
+  {
+    "id": 5,
+    "name": "Usar uma máscara",
+    "description": "",
+    "image_url": null,
+    "health_tip_id": 1,
+    "resource_url": "http://127.0.0.1:8000/admin/information/5"
+  },
+  {
+    "id": 8,
+    "name": "Não partilhar copos, talheres e pratos",
+    "description": "",
+    "image_url": null,
+    "health_tip_id": 1,
+    "resource_url": "http://127.0.0.1:8000/admin/information/8"
+  }
+]
