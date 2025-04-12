@@ -14,6 +14,8 @@
             --border-color: #ddd;
             --header-bg: #2c3e50;
             --container-bg: white;
+            --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition-speed: 0.3s;
         }
 
         [data-theme="dark"] {
@@ -25,6 +27,7 @@
             --border-color: #34495e;
             --header-bg: #1a252f;
             --container-bg: #2c3e50;
+            --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
         }
         
         * {
@@ -32,7 +35,7 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            transition: background-color 0.3s, color 0.3s;
+            transition: background-color var(--transition-speed), color var(--transition-speed), box-shadow var(--transition-speed);
         }
         
         body {
@@ -45,7 +48,7 @@
             max-width: 1000px;
             margin: 30px auto;
             background-color: var(--container-bg);
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            box-shadow: var(--card-shadow);
             border-radius: 8px;
             overflow: hidden;
         }
@@ -66,6 +69,7 @@
             border: 3px solid var(--secondary-color);
             object-fit: cover;
             margin-left: 20px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
         }
 
         .controls {
@@ -85,11 +89,29 @@
             border-radius: 5px;
             cursor: pointer;
             font-size: 14px;
-            transition: background-color 0.3s;
+            transition: background-color var(--transition-speed);
+            box-shadow: var(--card-shadow);
         }
 
         .theme-toggle:hover, .lang-toggle:hover {
             background-color: var(--secondary-color);
+        }
+
+        .download-cv {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 15px;
+            font-weight: 600;
+            transition: background-color var(--transition-speed);
+            box-shadow: var(--card-shadow);
+        }
+
+        .download-cv:hover {
+            background-color: #c0392b;
         }
         
         .header-left h1 {
@@ -126,6 +148,7 @@
         
         .content-section {
             padding: 30px 40px;
+            border-bottom: 1px solid var(--border-color);
         }
         
         .section-title {
@@ -140,6 +163,10 @@
         
         .job {
             margin-bottom: 30px;
+            padding: 20px;
+            background-color: var(--light-bg);
+            border-radius: 8px;
+            box-shadow: var(--card-shadow);
         }
         
         .job-title {
@@ -183,6 +210,10 @@
         
         .education {
             margin-bottom: 25px;
+            padding: 20px;
+            background-color: var(--light-bg);
+            border-radius: 8px;
+            box-shadow: var(--card-shadow);
         }
         
         .education-title {
@@ -213,6 +244,10 @@
         
         .skill-category {
             margin-bottom: 25px;
+            padding: 20px;
+            background-color: var(--light-bg);
+            border-radius: 8px;
+            box-shadow: var(--card-shadow);
         }
         
         .skill-category h3 {
@@ -241,6 +276,10 @@
         
         .project-item, .achievement-category {
             margin-bottom: 20px;
+            padding: 20px;
+            background-color: var(--light-bg);
+            border-radius: 8px;
+            box-shadow: var(--card-shadow);
         }
         
         .project-item h3, .achievement-category h3 {
@@ -279,6 +318,7 @@
             border-radius: 6px;
             padding: 15px;
             background-color: var(--light-bg);
+            box-shadow: var(--card-shadow);
         }
         
         .reference-name {
@@ -306,6 +346,23 @@
             font-size: 0.9rem;
         }
         
+        .project-links {
+            margin-top: 5px;
+            font-size: 0.9rem;
+        }
+        
+        .project-links a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            margin-right: 5px;
+            transition: color var(--transition-speed);
+        }
+        
+        .project-links a:hover {
+            text-decoration: underline;
+            color: var(--accent-color);
+        }
+        
         @media print {
             body {
                 background-color: white;
@@ -328,6 +385,10 @@
             footer {
                 display: none;
             }
+            
+            .controls {
+                display: none;
+            }
         }
         
         @media (max-width: 768px) {
@@ -346,53 +407,17 @@
             .skills-section, .references-list {
                 grid-template-columns: 1fr;
             }
-        }
-        
-        .project-links {
-            margin-top: 5px;
-            font-size: 0.9rem;
-        }
-        
-        .project-links a {
-            color: var(--secondary-color);
-            text-decoration: none;
-            margin-right: 5px;
-        }
-        
-        .project-links a:hover {
-            text-decoration: underline;
-        }
-
-        [data-theme="dark"] .container {
-            background-color: var(--container-bg);
-        }
-
-        [data-theme="dark"] .header {
-            background-color: var(--header-bg);
-        }
-
-        [data-theme="dark"] .reference-item {
-            background-color: var(--light-bg);
-            border-color: var(--border-color);
-        }
-
-        [data-theme="dark"] .section-title {
-            color: var(--primary-color);
-            border-bottom-color: var(--secondary-color);
-        }
-
-        [data-theme="dark"] .job-title,
-        [data-theme="dark"] .education-title,
-        [data-theme="dark"] .skill-category h3,
-        [data-theme="dark"] .project-item h3,
-        [data-theme="dark"] .achievement-category h3 {
-            color: var(--primary-color);
-        }
-
-        [data-theme="dark"] .job-company,
-        [data-theme="dark"] .education-institution,
-        [data-theme="dark"] .reference-position {
-            color: var(--secondary-color);
+            
+            .profile-image {
+                margin: 20px auto;
+                display: block;
+            }
+            
+            .controls {
+                position: static;
+                justify-content: center;
+                margin-bottom: 20px;
+            }
         }
     </style>
 </head>
@@ -403,6 +428,7 @@
             <option value="pt">🇵🇹 Português</option>
             <option value="en">🇬🇧 English</option>
             <option value="es">🇪🇸 Español</option>
+            <option value="de">🇩🇪 Deutsch</option>
         </select>
     </div>
 
@@ -442,7 +468,7 @@
                     </div>
                 </div>
             </div>
-            <img src="profile.jpg" alt="Edson Jorge Francisco" class="profile-image">
+            <img src="assets/images/profile_pic.png" alt="Edson Jorge Francisco" class="profile-image">
         </div>
         
         <div class="content-section">
@@ -548,6 +574,19 @@
                     <div class="skill-item">Administração de Sistemas</div>
                     <div class="skill-item">Serviços em Nuvem: AWS, GCP, Azure</div>
                     <div class="skill-item">Suítes de Escritório: Google Workplace, Microsoft 365</div>
+                    <div class="skill-item">+6 Anos de experiência</div>
+                    <div class="skill-item">Conhecimento extenso em API & Design de Banco de Dados</div>
+                    <div class="skill-item">Experiência com metodologia Ágil e gestão de projetos de TI</div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Stack Tecnológica</h3>
+                    <div class="skill-item">Liderança, Desenvolvimento de Software, DevOps, AGILE</div>
+                    <div class="skill-item">PHP, Javascript, LAMP, Postman</div>
+                    <div class="skill-item">Laravel, Livewire, jQuery, JSON</div>
+                    <div class="skill-item">Quasar Framework, VueJS</div>
+                    <div class="skill-item">MySQL, PostgreSQL, MongoDB</div>
+                    <div class="skill-item">MacOS, Linux (Ubuntu/CentOS), Windows</div>
                 </div>
                 
                 <div class="skill-category">
@@ -569,7 +608,8 @@
                 <p>FAMS (Sistema de Gestão de Agricultores e Agentes), financiado pela GIZ e COMO Consult</p>
                 <div class="project-links">
                     <a href="https://github.com/edsonjorgef1/fams-desktop" target="_blank">Repositório GitHub</a> |
-                    <a href="https://fams.equipmoz.org" target="_blank">Website do Projeto</a>
+                    <a href="https://fams.equipmoz.org" target="_blank">Website do Projeto</a> |
+                    <a href="https://fams.co.mz/en" target="_blank">Site Oficial</a>
                 </div>
             </div>
             
@@ -580,56 +620,68 @@
                         FONTE DA VIDA
                         <div class="project-links">
                             <a href="https://github.com/edsonjorgef1/fonte-da-vida" target="_blank">GitHub</a> |
-                            <a href="https://fontedavida.equipmoz.org" target="_blank">Website</a>
+                            <a href="https://fontedavida.equipmoz.org" target="_blank">Website</a> |
+                            <a href="https://equipmoz.org/projects/tech-team/fountain-of-life-bible-app/" target="_blank">Detalhes</a>
                         </div>
                     </li>
                     <li>
                         AIDAI
                         <div class="project-links">
                             <a href="https://github.com/edsonjorgef1/aidai" target="_blank">GitHub</a> |
-                            <a href="https://aidai.equipmoz.org" target="_blank">Website</a>
+                            <a href="https://aidai.equipmoz.org" target="_blank">Website</a> |
+                            <a href="https://equipmoz.org/projects/tech-team/other-apps/" target="_blank">Detalhes</a>
                         </div>
                     </li>
                     <li>
                         JURIS
                         <div class="project-links">
                             <a href="https://github.com/edsonjorgef1/juris" target="_blank">GitHub</a> |
-                            <a href="https://juris.equipmoz.org" target="_blank">Website</a>
+                            <a href="https://juris.equipmoz.org" target="_blank">Website</a> |
+                            <a href="https://juris.co.mz/en/" target="_blank">Site Oficial</a> |
+                            <a href="https://equipmoz.org/projects/tech-team/juris-law-rights-app" target="_blank">Detalhes</a>
                         </div>
                     </li>
                     <li>
                         KULTUARE
                         <div class="project-links">
                             <a href="https://github.com/edsonjorgef1/kultuare" target="_blank">GitHub</a> |
-                            <a href="https://kultuare.equipmoz.org" target="_blank">Website</a>
+                            <a href="https://kultuare.equipmoz.org" target="_blank">Website</a> |
+                            <a href="https://equipmoz.org/projects/tech-team/other-apps" target="_blank">Detalhes</a>
                         </div>
                     </li>
                     <li>
                         HLINK
                         <div class="project-links">
                             <a href="https://github.com/edsonjorgef1/hlink" target="_blank">GitHub</a> |
-                            <a href="https://hlink.equipmoz.org" target="_blank">Website</a>
+                            <a href="https://hlink.equipmoz.org" target="_blank">Website</a> |
+                            <a href="https://equipmoz.org/projects/tech-team/other-apps" target="_blank">Detalhes</a>
                         </div>
                     </li>
                     <li>
                         CONSULTARE
                         <div class="project-links">
                             <a href="https://github.com/edsonjorgef1/consultare" target="_blank">GitHub</a> |
-                            <a href="https://consultare.equipmoz.org" target="_blank">Website</a>
+                            <a href="https://consultare.equipmoz.org" target="_blank">Website</a> |
+                            <a href="https://consultare.app/en/index.html" target="_blank">Site Oficial</a> |
+                            <a href="https://equipmoz.org/projects/tech-team/consultare-health-app" target="_blank">Detalhes</a>
                         </div>
                     </li>
                     <li>
                         KUKURA
                         <div class="project-links">
                             <a href="https://github.com/edsonjorgef1/kukura" target="_blank">GitHub</a> |
-                            <a href="https://kukura.equipmoz.org" target="_blank">Website</a>
+                            <a href="https://kukura.equipmoz.org" target="_blank">Website</a> |
+                            <a href="https://play.google.com/store/apps/details?id=kukura.equipmoz.org" target="_blank">Google Play</a> |
+                            <a href="https://xd.adobe.com/view/348a0ff6-0b41-438b-b218-97047ae23467-61d9" target="_blank">Protótipo</a>
                         </div>
                     </li>
                     <li>
                         SEMMO
                         <div class="project-links">
                             <a href="https://github.com/edsonjorgef1/semmo" target="_blank">GitHub</a> |
-                            <a href="https://semmo.equipmoz.org" target="_blank">Website</a>
+                            <a href="https://semmo.equipmoz.org" target="_blank">Website</a> |
+                            <a href="https://play.google.com/store/apps/details?id=org.equipmoz.guia_de_urgencia" target="_blank">Google Play</a> |
+                            <a href="https://xd.adobe.com/view/348a0ff6-0b41-438b-b218-97047ae23467-61d9/" target="_blank">Protótipo</a>
                         </div>
                     </li>
                     <li>
@@ -637,6 +689,24 @@
                         <div class="project-links">
                             <a href="https://github.com/edsonjorgef1/start-escolar" target="_blank">GitHub</a> |
                             <a href="https://startescolar.equipmoz.org" target="_blank">Website</a>
+                        </div>
+                    </li>
+                    <li>
+                        DJOBAR
+                        <div class="project-links">
+                            <a href="https://djobar.co.mz" target="_blank">Website</a>
+                        </div>
+                    </li>
+                    <li>
+                        CASA MSIKA
+                        <div class="project-links">
+                            <a href="https://casamsika.com" target="_blank">Website</a>
+                        </div>
+                    </li>
+                    <li>
+                        MUNICÍPIO DO DONDO
+                        <div class="project-links">
+                            <a href="https://municipiododondo.gov.mz" target="_blank">Website</a>
                         </div>
                     </li>
                 </ul>
@@ -669,9 +739,23 @@
             </div>
             
             <div class="achievement-category">
+                <h3>Projetos Pessoais e Conquistas</h3>
+                <ul class="achievement-items">
+                    <li>2022 - Participação no Hackability4Moz Hackathon organizado pela UEM com dois projetos: KUKANELA (aplicativo Android para aprender linguagem de sinais) e W11P (plugin web para ajudar pessoas com deficiência)</li>
+                    <li>🥈 2021 - Segundo lugar no #HACK Beira Hackathon com o projeto "DONANTE" (conceito de marketplace para conectar doadores, instituições e pessoas com necessidades reais)</li>
+                    <li>🥇 2020 - Primeiro lugar no #HACK Beira Hackathon com o projeto "C-YANGA" (My Church App)</li>
+                    <li>2020 - Participação no MIT COVID19 Challenge Hackathon: Africa takes on COVID19</li>
+                    <li>2019 - Participação nas VIII Jornadas Científicas na Universidade Zambeze, com a apresentação do Sistema Metamorphose Gymnasium</li>
+                    <li>2018 - Participação nas VII Jornadas Científicas na Universidade Zambeze, com o aplicativo móvel Moz+Saude</li>
+                </ul>
+            </div>
+            
+            <div class="achievement-category">
                 <h3>Outras Conquistas</h3>
                 <ul class="achievement-items">
                     <li>Excelência reconhecida em Hackathons locais e desafios tecnológicos</li>
+                    <li>2023: Especialista em Transformação Digital e Consultoria em AgriTech - Instalação e Treinamento em 10 empresas de diferentes cadeias de valor em 4 províncias: Manica, Zambézia, Nampula e Inhambane</li>
+                    <li>2021: Melhoria no Deploy, Gestão e Controle de Serviços Web (Aplicações, Sistemas, Websites, Servidores em Nuvem)</li>
                 </ul>
             </div>
         </div>
@@ -784,6 +868,16 @@
                     category.textContent = translations[lang].skills.digital;
                 } else if (text.includes('interpessoais')) {
                     category.textContent = translations[lang].skills.interpersonal;
+                } else if (text.includes('stack tecnológica') || text.includes('tech stack')) {
+                    category.textContent = translations[lang].sections.techStack;
+                }
+            });
+            
+            // Update achievement categories
+            document.querySelectorAll('.achievement-category h3').forEach(category => {
+                const text = category.textContent.toLowerCase();
+                if (text.includes('projetos pessoais')) {
+                    category.textContent = translations[lang].sections.personalProjects;
                 }
             });
             
