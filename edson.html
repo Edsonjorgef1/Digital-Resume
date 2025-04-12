@@ -35,7 +35,7 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            transition: background-color var(--transition-speed), color var(--transition-speed), box-shadow var(--transition-speed);
+            transition: background-color var(--transition-speed), color var(--transition-speed);
         }
         
         body {
@@ -90,28 +90,37 @@
             cursor: pointer;
             font-size: 14px;
             transition: background-color var(--transition-speed);
-            box-shadow: var(--card-shadow);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
 
         .theme-toggle:hover, .lang-toggle:hover {
             background-color: var(--secondary-color);
+            transform: translateY(-2px);
         }
 
         .download-cv {
-            display: inline-block;
+            position: fixed;
+            top: 20px;
+            left: 20px;
             background-color: var(--accent-color);
             color: white;
-            padding: 10px 20px;
+            border: none;
+            padding: 8px 15px;
             border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all var(--transition-speed);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
             text-decoration: none;
-            margin-top: 15px;
-            font-weight: 600;
-            transition: background-color var(--transition-speed);
-            box-shadow: var(--card-shadow);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            z-index: 1000;
         }
 
         .download-cv:hover {
             background-color: #c0392b;
+            transform: translateY(-2px);
         }
         
         .header-left h1 {
@@ -386,7 +395,7 @@
                 display: none;
             }
             
-            .controls {
+            .controls, .download-cv {
                 display: none;
             }
         }
@@ -418,10 +427,23 @@
                 justify-content: center;
                 margin-bottom: 20px;
             }
+            
+            .download-cv {
+                position: static;
+                display: inline-block;
+                margin: 10px auto;
+            }
         }
     </style>
 </head>
 <body>
+    <a href="./assets/resume.pdf" class="download-cv" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M8 0a8 8 0 0 1 8 8 8 8 0 0 1-8 8A8 8 0 0 1 0 8a8 8 0 0 1 8-8zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+        </svg>
+        <span id="download-text">Baixar CV em PDF</span>
+    </a>
+
     <div class="controls">
         <button class="theme-toggle" onclick="toggleTheme()">🌓 Modo Escuro</button>
         <select class="lang-toggle" onchange="changeLanguage(this.value)">
@@ -608,7 +630,6 @@
                 <p>FAMS (Sistema de Gestão de Agricultores e Agentes), financiado pela GIZ e COMO Consult</p>
                 <div class="project-links">
                     <a href="https://github.com/edsonjorgef1/fams-desktop" target="_blank">Repositório GitHub</a> |
-                    <a href="https://fams.equipmoz.org" target="_blank">Website do Projeto</a> |
                     <a href="https://fams.co.mz/en" target="_blank">Site Oficial</a>
                 </div>
             </div>
@@ -619,24 +640,19 @@
                     <li>
                         FONTE DA VIDA
                         <div class="project-links">
-                            <a href="https://github.com/edsonjorgef1/fonte-da-vida" target="_blank">GitHub</a> |
-                            <a href="https://fontedavida.equipmoz.org" target="_blank">Website</a> |
+                            <a href="https://web.fontedavida.org" target="_blank">Web App</a> |
                             <a href="https://equipmoz.org/projects/tech-team/fountain-of-life-bible-app/" target="_blank">Detalhes</a>
                         </div>
                     </li>
                     <li>
                         AIDAI
                         <div class="project-links">
-                            <a href="https://github.com/edsonjorgef1/aidai" target="_blank">GitHub</a> |
-                            <a href="https://aidai.equipmoz.org" target="_blank">Website</a> |
                             <a href="https://equipmoz.org/projects/tech-team/other-apps/" target="_blank">Detalhes</a>
                         </div>
                     </li>
                     <li>
                         JURIS
                         <div class="project-links">
-                            <a href="https://github.com/edsonjorgef1/juris" target="_blank">GitHub</a> |
-                            <a href="https://juris.equipmoz.org" target="_blank">Website</a> |
                             <a href="https://juris.co.mz/en/" target="_blank">Site Oficial</a> |
                             <a href="https://equipmoz.org/projects/tech-team/juris-law-rights-app" target="_blank">Detalhes</a>
                         </div>
@@ -644,24 +660,20 @@
                     <li>
                         KULTUARE
                         <div class="project-links">
-                            <a href="https://github.com/edsonjorgef1/kultuare" target="_blank">GitHub</a> |
-                            <a href="https://kultuare.equipmoz.org" target="_blank">Website</a> |
                             <a href="https://equipmoz.org/projects/tech-team/other-apps" target="_blank">Detalhes</a>
                         </div>
                     </li>
                     <li>
                         HLINK
                         <div class="project-links">
-                            <a href="https://github.com/edsonjorgef1/hlink" target="_blank">GitHub</a> |
-                            <a href="https://hlink.equipmoz.org" target="_blank">Website</a> |
+                            <a href="https://hlink.app" target="_blank">Website</a> |
                             <a href="https://equipmoz.org/projects/tech-team/other-apps" target="_blank">Detalhes</a>
                         </div>
                     </li>
                     <li>
                         CONSULTARE
                         <div class="project-links">
-                            <a href="https://github.com/edsonjorgef1/consultare" target="_blank">GitHub</a> |
-                            <a href="https://consultare.equipmoz.org" target="_blank">Website</a> |
+                            <a href="https://web.consultare.app" target="_blank">Web App</a> |
                             <a href="https://consultare.app/en/index.html" target="_blank">Site Oficial</a> |
                             <a href="https://equipmoz.org/projects/tech-team/consultare-health-app" target="_blank">Detalhes</a>
                         </div>
@@ -670,7 +682,6 @@
                         KUKURA
                         <div class="project-links">
                             <a href="https://github.com/edsonjorgef1/kukura" target="_blank">GitHub</a> |
-                            <a href="https://kukura.equipmoz.org" target="_blank">Website</a> |
                             <a href="https://play.google.com/store/apps/details?id=kukura.equipmoz.org" target="_blank">Google Play</a> |
                             <a href="https://xd.adobe.com/view/348a0ff6-0b41-438b-b218-97047ae23467-61d9" target="_blank">Protótipo</a>
                         </div>
@@ -678,17 +689,8 @@
                     <li>
                         SEMMO
                         <div class="project-links">
-                            <a href="https://github.com/edsonjorgef1/semmo" target="_blank">GitHub</a> |
-                            <a href="https://semmo.equipmoz.org" target="_blank">Website</a> |
                             <a href="https://play.google.com/store/apps/details?id=org.equipmoz.guia_de_urgencia" target="_blank">Google Play</a> |
                             <a href="https://xd.adobe.com/view/348a0ff6-0b41-438b-b218-97047ae23467-61d9/" target="_blank">Protótipo</a>
-                        </div>
-                    </li>
-                    <li>
-                        START ESCOLAR
-                        <div class="project-links">
-                            <a href="https://github.com/edsonjorgef1/start-escolar" target="_blank">GitHub</a> |
-                            <a href="https://startescolar.equipmoz.org" target="_blank">Website</a>
                         </div>
                     </li>
                     <li>
@@ -816,7 +818,7 @@
     </div>
     
     <footer>
-        <p>&copy; 2024 Edson Jorge Francisco. Todos os direitos reservados.</p>
+        <p>&copy; 2025 Edson Jorge Francisco. Todos os direitos reservados.</p>
     </footer>
 
     <script src="translations.js"></script>
