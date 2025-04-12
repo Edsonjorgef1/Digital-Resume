@@ -12,6 +12,19 @@
             --text-color: #333;
             --light-bg: #f5f7fa;
             --border-color: #ddd;
+            --header-bg: #2c3e50;
+            --container-bg: white;
+        }
+
+        [data-theme="dark"] {
+            --primary-color: #3498db;
+            --secondary-color: #2ecc71;
+            --accent-color: #e74c3c;
+            --text-color: #ecf0f1;
+            --light-bg: #2c3e50;
+            --border-color: #34495e;
+            --header-bg: #1a252f;
+            --container-bg: #2c3e50;
         }
         
         * {
@@ -19,6 +32,7 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: background-color 0.3s, color 0.3s;
         }
         
         body {
@@ -30,19 +44,52 @@
         .container {
             max-width: 1000px;
             margin: 30px auto;
-            background-color: white;
+            background-color: var(--container-bg);
             box-shadow: 0 0 20px rgba(0,0,0,0.1);
             border-radius: 8px;
             overflow: hidden;
         }
         
         .header {
-            background-color: var(--primary-color);
+            background-color: var(--header-bg);
             color: white;
             padding: 30px 40px;
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid var(--secondary-color);
+            object-fit: cover;
+            margin-left: 20px;
+        }
+
+        .controls {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 1000;
+        }
+
+        .theme-toggle, .lang-toggle {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+
+        .theme-toggle:hover, .lang-toggle:hover {
+            background-color: var(--secondary-color);
         }
         
         .header-left h1 {
@@ -315,9 +362,50 @@
         .project-links a:hover {
             text-decoration: underline;
         }
+
+        [data-theme="dark"] .container {
+            background-color: var(--container-bg);
+        }
+
+        [data-theme="dark"] .header {
+            background-color: var(--header-bg);
+        }
+
+        [data-theme="dark"] .reference-item {
+            background-color: var(--light-bg);
+            border-color: var(--border-color);
+        }
+
+        [data-theme="dark"] .section-title {
+            color: var(--primary-color);
+            border-bottom-color: var(--secondary-color);
+        }
+
+        [data-theme="dark"] .job-title,
+        [data-theme="dark"] .education-title,
+        [data-theme="dark"] .skill-category h3,
+        [data-theme="dark"] .project-item h3,
+        [data-theme="dark"] .achievement-category h3 {
+            color: var(--primary-color);
+        }
+
+        [data-theme="dark"] .job-company,
+        [data-theme="dark"] .education-institution,
+        [data-theme="dark"] .reference-position {
+            color: var(--secondary-color);
+        }
     </style>
 </head>
 <body>
+    <div class="controls">
+        <button class="theme-toggle" onclick="toggleTheme()">🌓 Modo Escuro</button>
+        <select class="lang-toggle" onchange="changeLanguage(this.value)">
+            <option value="pt">🇵🇹 Português</option>
+            <option value="en">🇬🇧 English</option>
+            <option value="es">🇪🇸 Español</option>
+        </select>
+    </div>
+
     <div class="container">
         <div class="header">
             <div class="header-left">
@@ -354,6 +442,7 @@
                     </div>
                 </div>
             </div>
+            <img src="profile.jpg" alt="Edson Jorge Francisco" class="profile-image">
         </div>
         
         <div class="content-section">
@@ -645,5 +734,71 @@
     <footer>
         <p>&copy; 2024 Edson Jorge Francisco. Todos os direitos reservados.</p>
     </footer>
+
+    <script src="translations.js"></script>
+    <script>
+        // Theme toggling
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        }
+
+        // Language switching
+        function changeLanguage(lang) {
+            document.documentElement.lang = lang;
+            localStorage.setItem('language', lang);
+            
+            // Update title
+            document.title = translations[lang].title;
+            
+            // Update role
+            document.querySelector('.header-left h2').textContent = translations[lang].role;
+            
+            // Update section titles
+            document.querySelectorAll('.section-title').forEach(title => {
+                const section = title.textContent.toLowerCase();
+                if (section.includes('experiência')) {
+                    title.textContent = translations[lang].sections.experience;
+                } else if (section.includes('educação')) {
+                    title.textContent = translations[lang].sections.education;
+                } else if (section.includes('competências')) {
+                    title.textContent = translations[lang].sections.skills;
+                } else if (section.includes('projetos')) {
+                    title.textContent = translations[lang].sections.projects;
+                } else if (section.includes('conquistas')) {
+                    title.textContent = translations[lang].sections.achievements;
+                } else if (section.includes('referências')) {
+                    title.textContent = translations[lang].sections.references;
+                }
+            });
+            
+            // Update skill categories
+            document.querySelectorAll('.skill-category h3').forEach(category => {
+                const text = category.textContent.toLowerCase();
+                if (text.includes('línguas')) {
+                    category.textContent = translations[lang].skills.languages;
+                } else if (text.includes('digitais')) {
+                    category.textContent = translations[lang].skills.digital;
+                } else if (text.includes('interpessoais')) {
+                    category.textContent = translations[lang].skills.interpersonal;
+                }
+            });
+            
+            // Update footer
+            document.querySelector('footer p').textContent = translations[lang].footer;
+        }
+
+        // Initialize theme and language from localStorage
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            const savedLang = localStorage.getItem('language') || 'pt';
+            
+            document.body.setAttribute('data-theme', savedTheme);
+            changeLanguage(savedLang);
+        });
+    </script>
 </body>
 </html>
