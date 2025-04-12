@@ -25,7 +25,7 @@ const translations = {
             personalProjects: "Projetos Pessoais e Conquistas",
             facim2023: "2023: Participação na FACIM - Expositor de soluções digitais em representação da marca FAMS - Software para Agronegócios"
         },
-        footer: "© 2024 Edson Jorge Francisco. Todos os direitos reservados."
+        footer: "© 2025 Edson Jorge Francisco. Todos os direitos reservados."
     },
     en: {
         title: "Professional CV - Edson Jorge Francisco",
@@ -53,7 +53,7 @@ const translations = {
             personalProjects: "Personal Projects & Accomplishments",
             facim2023: "2023: Participation in FACIM - Digital Solutions Exhibitor representing FAMS - Agribusiness Software"
         },
-        footer: "© 2024 Edson Jorge Francisco. All rights reserved."
+        footer: "© 2025 Edson Jorge Francisco. All rights reserved."
     },
     es: {
         title: "CV Profesional - Edson Jorge Francisco",
@@ -81,7 +81,7 @@ const translations = {
             personalProjects: "Proyectos Personales y Logros",
             facim2023: "2023: Participación en FACIM - Expositor de soluciones digitales representando a FAMS - Software para Agronegocios"
         },
-        footer: "© 2024 Edson Jorge Francisco. Todos los derechos reservados."
+        footer: "© 2025 Edson Jorge Francisco. Todos los derechos reservados."
     },
     de: {
         title: "Professioneller Lebenslauf - Edson Jorge Francisco",
@@ -109,6 +109,6 @@ const translations = {
             personalProjects: "Persönliche Projekte & Erfolge",
             facim2023: "2023: Teilnahme an der FACIM - Aussteller für digitale Lösungen im Namen von FAMS - Software für Agribusiness"
         },
-        footer: "© 2024 Edson Jorge Francisco. Alle Rechte vorbehalten."
+        footer: "© 2025 Edson Jorge Francisco. Alle Rechte vorbehalten."
     }
 }; 
