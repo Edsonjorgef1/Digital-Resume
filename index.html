@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV Profissional - Edson Jorge Francisco</title>
+    <title>Professional CV - Edson Jorge Francisco</title>
     <style>
         :root {
             --primary-color: #2c3e50;
@@ -537,7 +537,7 @@
     </style>
 </head>
 <body>
-    <a href="./assets/resume.pdf" class="download-cv" target="_blank">
+    <a href="./assets/Edson_Francisco-Resume.pdf" class="download-cv" target="_blank">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
             <path d="M8 0a8 8 0 0 1 8 8 8 8 0 0 1-8 8A8 8 0 0 1 0 8a8 8 0 0 1 8-8zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
         </svg>
@@ -547,8 +547,8 @@
     <div class="controls">
         <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
         <select class="lang-toggle" onchange="changeLanguage(this.value)">
-            <option value="pt">🇵🇹 Português</option>
             <option value="en">🇬🇧 English</option>
+            <option value="pt">🇵🇹 Português</option>
             <option value="es">🇪🇸 Español</option>
             <option value="de">🇩🇪 Deutsch</option>
         </select>
@@ -943,18 +943,27 @@
 
         // Mapeamento de seções para evitar múltiplas verificações de strings
         const SECTION_MAPPING = {
-            'experiência': 'experience',
+            'about me': 'about',
+            'about': 'about',
+            'professional experience': 'experience',
             'experience': 'experience',
-            'educação': 'education',
+            'education and training': 'education',
             'education': 'education',
-            'competências': 'skills',
             'skills': 'skills',
-            'projetos': 'projects',
             'projects': 'projects',
-            'conquistas': 'achievements',
+            'achievements and assessments': 'achievements',
             'achievements': 'achievements',
+            'references': 'references',
+            'tech stack': 'techStack',
+            // Mapeamentos em português para compatibilidade
+            'sobre mim': 'about',
+            'experiência profissional': 'experience',
+            'educação e formação': 'education',
+            'competências': 'skills',
+            'projetos': 'projects',
+            'conquistas e avaliações': 'achievements',
             'referências': 'references',
-            'references': 'references'
+            'stack tecnológica': 'techStack'
         };
 
         // Cache para traduções
@@ -1092,7 +1101,7 @@
         }
 
         // Variável para armazenar o idioma atual
-        let currentLang = 'pt';
+        let currentLang = 'en';
 
         // Language switching com transição suave e tratamento de erros
         function changeLanguage(lang) {
@@ -1126,8 +1135,30 @@
                 // Atualizar conteúdo após fade-out
                 setTimeout(() => {
                     try {
-                        updateContent(lang);
-                        
+                        // Atualizar título
+                        document.title = getTranslation(lang, 'title', 'CV Profissional');
+
+                        // Atualizar cargo
+                        animateTextTransition(DOMCache.roleElement, getTranslation(lang, 'role', 'Gestor de TI'));
+
+                        // Atualizar títulos das seções primeiro
+                        updateSectionTitles(lang);
+
+                        // Atualizar resto do conteúdo
+                        updateAbout(lang);
+                        updateExperiences(lang);
+                        updateEducation(lang);
+                        updateSkills(lang);
+                        updateProjects(lang);
+                        updateAchievements(lang);
+                        updateReferences(lang);
+
+                        // Atualizar rodapé
+                        animateTextTransition(DOMCache.footer, getTranslation(lang, 'footer.copyright', '© 2025'));
+
+                        // Atualizar texto do botão de download
+                        animateTextTransition(DOMCache.downloadText, getTranslation(lang, 'sections.downloadCV', 'Baixar CV'));
+
                         // Fade in com transformação
                         requestAnimationFrame(() => {
                             DOMCache.container.style.opacity = '1';
@@ -1150,19 +1181,37 @@
 
         // Função para inicializar o cache DOM
         function initializeDOMCache() {
-            DOMCache.container = document.querySelector('.container');
-            DOMCache.roleElement = document.querySelector('.header-left h2');
-            DOMCache.sectionTitles = document.querySelectorAll('.section-title');
-            DOMCache.aboutSection = document.querySelector('.about-section');
-            DOMCache.jobs = document.querySelectorAll('.job');
-            DOMCache.educations = document.querySelectorAll('.education');
-            DOMCache.skillCategories = document.querySelectorAll('.skill-category');
-            DOMCache.projectItems = document.querySelectorAll('.project-item');
-            DOMCache.achievementCategories = document.querySelectorAll('.achievement-category');
-            DOMCache.referenceItems = document.querySelectorAll('.reference-item');
-            DOMCache.downloadText = document.getElementById('download-text');
-            DOMCache.themeToggle = document.querySelector('.theme-toggle');
-            DOMCache.footer = document.querySelector('footer p');
+            try {
+                // Elementos principais
+                DOMCache.container = document.querySelector('.container');
+                DOMCache.roleElement = document.querySelector('.header-left h2');
+                DOMCache.sectionTitles = Array.from(document.querySelectorAll('.section-title'));
+                DOMCache.aboutSection = document.querySelector('.about-section');
+                
+                // Elementos de seção
+                DOMCache.jobs = Array.from(document.querySelectorAll('.job'));
+                DOMCache.educations = Array.from(document.querySelectorAll('.education'));
+                DOMCache.skillCategories = Array.from(document.querySelectorAll('.skill-category'));
+                DOMCache.projectItems = Array.from(document.querySelectorAll('.project-item'));
+                DOMCache.achievementCategories = Array.from(document.querySelectorAll('.achievement-category'));
+                DOMCache.referenceItems = Array.from(document.querySelectorAll('.reference-item'));
+                
+                // Elementos de controle
+                DOMCache.downloadText = document.getElementById('download-text');
+                DOMCache.themeToggle = document.querySelector('.theme-toggle');
+                DOMCache.footer = document.querySelector('footer p');
+
+                // Verificar elementos críticos
+                if (!DOMCache.container || !DOMCache.roleElement || !DOMCache.sectionTitles.length) {
+                    throw new Error('Elementos DOM críticos não encontrados');
+                }
+
+                console.log('Cache DOM inicializado com sucesso');
+                console.log(`Títulos de seção encontrados: ${DOMCache.sectionTitles.length}`);
+            } catch (error) {
+                console.error('Erro ao inicializar cache DOM:', error);
+                throw error;
+            }
         }
 
         // Função para atualizar a seção Sobre Mim
@@ -1227,10 +1276,45 @@
 
         // Funções auxiliares para atualizar cada seção
         function updateSectionTitles(lang) {
+            if (!DOMCache.sectionTitles || DOMCache.sectionTitles.length === 0) {
+                console.error('Nenhum título de seção encontrado no cache DOM');
+                return;
+            }
+
+            // Mapeamento direto dos títulos em português para as chaves de tradução
+            const titleToKey = {
+                'Sobre Mim': 'about',
+                'Experiência Profissional': 'experience',
+                'Educação e Formação': 'education',
+                'Competências': 'skills',
+                'Projetos': 'projects',
+                'Conquistas e Avaliações': 'achievements',
+                'Referências': 'references',
+                'Stack Tecnológica': 'techStack'
+            };
+
             DOMCache.sectionTitles.forEach((title, index) => {
-                const sectionKey = SECTION_MAPPING[title.textContent.toLowerCase()];
-                if (sectionKey) {
-                    updateSectionWithAnimation(title, getTranslation(lang, `sections.${sectionKey}`, title.textContent), index);
+                try {
+                    const currentText = title.textContent.trim();
+                    const sectionKey = titleToKey[currentText] || SECTION_MAPPING[currentText.toLowerCase()];
+                    
+                    if (sectionKey) {
+                        const translation = getTranslation(lang, `sections.${sectionKey}`);
+                        if (translation) {
+                            console.log(`Atualizando seção: ${currentText} -> ${translation}`);
+                            title.textContent = translation;
+                            title.style.opacity = '0';
+                            setTimeout(() => {
+                                title.style.opacity = '1';
+                            }, 50 * index);
+                        } else {
+                            console.warn(`Tradução não encontrada para: sections.${sectionKey}`);
+                        }
+                    } else {
+                        console.warn(`Nenhuma chave de tradução encontrada para: ${currentText}`);
+                    }
+                } catch (error) {
+                    console.error(`Erro ao atualizar título da seção ${index}:`, error);
                 }
             });
         }
@@ -1375,9 +1459,19 @@
         document.addEventListener('DOMContentLoaded', () => {
             try {
                 const savedTheme = localStorage.getItem('theme') || 'light';
-                const savedLang = localStorage.getItem('language') || 'pt';
+                const savedLang = localStorage.getItem('language') || 'en';
                 
                 document.body.setAttribute('data-theme', savedTheme);
+                document.documentElement.lang = savedLang;
+                currentLang = savedLang;
+                
+                // Selecionar o idioma correto no dropdown
+                const langSelect = document.querySelector('.lang-toggle');
+                if (langSelect) {
+                    langSelect.value = savedLang;
+                }
+                
+                // Inicializar o conteúdo no idioma correto
                 changeLanguage(savedLang);
             } catch (error) {
                 console.error('Erro ao inicializar:', error);
