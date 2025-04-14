@@ -520,6 +520,20 @@
                 animation: none !important;
             }
         }
+
+        .section-transition {
+            transition: opacity 0.3s var(--animation-timing),
+                        transform 0.3s var(--animation-timing);
+            will-change: opacity, transform;
+            backface-visibility: hidden;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .section-transition {
+                transition: none !important;
+                transform: none !important;
+            }
+        }
     </style>
 </head>
 <body>
@@ -949,20 +963,41 @@
         // Função para obter tradução com cache e fallback
         function getTranslation(lang, path, fallback = '') {
             try {
+                // Verificar se o idioma existe
+                if (!translations[lang]) {
+                    console.warn(`Idioma ${lang} não encontrado, usando fallback`);
+                    return fallback;
+                }
+
                 const cacheKey = `${lang}-${path}`;
                 if (translationCache.has(cacheKey)) {
                     return translationCache.get(cacheKey);
                 }
 
-                const value = path.split('.').reduce((obj, key) => {
-                    if (!obj || typeof obj !== 'object') return fallback;
-                    return obj[key] ?? fallback;
-                }, translations[lang]);
+                // Dividir o caminho em partes
+                const parts = path.split('.');
+                let value = translations[lang];
 
+                // Navegar pelo objeto de traduções
+                for (const part of parts) {
+                    if (!value || typeof value !== 'object') {
+                        console.warn(`Caminho de tradução inválido: ${path}`);
+                        return fallback;
+                    }
+                    value = value[part];
+                }
+
+                // Se o valor não for encontrado, usar o fallback
+                if (value === undefined || value === null) {
+                    console.warn(`Tradução não encontrada para: ${path} em ${lang}`);
+                    return fallback;
+                }
+
+                // Armazenar no cache e retornar
                 translationCache.set(cacheKey, value);
                 return value;
             } catch (error) {
-                console.warn(`Erro ao obter tradução para ${path} em ${lang}:`, error);
+                console.error(`Erro ao obter tradução para ${path} em ${lang}:`, error);
                 return fallback;
             }
         }
@@ -984,23 +1019,50 @@
         }
 
         // Função para atualizar seção com animação e tratamento de erros
-        function updateSectionWithAnimation(section, newContent, index) {
-            if (!section) return;
+        function updateSectionWithAnimation(section, newContent, index = 0) {
+            if (!section) {
+                console.warn('Seção não encontrada para atualização');
+                return;
+            }
             
             try {
+                // Adicionar classe de transição
+                section.classList.add('section-transition');
+                
+                // Calcular delay baseado no índice
+                const baseDelay = 100;
+                const delay = baseDelay + (index * 50);
+                
+                // Fade out
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(-10px)';
+                
                 setTimeout(() => {
-                    section.style.opacity = '0';
-                    setTimeout(() => {
+                    try {
+                        // Atualizar conteúdo
                         if (typeof newContent === 'function') {
                             newContent();
                         } else {
                             section.innerHTML = newContent;
                         }
-                        section.style.opacity = '1';
-                    }, 100);
-                }, index * 50);
+                        
+                        // Fade in com transformação
+                        requestAnimationFrame(() => {
+                            section.style.opacity = '1';
+                            section.style.transform = 'translateY(0)';
+                        });
+                    } catch (contentError) {
+                        console.error('Erro ao atualizar conteúdo da seção:', contentError);
+                    }
+                }, delay);
+                
+                // Remover classe de transição após a animação
+                setTimeout(() => {
+                    section.classList.remove('section-transition');
+                }, delay + 300);
             } catch (error) {
-                console.warn('Erro ao atualizar seção:', error);
+                console.error('Erro na animação da seção:', error);
+                // Fallback: atualizar conteúdo sem animação
                 if (typeof newContent === 'function') {
                     newContent();
                 } else {
@@ -1035,11 +1097,13 @@
         // Language switching com transição suave e tratamento de erros
         function changeLanguage(lang) {
             try {
+                // Validar idioma
                 if (!translations[lang]) {
                     console.error(`Idioma ${lang} não encontrado`);
                     return;
                 }
 
+                // Atualizar estado
                 currentLang = lang;
                 document.documentElement.lang = lang;
                 localStorage.setItem('language', lang);
@@ -1049,13 +1113,35 @@
                     initializeDOMCache();
                 }
 
-                // Adicionar efeito de fade-out
+                // Verificar se todos os elementos necessários estão presentes
+                if (!DOMCache.container || !DOMCache.roleElement) {
+                    console.error('Elementos DOM necessários não encontrados');
+                    return;
+                }
+
+                // Adicionar classe de transição ao container
+                DOMCache.container.classList.add('section-transition');
                 DOMCache.container.style.opacity = '0';
 
                 // Atualizar conteúdo após fade-out
                 setTimeout(() => {
-                    updateContent(lang);
+                    try {
+                        updateContent(lang);
+                        
+                        // Fade in com transformação
+                        requestAnimationFrame(() => {
+                            DOMCache.container.style.opacity = '1';
+                        });
+                    } catch (updateError) {
+                        console.error('Erro ao atualizar conteúdo:', updateError);
+                        DOMCache.container.style.opacity = '1';
+                    }
                 }, 300);
+
+                // Remover classe de transição após a animação
+                setTimeout(() => {
+                    DOMCache.container.classList.remove('section-transition');
+                }, 600);
             } catch (error) {
                 console.error('Erro ao mudar idioma:', error);
                 document.documentElement.lang = currentLang;
