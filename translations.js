@@ -180,8 +180,7 @@ const translations = {
             phone: "Telefone",
             address: "Endereço",
             social: "Redes Sociais",
-            copyright: "Feito com ❤️ usando HTML, CSS e JavaScript © 2024 Edson Francisco. Todos os direitos reservados.",
-            // madeWith: "Feito com ❤️ usando HTML, CSS e JavaScript"
+            copyright: "Feito com ❤️ usando HTML, CSS e JavaScript © 2025 Edson Francisco. Todos os direitos reservados.",
         },
         projects: [
             {
@@ -727,7 +726,7 @@ const translations = {
             phone: "Teléfono",
             address: "Dirección",
             social: "Redes Sociales",
-            copyright: "Hecho con ❤️ usando HTML, CSS y JavaScript © 2024 Edson Francisco. Todos los derechos reservados."
+            copyright: "Hecho con ❤️ usando HTML, CSS y JavaScript © 2025 Edson Francisco. Todos los derechos reservados."
         },
         projects: [
             {
@@ -1000,7 +999,7 @@ const translations = {
             phone: "Telefon",
             address: "Adresse",
             social: "Soziale Netzwerke",
-            copyright: "Erstellt mit ❤️ mit HTML, CSS und JavaScript © 2024 Edson Francisco. Alle Rechte vorbehalten."
+            copyright: "Erstellt mit ❤️ mit HTML, CSS und JavaScript © 2025 Edson Francisco. Alle Rechte vorbehalten."
         },
         projects: [
             {
