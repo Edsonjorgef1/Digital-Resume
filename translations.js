@@ -454,7 +454,7 @@ const translations = {
             phone: "Phone",
             address: "Address",
             social: "Social Networks",
-            copyright: "Made with ❤️ using HTML, CSS and JavaScript © 2024 Edson Francisco. All rights reserved."
+            copyright: "Made with ❤️ using HTML, CSS and JavaScript © 2025 Edson Francisco. All rights reserved."
         },
         projects: [
             {
