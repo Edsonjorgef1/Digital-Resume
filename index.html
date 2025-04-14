@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV Profissional - Edson Jorge Francisco</title>
+    <title>Professional CV - Edson Jorge Francisco</title>
     <style>
         :root {
             --primary-color: #2c3e50;
@@ -17,6 +17,7 @@
             --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             --transition-speed: 0.3s;
             --animation-delay: 50ms;
+            --animation-timing: cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         [data-theme="dark"] {
@@ -36,7 +37,11 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            transition: background-color var(--transition-speed), color var(--transition-speed);
+            transition: background-color var(--transition-speed) var(--animation-timing),
+                        color var(--transition-speed) var(--animation-timing),
+                        transform var(--transition-speed) var(--animation-timing),
+                        opacity var(--transition-speed) var(--animation-timing);
+            will-change: transform, opacity;
         }
         
         body {
@@ -52,7 +57,8 @@
             box-shadow: var(--card-shadow);
             border-radius: 8px;
             overflow: hidden;
-            transition: opacity var(--transition-speed);
+            transition: opacity var(--transition-speed) var(--animation-timing);
+            will-change: opacity;
         }
         
         .header {
@@ -174,13 +180,48 @@
             position: relative;
         }
         
+        .about-section {
+            background-color: var(--light-bg);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: var(--card-shadow);
+            transition: opacity var(--transition-speed) var(--animation-timing),
+                        transform var(--transition-speed) var(--animation-timing);
+            will-change: transform, opacity;
+            backface-visibility: hidden;
+            transform: translateZ(0);
+        }
+        
+        .about-section:hover {
+            transform: translateY(-5px) translateZ(0);
+        }
+        
+        .about-title {
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .about-content {
+            color: var(--text-color);
+            line-height: 1.8;
+            font-size: 1.1rem;
+            text-align: justify;
+        }
+        
         .job {
             margin-bottom: 30px;
             padding: 20px;
             background-color: var(--light-bg);
             border-radius: 8px;
             box-shadow: var(--card-shadow);
-            transition: opacity var(--transition-speed), transform var(--transition-speed);
+            transition: opacity var(--transition-speed) var(--animation-timing),
+                        transform var(--transition-speed) var(--animation-timing);
+            will-change: transform, opacity;
+            backface-visibility: hidden;
+            transform: translateZ(0);
         }
         
         .job-title {
@@ -228,7 +269,11 @@
             background-color: var(--light-bg);
             border-radius: 8px;
             box-shadow: var(--card-shadow);
-            transition: opacity var(--transition-speed), transform var(--transition-speed);
+            transition: opacity var(--transition-speed) var(--animation-timing),
+                        transform var(--transition-speed) var(--animation-timing);
+            will-change: transform, opacity;
+            backface-visibility: hidden;
+            transform: translateZ(0);
         }
         
         .education-title {
@@ -263,7 +308,11 @@
             background-color: var(--light-bg);
             border-radius: 8px;
             box-shadow: var(--card-shadow);
-            transition: opacity var(--transition-speed), transform var(--transition-speed);
+            transition: opacity var(--transition-speed) var(--animation-timing),
+                        transform var(--transition-speed) var(--animation-timing);
+            will-change: transform, opacity;
+            backface-visibility: hidden;
+            transform: translateZ(0);
         }
         
         .skill-category h3 {
@@ -296,7 +345,11 @@
             background-color: var(--light-bg);
             border-radius: 8px;
             box-shadow: var(--card-shadow);
-            transition: opacity var(--transition-speed), transform var(--transition-speed);
+            transition: opacity var(--transition-speed) var(--animation-timing),
+                        transform var(--transition-speed) var(--animation-timing);
+            will-change: transform, opacity;
+            backface-visibility: hidden;
+            transform: translateZ(0);
         }
         
         .project-item h3, .achievement-category h3 {
@@ -336,7 +389,11 @@
             padding: 15px;
             background-color: var(--light-bg);
             box-shadow: var(--card-shadow);
-            transition: opacity var(--transition-speed), transform var(--transition-speed);
+            transition: opacity var(--transition-speed) var(--animation-timing),
+                        transform var(--transition-speed) var(--animation-timing);
+            will-change: transform, opacity;
+            backface-visibility: hidden;
+            transform: translateZ(0);
         }
         
         .reference-name {
@@ -445,16 +502,42 @@
         }
         
         .job, .education, .skill-category, .project-item, .achievement-category, .reference-item {
-            transition: opacity var(--transition-speed), transform var(--transition-speed);
+            transition: opacity var(--transition-speed) var(--animation-timing),
+                        transform var(--transition-speed) var(--animation-timing);
+            will-change: transform, opacity;
+            backface-visibility: hidden;
+            transform: translateZ(0);
         }
         
-        .job:hover, .education:hover, .skill-category:hover, .project-item:hover, .achievement-category:hover, .reference-item:hover {
-            transform: translateY(-5px);
+        .job:hover, .education:hover, .skill-category:hover, .project-item:hover, 
+        .achievement-category:hover, .reference-item:hover {
+            transform: translateY(-5px) translateZ(0);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                transition: none !important;
+                animation: none !important;
+            }
+        }
+
+        .section-transition {
+            transition: opacity 0.3s var(--animation-timing),
+                        transform 0.3s var(--animation-timing);
+            will-change: opacity, transform;
+            backface-visibility: hidden;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .section-transition {
+                transition: none !important;
+                transform: none !important;
+            }
         }
     </style>
 </head>
 <body>
-    <a href="./assets/resume.pdf" class="download-cv" target="_blank">
+    <a href="./assets/Edson_Francisco-Resume.pdf" class="download-cv" target="_blank">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
             <path d="M8 0a8 8 0 0 1 8 8 8 8 0 0 1-8 8A8 8 0 0 1 0 8a8 8 0 0 1 8-8zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
         </svg>
@@ -462,10 +545,10 @@
     </a>
 
     <div class="controls">
-        <button class="theme-toggle" onclick="toggleTheme()">🌓 Modo Escuro</button>
+        <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
         <select class="lang-toggle" onchange="changeLanguage(this.value)">
-            <option value="pt">🇵🇹 Português</option>
             <option value="en">🇬🇧 English</option>
+            <option value="pt">🇵🇹 Português</option>
             <option value="es">🇪🇸 Español</option>
             <option value="de">🇩🇪 Deutsch</option>
         </select>
@@ -500,6 +583,14 @@
                 </div>
             </div>
             <img src="assets/images/profile_pic.png" alt="Edson Jorge Francisco" class="profile-image">
+        </div>
+        
+        <div class="content-section">
+            <h2 class="section-title">Sobre Mim</h2>
+            <div class="about-section">
+                <h3 class="about-title">Resumo Profissional</h3>
+                <p class="about-content">Profissional de TI com mais de 5 anos de experiência em gestão de equipes e desenvolvimento de soluções tecnológicas. Especializado em liderança de equipes de até 17 profissionais, com forte foco em projetos de impacto social e transformação digital. Experiência comprovada em implementação de sistemas cloud, administração de infraestrutura e desenvolvimento de aplicações web e móveis. Comprometido com a inovação e excelência técnica, sempre buscando soluções criativas para desafios complexos.</p>
+            </div>
         </div>
         
         <div class="content-section">
@@ -833,241 +924,558 @@
 
     <script src="translations.js"></script>
     <script>
-        // Theme toggling
-        function toggleTheme() {
-            const body = document.body;
-            const currentTheme = body.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            body.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
+        // Cache para armazenar elementos DOM frequentemente acessados
+        const DOMCache = {
+            container: null,
+            roleElement: null,
+            sectionTitles: null,
+            aboutSection: null,
+            jobs: null,
+            educations: null,
+            skillCategories: null,
+            projectItems: null,
+            achievementCategories: null,
+            referenceItems: null,
+            downloadText: null,
+            themeToggle: null,
+            footer: null
+        };
+
+        // Mapeamento de seções para evitar múltiplas verificações de strings
+        const SECTION_MAPPING = {
+            'about me': 'about',
+            'about': 'about',
+            'professional experience': 'experience',
+            'experience': 'experience',
+            'education and training': 'education',
+            'education': 'education',
+            'skills': 'skills',
+            'projects': 'projects',
+            'achievements and assessments': 'achievements',
+            'achievements': 'achievements',
+            'references': 'references',
+            'tech stack': 'techStack',
+            // Mapeamentos em português para compatibilidade
+            'sobre mim': 'about',
+            'experiência profissional': 'experience',
+            'educação e formação': 'education',
+            'competências': 'skills',
+            'projetos': 'projects',
+            'conquistas e avaliações': 'achievements',
+            'referências': 'references',
+            'stack tecnológica': 'techStack'
+        };
+
+        // Cache para traduções
+        const translationCache = new Map();
+
+        // Função para obter tradução com cache e fallback
+        function getTranslation(lang, path, fallback = '') {
+            try {
+                // Verificar se o idioma existe
+                if (!translations[lang]) {
+                    console.warn(`Idioma ${lang} não encontrado, usando fallback`);
+                    return fallback;
+                }
+
+                const cacheKey = `${lang}-${path}`;
+                if (translationCache.has(cacheKey)) {
+                    return translationCache.get(cacheKey);
+                }
+
+                // Dividir o caminho em partes
+                const parts = path.split('.');
+                let value = translations[lang];
+
+                // Navegar pelo objeto de traduções
+                for (const part of parts) {
+                    if (!value || typeof value !== 'object') {
+                        console.warn(`Caminho de tradução inválido: ${path}`);
+                        return fallback;
+                    }
+                    value = value[part];
+                }
+
+                // Se o valor não for encontrado, usar o fallback
+                if (value === undefined || value === null) {
+                    console.warn(`Tradução não encontrada para: ${path} em ${lang}`);
+                    return fallback;
+                }
+
+                // Armazenar no cache e retornar
+                translationCache.set(cacheKey, value);
+                return value;
+            } catch (error) {
+                console.error(`Erro ao obter tradução para ${path} em ${lang}:`, error);
+                return fallback;
+            }
         }
 
-        // Language switching with smooth transition
-        function changeLanguage(lang) {
-            // Add fade-out effect
-            const container = document.querySelector('.container');
-            container.style.opacity = '0';
+        // Função para animar transição de texto com tratamento de erros
+        function animateTextTransition(element, newText, delay = 100) {
+            if (!element) return;
             
-            // Wait for fade-out to complete before changing content
-            setTimeout(() => {
+            try {
+                element.style.opacity = '0';
+                setTimeout(() => {
+                    element.textContent = newText;
+                    element.style.opacity = '1';
+                }, delay);
+            } catch (error) {
+                console.warn('Erro na animação de texto:', error);
+                element.textContent = newText;
+            }
+        }
+
+        // Função para atualizar seção com animação e tratamento de erros
+        function updateSectionWithAnimation(section, newContent, index = 0) {
+            if (!section) {
+                console.warn('Seção não encontrada para atualização');
+                return;
+            }
+            
+            try {
+                // Adicionar classe de transição
+                section.classList.add('section-transition');
+                
+                // Calcular delay baseado no índice
+                const baseDelay = 100;
+                const delay = baseDelay + (index * 50);
+                
+                // Fade out
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(-10px)';
+                
+                setTimeout(() => {
+                    try {
+                        // Atualizar conteúdo
+                        if (typeof newContent === 'function') {
+                            newContent();
+                        } else {
+                            section.innerHTML = newContent;
+                        }
+                        
+                        // Fade in com transformação
+                        requestAnimationFrame(() => {
+                            section.style.opacity = '1';
+                            section.style.transform = 'translateY(0)';
+                        });
+                    } catch (contentError) {
+                        console.error('Erro ao atualizar conteúdo da seção:', contentError);
+                    }
+                }, delay);
+                
+                // Remover classe de transição após a animação
+                setTimeout(() => {
+                    section.classList.remove('section-transition');
+                }, delay + 300);
+            } catch (error) {
+                console.error('Erro na animação da seção:', error);
+                // Fallback: atualizar conteúdo sem animação
+                if (typeof newContent === 'function') {
+                    newContent();
+                } else {
+                    section.innerHTML = newContent;
+                }
+            }
+        }
+
+        // Theme toggling com animação suave e tratamento de erros
+        function toggleTheme() {
+            try {
+                const body = document.body;
+                const currentTheme = body.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                
+                body.style.transition = 'background-color 0.3s, color 0.3s';
+                body.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                
+                const themeText = newTheme === 'dark' ? 
+                    getTranslation(currentLang, 'theme.darkMode', 'Modo Escuro') : 
+                    getTranslation(currentLang, 'theme.lightMode', 'Modo Claro');
+                animateTextTransition(DOMCache.themeToggle, themeText);
+            } catch (error) {
+                console.error('Erro ao alternar tema:', error);
+            }
+        }
+
+        // Variável para armazenar o idioma atual
+        let currentLang = 'en';
+
+        // Language switching com transição suave e tratamento de erros
+        function changeLanguage(lang) {
+            try {
+                // Validar idioma
+                if (!translations[lang]) {
+                    console.error(`Idioma ${lang} não encontrado`);
+                    return;
+                }
+
+                // Atualizar estado
+                currentLang = lang;
                 document.documentElement.lang = lang;
                 localStorage.setItem('language', lang);
-                
-                // Update title
-                document.title = translations[lang].title;
-                
-                // Update role with animation
-                const roleElement = document.querySelector('.header-left h2');
-                roleElement.style.opacity = '0';
+
+                // Inicializar cache DOM se necessário
+                if (!DOMCache.container) {
+                    initializeDOMCache();
+                }
+
+                // Verificar se todos os elementos necessários estão presentes
+                if (!DOMCache.container || !DOMCache.roleElement) {
+                    console.error('Elementos DOM necessários não encontrados');
+                    return;
+                }
+
+                // Adicionar classe de transição ao container
+                DOMCache.container.classList.add('section-transition');
+                DOMCache.container.style.opacity = '0';
+
+                // Atualizar conteúdo após fade-out
                 setTimeout(() => {
-                    roleElement.textContent = translations[lang].role;
-                    roleElement.style.opacity = '1';
-                }, 100);
-                
-                // Update section titles with staggered animation
-                const sectionTitles = document.querySelectorAll('.section-title');
-                sectionTitles.forEach((title, index) => {
-                    setTimeout(() => {
-                        title.style.opacity = '0';
-                        setTimeout(() => {
-                            const section = title.textContent.toLowerCase();
-                            if (section.includes('experiência') || section.includes('experience')) {
-                                title.textContent = translations[lang].sections.experience;
-                            } else if (section.includes('educação') || section.includes('education')) {
-                                title.textContent = translations[lang].sections.education;
-                            } else if (section.includes('competências') || section.includes('skills')) {
-                                title.textContent = translations[lang].sections.skills;
-                            } else if (section.includes('projetos') || section.includes('projects')) {
-                                title.textContent = translations[lang].sections.projects;
-                            } else if (section.includes('conquistas') || section.includes('achievements')) {
-                                title.textContent = translations[lang].sections.achievements;
-                            } else if (section.includes('referências') || section.includes('references')) {
-                                title.textContent = translations[lang].sections.references;
-                            }
-                            title.style.opacity = '1';
-                        }, 100);
-                    }, index * 50); // Using fixed delay instead of CSS variable
-                });
-                
-                // Update experience section with staggered animation
-                const jobs = document.querySelectorAll('.job');
-                jobs.forEach((job, index) => {
-                    setTimeout(() => {
-                        job.style.opacity = '0';
-                        setTimeout(() => {
-                            const jobTitle = job.querySelector('.job-title');
-                            const jobCompany = job.querySelector('.job-company');
-                            const jobDate = job.querySelector('.job-date');
-                            const jobDescription = job.querySelector('.job-description');
+                    try {
+                        // Atualizar título
+                        document.title = getTranslation(lang, 'title', 'CV Profissional');
 
-                            let experienceKey;
-                            switch(index) {
-                                case 0:
-                                    experienceKey = 'itManager';
-                                    break;
-                                case 1:
-                                    experienceKey = 'programmer';
-                                    break;
-                                case 2:
-                                    experienceKey = 'technician';
-                                    break;
-                                case 3:
-                                    experienceKey = 'internAEM';
-                                    break;
-                                case 4:
-                                    experienceKey = 'internENSYS';
-                                    break;
-                            }
+                        // Atualizar cargo
+                        animateTextTransition(DOMCache.roleElement, getTranslation(lang, 'role', 'Gestor de TI'));
 
-                            if (experienceKey && translations[lang].experience[experienceKey]) {
-                                jobTitle.textContent = translations[lang].experience[experienceKey].title;
-                                jobCompany.textContent = translations[lang].experience[experienceKey].company;
-                                jobDate.textContent = translations[lang].experience[experienceKey].date;
-                                
-                                // Update responsibilities
-                                const responsibilities = translations[lang].experience[experienceKey].responsibilities;
-                                const listItems = jobDescription.querySelectorAll('li');
-                                listItems.forEach((item, i) => {
-                                    if (responsibilities[i + 1]) {
-                                        item.textContent = responsibilities[i + 1];
-                                    }
-                                });
-                            }
-                            job.style.opacity = '1';
-                        }, 100);
-                    }, index * 50); // Using fixed delay instead of CSS variable
-                });
+                        // Atualizar títulos das seções primeiro
+                        updateSectionTitles(lang);
 
-                // Update education section
-                const educations = document.querySelectorAll('.education');
-                educations.forEach((education, index) => {
-                    const educationTitle = education.querySelector('.education-title');
-                    const educationInstitution = education.querySelector('.education-institution');
-                    const educationDate = education.querySelector('.education-date');
+                        // Atualizar resto do conteúdo
+                        updateAbout(lang);
+                        updateExperiences(lang);
+                        updateEducation(lang);
+                        updateSkills(lang);
+                        updateProjects(lang);
+                        updateAchievements(lang);
+                        updateReferences(lang);
 
-                    let educationKey;
-                    switch(index) {
-                        case 0:
-                            educationKey = 'computerEngineering';
-                            break;
-                        case 1:
-                            educationKey = 'secondary';
-                            break;
-                        case 2:
-                            educationKey = 'primary';
-                            break;
-                    }
+                        // Atualizar rodapé
+                        animateTextTransition(DOMCache.footer, getTranslation(lang, 'footer.copyright', '© 2025'));
 
-                    if (educationKey && translations[lang].education[educationKey]) {
-                        educationTitle.textContent = translations[lang].education[educationKey].title;
-                        educationInstitution.textContent = translations[lang].education[educationKey].institution || translations[lang].education[educationKey].school;
-                        educationDate.textContent = translations[lang].education[educationKey].date;
-                        if (translations[lang].education[educationKey].status) {
-                            education.querySelector('div:last-child').textContent = translations[lang].education[educationKey].status;
-                        }
-                    }
-                });
+                        // Atualizar texto do botão de download
+                        animateTextTransition(DOMCache.downloadText, getTranslation(lang, 'sections.downloadCV', 'Baixar CV'));
 
-                // Update skills section
-                const skillCategories = document.querySelectorAll('.skill-category');
-                skillCategories.forEach(category => {
-                    const categoryTitle = category.querySelector('h3');
-                    const skillItems = category.querySelectorAll('.skill-item');
-
-                    if (categoryTitle.textContent.toLowerCase().includes('línguas') || categoryTitle.textContent.toLowerCase().includes('languages')) {
-                        categoryTitle.textContent = translations[lang].skills.languages.title;
-                        skillItems[0].textContent = translations[lang].skills.languages.portuguese;
-                        skillItems[1].textContent = translations[lang].skills.languages.english;
-                        skillItems[2].textContent = translations[lang].skills.languages.spanish;
-                        skillItems[3].textContent = translations[lang].skills.languages.german;
-                    } else if (categoryTitle.textContent.toLowerCase().includes('digitais') || categoryTitle.textContent.toLowerCase().includes('digital')) {
-                        categoryTitle.textContent = translations[lang].skills.digital.title;
-                        translations[lang].skills.digital.items.forEach((item, index) => {
-                            if (skillItems[index]) {
-                                skillItems[index].textContent = item;
-                            }
+                        // Fade in com transformação
+                        requestAnimationFrame(() => {
+                            DOMCache.container.style.opacity = '1';
                         });
-                    } else if (categoryTitle.textContent.toLowerCase().includes('interpessoais') || categoryTitle.textContent.toLowerCase().includes('interpersonal')) {
-                        categoryTitle.textContent = translations[lang].skills.interpersonal.title;
-                        translations[lang].skills.interpersonal.items.forEach((item, index) => {
-                            if (skillItems[index]) {
-                                skillItems[index].textContent = item;
-                            }
-                        });
-                    } else if (categoryTitle.textContent.toLowerCase().includes('stack tecnológica') || categoryTitle.textContent.toLowerCase().includes('tech stack')) {
-                        categoryTitle.textContent = translations[lang].sections.techStack;
-                        translations[lang].skills.techStack.items.forEach((item, index) => {
-                            if (skillItems[index]) {
-                                skillItems[index].textContent = item;
-                            }
-                        });
+                    } catch (updateError) {
+                        console.error('Erro ao atualizar conteúdo:', updateError);
+                        DOMCache.container.style.opacity = '1';
                     }
-                });
+                }, 300);
 
-                // Update projects section
-                const projectItems = document.querySelectorAll('.project-item');
-                projectItems.forEach((project, index) => {
-                    const projectTitle = project.querySelector('h3');
-                    if (translations[lang].projects && translations[lang].projects[index]) {
-                        projectTitle.textContent = translations[lang].projects[index].title;
-                        const projectDescription = project.querySelector('p');
-                        if (projectDescription && translations[lang].projects[index].description) {
-                            projectDescription.textContent = translations[lang].projects[index].description;
-                        }
-                    }
-                });
-
-                // Update achievements section
-                const achievementCategories = document.querySelectorAll('.achievement-category');
-                achievementCategories.forEach((category, index) => {
-                    const categoryTitle = category.querySelector('h3');
-                    if (translations[lang].achievements && translations[lang].achievements[index]) {
-                        categoryTitle.textContent = translations[lang].achievements[index].title;
-                        const achievementItems = category.querySelectorAll('.achievement-items li');
-                        if (translations[lang].achievements[index].items) {
-                            achievementItems.forEach((item, i) => {
-                                if (translations[lang].achievements[index].items[i]) {
-                                    item.textContent = translations[lang].achievements[index].items[i];
-                                }
-                            });
-                        }
-                    }
-                });
-
-                // Update footer
-                document.querySelector('footer p').textContent = translations[lang].footer.copyright;
-                
-                // Update download CV text with animation
-                const downloadText = document.getElementById('download-text');
-                downloadText.style.opacity = '0';
+                // Remover classe de transição após a animação
                 setTimeout(() => {
-                    downloadText.textContent = translations[lang].sections.downloadCV;
-                    downloadText.style.opacity = '1';
-                }, 100);
-
-                // Update theme toggle button text with animation
-                const themeToggle = document.querySelector('.theme-toggle');
-                themeToggle.style.opacity = '0';
-                setTimeout(() => {
-                    const currentTheme = document.body.getAttribute('data-theme');
-                    themeToggle.textContent = currentTheme === 'dark' ? 
-                        translations[lang].theme.darkMode : 
-                        translations[lang].theme.lightMode;
-                    themeToggle.style.opacity = '1';
-                }, 100);
-                
-                // Add fade-in effect
-                container.style.opacity = '1';
-            }, 300); // Match this with the transition speed in CSS
+                    DOMCache.container.classList.remove('section-transition');
+                }, 600);
+            } catch (error) {
+                console.error('Erro ao mudar idioma:', error);
+                document.documentElement.lang = currentLang;
+            }
         }
 
-        // Initialize theme and language from localStorage
-        document.addEventListener('DOMContentLoaded', () => {
-            const savedTheme = localStorage.getItem('theme') || 'light';
-            const savedLang = localStorage.getItem('language') || 'pt';
+        // Função para inicializar o cache DOM
+        function initializeDOMCache() {
+            try {
+                // Elementos principais
+                DOMCache.container = document.querySelector('.container');
+                DOMCache.roleElement = document.querySelector('.header-left h2');
+                DOMCache.sectionTitles = Array.from(document.querySelectorAll('.section-title'));
+                DOMCache.aboutSection = document.querySelector('.about-section');
+                
+                // Elementos de seção
+                DOMCache.jobs = Array.from(document.querySelectorAll('.job'));
+                DOMCache.educations = Array.from(document.querySelectorAll('.education'));
+                DOMCache.skillCategories = Array.from(document.querySelectorAll('.skill-category'));
+                DOMCache.projectItems = Array.from(document.querySelectorAll('.project-item'));
+                DOMCache.achievementCategories = Array.from(document.querySelectorAll('.achievement-category'));
+                DOMCache.referenceItems = Array.from(document.querySelectorAll('.reference-item'));
+                
+                // Elementos de controle
+                DOMCache.downloadText = document.getElementById('download-text');
+                DOMCache.themeToggle = document.querySelector('.theme-toggle');
+                DOMCache.footer = document.querySelector('footer p');
+
+                // Verificar elementos críticos
+                if (!DOMCache.container || !DOMCache.roleElement || !DOMCache.sectionTitles.length) {
+                    throw new Error('Elementos DOM críticos não encontrados');
+                }
+
+                console.log('Cache DOM inicializado com sucesso');
+                console.log(`Títulos de seção encontrados: ${DOMCache.sectionTitles.length}`);
+            } catch (error) {
+                console.error('Erro ao inicializar cache DOM:', error);
+                throw error;
+            }
+        }
+
+        // Função para atualizar a seção Sobre Mim
+        function updateAbout(lang) {
+            if (!DOMCache.aboutSection) return;
             
-            document.body.setAttribute('data-theme', savedTheme);
-            changeLanguage(savedLang);
+            updateSectionWithAnimation(DOMCache.aboutSection, () => {
+                const aboutData = getTranslation(lang, 'about');
+                if (aboutData) {
+                    DOMCache.aboutSection.querySelector('.about-title').textContent = aboutData.title;
+                    DOMCache.aboutSection.querySelector('.about-content').textContent = aboutData.content;
+                }
+            });
+        }
+
+        // Função para atualizar todo o conteúdo
+        function updateContent(lang) {
+            try {
+                // Atualizar título
+                document.title = getTranslation(lang, 'title', 'CV Profissional');
+
+                // Atualizar cargo
+                animateTextTransition(DOMCache.roleElement, getTranslation(lang, 'role', 'Gestor de TI'));
+
+                // Atualizar títulos das seções
+                updateSectionTitles(lang);
+
+                // Atualizar seção Sobre Mim
+                updateAbout(lang);
+
+                // Atualizar experiências
+                updateExperiences(lang);
+
+                // Atualizar educação
+                updateEducation(lang);
+
+                // Atualizar habilidades
+                updateSkills(lang);
+
+                // Atualizar projetos
+                updateProjects(lang);
+
+                // Atualizar conquistas
+                updateAchievements(lang);
+
+                // Atualizar referências
+                updateReferences(lang);
+
+                // Atualizar rodapé
+                animateTextTransition(DOMCache.footer, getTranslation(lang, 'footer.copyright', '© 2025'));
+
+                // Atualizar texto do botão de download
+                animateTextTransition(DOMCache.downloadText, getTranslation(lang, 'sections.downloadCV', 'Baixar CV'));
+
+                // Adicionar efeito de fade-in
+                DOMCache.container.style.opacity = '1';
+            } catch (error) {
+                console.error('Erro ao atualizar conteúdo:', error);
+                DOMCache.container.style.opacity = '1';
+            }
+        }
+
+        // Funções auxiliares para atualizar cada seção
+        function updateSectionTitles(lang) {
+            if (!DOMCache.sectionTitles || DOMCache.sectionTitles.length === 0) {
+                console.error('Nenhum título de seção encontrado no cache DOM');
+                return;
+            }
+
+            // Mapeamento direto dos títulos em português para as chaves de tradução
+            const titleToKey = {
+                'Sobre Mim': 'about',
+                'Experiência Profissional': 'experience',
+                'Educação e Formação': 'education',
+                'Competências': 'skills',
+                'Projetos': 'projects',
+                'Conquistas e Avaliações': 'achievements',
+                'Referências': 'references',
+                'Stack Tecnológica': 'techStack'
+            };
+
+            DOMCache.sectionTitles.forEach((title, index) => {
+                try {
+                    const currentText = title.textContent.trim();
+                    const sectionKey = titleToKey[currentText] || SECTION_MAPPING[currentText.toLowerCase()];
+                    
+                    if (sectionKey) {
+                        const translation = getTranslation(lang, `sections.${sectionKey}`);
+                        if (translation) {
+                            console.log(`Atualizando seção: ${currentText} -> ${translation}`);
+                            title.textContent = translation;
+                            title.style.opacity = '0';
+                            setTimeout(() => {
+                                title.style.opacity = '1';
+                            }, 50 * index);
+                        } else {
+                            console.warn(`Tradução não encontrada para: sections.${sectionKey}`);
+                        }
+                    } else {
+                        console.warn(`Nenhuma chave de tradução encontrada para: ${currentText}`);
+                    }
+                } catch (error) {
+                    console.error(`Erro ao atualizar título da seção ${index}:`, error);
+                }
+            });
+        }
+
+        function updateExperiences(lang) {
+            DOMCache.jobs.forEach((job, index) => {
+                updateSectionWithAnimation(job, () => {
+                    const experienceKey = Object.keys(translations[lang].experience)[index];
+                    if (experienceKey) {
+                        const exp = getTranslation(lang, `experience.${experienceKey}`);
+                        job.querySelector('.job-title').textContent = exp.title;
+                        job.querySelector('.job-company').textContent = exp.company;
+                        job.querySelector('.job-date').textContent = exp.date;
+                        
+                        const responsibilities = exp.responsibilities;
+                        const listItems = job.querySelectorAll('.job-description li');
+                        listItems.forEach((item, i) => {
+                            if (responsibilities[i + 1]) {
+                                item.textContent = responsibilities[i + 1];
+                            }
+                        });
+                    }
+                }, index);
+            });
+        }
+
+        function updateEducation(lang) {
+            DOMCache.educations.forEach((education, index) => {
+                updateSectionWithAnimation(education, () => {
+                    const educationKey = Object.keys(translations[lang].education)[index];
+                    if (educationKey) {
+                        const edu = getTranslation(lang, `education.${educationKey}`);
+                        education.querySelector('.education-title').textContent = edu.title;
+                        education.querySelector('.education-institution, .education-school').textContent = edu.institution || edu.school;
+                        education.querySelector('.education-date').textContent = edu.date;
+                        if (edu.status) {
+                            education.querySelector('div:last-child').textContent = edu.status;
+                        }
+                    }
+                }, index);
+            });
+        }
+
+        function updateSkills(lang) {
+            DOMCache.skillCategories.forEach(category => {
+                const categoryTitle = category.querySelector('h3');
+                const skillItems = category.querySelectorAll('.skill-item');
+                const categoryType = categoryTitle.textContent.toLowerCase();
+
+                if (categoryType.includes('línguas') || categoryType.includes('languages')) {
+                    updateSectionWithAnimation(category, () => {
+                        categoryTitle.textContent = getTranslation(lang, 'skills.languages.title', 'Línguas');
+                        const languages = getTranslation(lang, 'skills.languages');
+                        skillItems[0].textContent = languages.portuguese;
+                        skillItems[1].textContent = languages.english;
+                        skillItems[2].textContent = languages.spanish;
+                        skillItems[3].textContent = languages.german;
+                    });
+                } else if (categoryType.includes('digitais') || categoryType.includes('digital')) {
+                    updateSectionWithAnimation(category, () => {
+                        categoryTitle.textContent = getTranslation(lang, 'skills.digital.title', 'Competências Digitais');
+                        const items = getTranslation(lang, 'skills.digital.items', []);
+                        items.forEach((item, i) => {
+                            if (skillItems[i]) {
+                                skillItems[i].textContent = item;
+                            }
+                        });
+                    });
+                } else if (categoryType.includes('interpessoais') || categoryType.includes('interpersonal')) {
+                    updateSectionWithAnimation(category, () => {
+                        categoryTitle.textContent = getTranslation(lang, 'skills.interpersonal.title', 'Competências Interpessoais');
+                        const items = getTranslation(lang, 'skills.interpersonal.items', []);
+                        items.forEach((item, i) => {
+                            if (skillItems[i]) {
+                                skillItems[i].textContent = item;
+                            }
+                        });
+                    });
+                } else if (categoryType.includes('stack tecnológica') || categoryType.includes('tech stack')) {
+                    updateSectionWithAnimation(category, () => {
+                        categoryTitle.textContent = getTranslation(lang, 'sections.techStack', 'Stack Tecnológica');
+                        const items = getTranslation(lang, 'skills.techStack.items', []);
+                        items.forEach((item, i) => {
+                            if (skillItems[i]) {
+                                skillItems[i].textContent = item;
+                            }
+                        });
+                    });
+                }
+            });
+        }
+
+        function updateProjects(lang) {
+            DOMCache.projectItems.forEach((project, index) => {
+                updateSectionWithAnimation(project, () => {
+                    const projectData = getTranslation(lang, `projects.${index}`);
+                    if (projectData) {
+                        project.querySelector('h3').textContent = projectData.title;
+                        const description = project.querySelector('p');
+                        if (description && projectData.description) {
+                            description.textContent = projectData.description;
+                        }
+                    }
+                }, index);
+            });
+        }
+
+        function updateAchievements(lang) {
+            DOMCache.achievementCategories.forEach((category, index) => {
+                updateSectionWithAnimation(category, () => {
+                    const achievementData = getTranslation(lang, `achievements.${index}`);
+                    if (achievementData) {
+                        category.querySelector('h3').textContent = achievementData.title;
+                        const items = category.querySelectorAll('.achievement-items li');
+                        achievementData.items.forEach((item, i) => {
+                            if (items[i]) {
+                                items[i].textContent = item;
+                            }
+                        });
+                    }
+                }, index);
+            });
+        }
+
+        function updateReferences(lang) {
+            DOMCache.referenceItems.forEach((reference, index) => {
+                updateSectionWithAnimation(reference, () => {
+                    const referenceData = getTranslation(lang, `references.${index}`);
+                    if (referenceData) {
+                        reference.querySelector('.reference-name').textContent = referenceData.name;
+                        reference.querySelector('.reference-position').textContent = referenceData.position;
+                        const contact = reference.querySelector('.reference-contact');
+                        if (contact && referenceData.contact) {
+                            contact.textContent = referenceData.contact;
+                        }
+                    }
+                }, index);
+            });
+        }
+
+        // Inicializar tema e idioma do localStorage
+        document.addEventListener('DOMContentLoaded', () => {
+            try {
+                const savedTheme = localStorage.getItem('theme') || 'light';
+                const savedLang = localStorage.getItem('language') || 'en';
+                
+                document.body.setAttribute('data-theme', savedTheme);
+                document.documentElement.lang = savedLang;
+                currentLang = savedLang;
+                
+                // Selecionar o idioma correto no dropdown
+                const langSelect = document.querySelector('.lang-toggle');
+                if (langSelect) {
+                    langSelect.value = savedLang;
+                }
+                
+                // Inicializar o conteúdo no idioma correto
+                changeLanguage(savedLang);
+            } catch (error) {
+                console.error('Erro ao inicializar:', error);
+            }
         });
     </script>
 </body>
