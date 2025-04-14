@@ -16,6 +16,7 @@
             --container-bg: white;
             --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             --transition-speed: 0.3s;
+            --animation-delay: 50ms;
         }
 
         [data-theme="dark"] {
@@ -51,6 +52,7 @@
             box-shadow: var(--card-shadow);
             border-radius: 8px;
             overflow: hidden;
+            transition: opacity var(--transition-speed);
         }
         
         .header {
@@ -79,6 +81,7 @@
             display: flex;
             gap: 10px;
             z-index: 1000;
+            transition: transform var(--transition-speed);
         }
 
         .theme-toggle, .lang-toggle {
@@ -89,7 +92,7 @@
             border-radius: 5px;
             cursor: pointer;
             font-size: 14px;
-            transition: background-color var(--transition-speed);
+            transition: background-color var(--transition-speed), transform var(--transition-speed);
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
 
@@ -158,6 +161,7 @@
         .content-section {
             padding: 30px 40px;
             border-bottom: 1px solid var(--border-color);
+            transition: opacity var(--transition-speed);
         }
         
         .section-title {
@@ -176,6 +180,7 @@
             background-color: var(--light-bg);
             border-radius: 8px;
             box-shadow: var(--card-shadow);
+            transition: opacity var(--transition-speed), transform var(--transition-speed);
         }
         
         .job-title {
@@ -223,6 +228,7 @@
             background-color: var(--light-bg);
             border-radius: 8px;
             box-shadow: var(--card-shadow);
+            transition: opacity var(--transition-speed), transform var(--transition-speed);
         }
         
         .education-title {
@@ -257,6 +263,7 @@
             background-color: var(--light-bg);
             border-radius: 8px;
             box-shadow: var(--card-shadow);
+            transition: opacity var(--transition-speed), transform var(--transition-speed);
         }
         
         .skill-category h3 {
@@ -289,6 +296,7 @@
             background-color: var(--light-bg);
             border-radius: 8px;
             box-shadow: var(--card-shadow);
+            transition: opacity var(--transition-speed), transform var(--transition-speed);
         }
         
         .project-item h3, .achievement-category h3 {
@@ -328,6 +336,7 @@
             padding: 15px;
             background-color: var(--light-bg);
             box-shadow: var(--card-shadow);
+            transition: opacity var(--transition-speed), transform var(--transition-speed);
         }
         
         .reference-name {
@@ -433,6 +442,14 @@
                 display: inline-block;
                 margin: 10px auto;
             }
+        }
+        
+        .job, .education, .skill-category, .project-item, .achievement-category, .reference-item {
+            transition: opacity var(--transition-speed), transform var(--transition-speed);
+        }
+        
+        .job:hover, .education:hover, .skill-category:hover, .project-item:hover, .achievement-category:hover, .reference-item:hover {
+            transform: translateY(-5px);
         }
     </style>
 </head>
@@ -825,186 +842,223 @@
             localStorage.setItem('theme', newTheme);
         }
 
-        // Language switching
+        // Language switching with smooth transition
         function changeLanguage(lang) {
-            document.documentElement.lang = lang;
-            localStorage.setItem('language', lang);
+            // Add fade-out effect
+            const container = document.querySelector('.container');
+            container.style.opacity = '0';
             
-            // Update title
-            document.title = translations[lang].title;
-            
-            // Update role
-            document.querySelector('.header-left h2').textContent = translations[lang].role;
-            
-            // Update section titles
-            document.querySelectorAll('.section-title').forEach(title => {
-                const section = title.textContent.toLowerCase();
-                if (section.includes('experiência') || section.includes('experience')) {
-                    title.textContent = translations[lang].sections.experience;
-                } else if (section.includes('educação') || section.includes('education')) {
-                    title.textContent = translations[lang].sections.education;
-                } else if (section.includes('competências') || section.includes('skills')) {
-                    title.textContent = translations[lang].sections.skills;
-                } else if (section.includes('projetos') || section.includes('projects')) {
-                    title.textContent = translations[lang].sections.projects;
-                } else if (section.includes('conquistas') || section.includes('achievements')) {
-                    title.textContent = translations[lang].sections.achievements;
-                } else if (section.includes('referências') || section.includes('references')) {
-                    title.textContent = translations[lang].sections.references;
-                }
-            });
-            
-            // Update experience section
-            const jobs = document.querySelectorAll('.job');
-            jobs.forEach((job, index) => {
-                const jobTitle = job.querySelector('.job-title');
-                const jobCompany = job.querySelector('.job-company');
-                const jobDate = job.querySelector('.job-date');
-                const jobDescription = job.querySelector('.job-description');
+            // Wait for fade-out to complete before changing content
+            setTimeout(() => {
+                document.documentElement.lang = lang;
+                localStorage.setItem('language', lang);
+                
+                // Update title
+                document.title = translations[lang].title;
+                
+                // Update role with animation
+                const roleElement = document.querySelector('.header-left h2');
+                roleElement.style.opacity = '0';
+                setTimeout(() => {
+                    roleElement.textContent = translations[lang].role;
+                    roleElement.style.opacity = '1';
+                }, 100);
+                
+                // Update section titles with staggered animation
+                const sectionTitles = document.querySelectorAll('.section-title');
+                sectionTitles.forEach((title, index) => {
+                    setTimeout(() => {
+                        title.style.opacity = '0';
+                        setTimeout(() => {
+                            const section = title.textContent.toLowerCase();
+                            if (section.includes('experiência') || section.includes('experience')) {
+                                title.textContent = translations[lang].sections.experience;
+                            } else if (section.includes('educação') || section.includes('education')) {
+                                title.textContent = translations[lang].sections.education;
+                            } else if (section.includes('competências') || section.includes('skills')) {
+                                title.textContent = translations[lang].sections.skills;
+                            } else if (section.includes('projetos') || section.includes('projects')) {
+                                title.textContent = translations[lang].sections.projects;
+                            } else if (section.includes('conquistas') || section.includes('achievements')) {
+                                title.textContent = translations[lang].sections.achievements;
+                            } else if (section.includes('referências') || section.includes('references')) {
+                                title.textContent = translations[lang].sections.references;
+                            }
+                            title.style.opacity = '1';
+                        }, 100);
+                    }, index * 50); // Using fixed delay instead of CSS variable
+                });
+                
+                // Update experience section with staggered animation
+                const jobs = document.querySelectorAll('.job');
+                jobs.forEach((job, index) => {
+                    setTimeout(() => {
+                        job.style.opacity = '0';
+                        setTimeout(() => {
+                            const jobTitle = job.querySelector('.job-title');
+                            const jobCompany = job.querySelector('.job-company');
+                            const jobDate = job.querySelector('.job-date');
+                            const jobDescription = job.querySelector('.job-description');
 
-                let experienceKey;
-                switch(index) {
-                    case 0:
-                        experienceKey = 'itManager';
-                        break;
-                    case 1:
-                        experienceKey = 'programmer';
-                        break;
-                    case 2:
-                        experienceKey = 'technician';
-                        break;
-                    case 3:
-                        experienceKey = 'internAEM';
-                        break;
-                    case 4:
-                        experienceKey = 'internENSYS';
-                        break;
-                }
+                            let experienceKey;
+                            switch(index) {
+                                case 0:
+                                    experienceKey = 'itManager';
+                                    break;
+                                case 1:
+                                    experienceKey = 'programmer';
+                                    break;
+                                case 2:
+                                    experienceKey = 'technician';
+                                    break;
+                                case 3:
+                                    experienceKey = 'internAEM';
+                                    break;
+                                case 4:
+                                    experienceKey = 'internENSYS';
+                                    break;
+                            }
 
-                if (experienceKey && translations[lang].experience[experienceKey]) {
-                    jobTitle.textContent = translations[lang].experience[experienceKey].title;
-                    jobCompany.textContent = translations[lang].experience[experienceKey].company;
-                    jobDate.textContent = translations[lang].experience[experienceKey].date;
-                    
-                    // Update responsibilities
-                    const responsibilities = translations[lang].experience[experienceKey].responsibilities;
-                    const listItems = jobDescription.querySelectorAll('li');
-                    listItems.forEach((item, i) => {
-                        if (responsibilities[i + 1]) {
-                            item.textContent = responsibilities[i + 1];
-                        }
-                    });
-                }
-            });
+                            if (experienceKey && translations[lang].experience[experienceKey]) {
+                                jobTitle.textContent = translations[lang].experience[experienceKey].title;
+                                jobCompany.textContent = translations[lang].experience[experienceKey].company;
+                                jobDate.textContent = translations[lang].experience[experienceKey].date;
+                                
+                                // Update responsibilities
+                                const responsibilities = translations[lang].experience[experienceKey].responsibilities;
+                                const listItems = jobDescription.querySelectorAll('li');
+                                listItems.forEach((item, i) => {
+                                    if (responsibilities[i + 1]) {
+                                        item.textContent = responsibilities[i + 1];
+                                    }
+                                });
+                            }
+                            job.style.opacity = '1';
+                        }, 100);
+                    }, index * 50); // Using fixed delay instead of CSS variable
+                });
 
-            // Update education section
-            const educations = document.querySelectorAll('.education');
-            educations.forEach((education, index) => {
-                const educationTitle = education.querySelector('.education-title');
-                const educationInstitution = education.querySelector('.education-institution');
-                const educationDate = education.querySelector('.education-date');
+                // Update education section
+                const educations = document.querySelectorAll('.education');
+                educations.forEach((education, index) => {
+                    const educationTitle = education.querySelector('.education-title');
+                    const educationInstitution = education.querySelector('.education-institution');
+                    const educationDate = education.querySelector('.education-date');
 
-                let educationKey;
-                switch(index) {
-                    case 0:
-                        educationKey = 'computerEngineering';
-                        break;
-                    case 1:
-                        educationKey = 'secondary';
-                        break;
-                    case 2:
-                        educationKey = 'primary';
-                        break;
-                }
-
-                if (educationKey && translations[lang].education[educationKey]) {
-                    educationTitle.textContent = translations[lang].education[educationKey].title;
-                    educationInstitution.textContent = translations[lang].education[educationKey].institution || translations[lang].education[educationKey].school;
-                    educationDate.textContent = translations[lang].education[educationKey].date;
-                    if (translations[lang].education[educationKey].status) {
-                        education.querySelector('div:last-child').textContent = translations[lang].education[educationKey].status;
+                    let educationKey;
+                    switch(index) {
+                        case 0:
+                            educationKey = 'computerEngineering';
+                            break;
+                        case 1:
+                            educationKey = 'secondary';
+                            break;
+                        case 2:
+                            educationKey = 'primary';
+                            break;
                     }
-                }
-            });
 
-            // Update skills section
-            const skillCategories = document.querySelectorAll('.skill-category');
-            skillCategories.forEach(category => {
-                const categoryTitle = category.querySelector('h3');
-                const skillItems = category.querySelectorAll('.skill-item');
-
-                if (categoryTitle.textContent.toLowerCase().includes('línguas') || categoryTitle.textContent.toLowerCase().includes('languages')) {
-                    categoryTitle.textContent = translations[lang].skills.languages.title;
-                    skillItems[0].textContent = translations[lang].skills.languages.portuguese;
-                    skillItems[1].textContent = translations[lang].skills.languages.english;
-                    skillItems[2].textContent = translations[lang].skills.languages.spanish;
-                    skillItems[3].textContent = translations[lang].skills.languages.german;
-                } else if (categoryTitle.textContent.toLowerCase().includes('digitais') || categoryTitle.textContent.toLowerCase().includes('digital')) {
-                    categoryTitle.textContent = translations[lang].skills.digital.title;
-                    translations[lang].skills.digital.items.forEach((item, index) => {
-                        if (skillItems[index]) {
-                            skillItems[index].textContent = item;
+                    if (educationKey && translations[lang].education[educationKey]) {
+                        educationTitle.textContent = translations[lang].education[educationKey].title;
+                        educationInstitution.textContent = translations[lang].education[educationKey].institution || translations[lang].education[educationKey].school;
+                        educationDate.textContent = translations[lang].education[educationKey].date;
+                        if (translations[lang].education[educationKey].status) {
+                            education.querySelector('div:last-child').textContent = translations[lang].education[educationKey].status;
                         }
-                    });
-                } else if (categoryTitle.textContent.toLowerCase().includes('interpessoais') || categoryTitle.textContent.toLowerCase().includes('interpersonal')) {
-                    categoryTitle.textContent = translations[lang].skills.interpersonal.title;
-                    translations[lang].skills.interpersonal.items.forEach((item, index) => {
-                        if (skillItems[index]) {
-                            skillItems[index].textContent = item;
-                        }
-                    });
-                } else if (categoryTitle.textContent.toLowerCase().includes('stack tecnológica') || categoryTitle.textContent.toLowerCase().includes('tech stack')) {
-                    categoryTitle.textContent = translations[lang].sections.techStack;
-                    translations[lang].skills.techStack.items.forEach((item, index) => {
-                        if (skillItems[index]) {
-                            skillItems[index].textContent = item;
-                        }
-                    });
-                }
-            });
-
-            // Update projects section
-            const projectItems = document.querySelectorAll('.project-item');
-            projectItems.forEach((project, index) => {
-                const projectTitle = project.querySelector('h3');
-                if (translations[lang].projects && translations[lang].projects[index]) {
-                    projectTitle.textContent = translations[lang].projects[index].title;
-                    const projectDescription = project.querySelector('p');
-                    if (projectDescription && translations[lang].projects[index].description) {
-                        projectDescription.textContent = translations[lang].projects[index].description;
                     }
-                }
-            });
+                });
 
-            // Update achievements section
-            const achievementCategories = document.querySelectorAll('.achievement-category');
-            achievementCategories.forEach((category, index) => {
-                const categoryTitle = category.querySelector('h3');
-                if (translations[lang].achievements && translations[lang].achievements[index]) {
-                    categoryTitle.textContent = translations[lang].achievements[index].title;
-                    const achievementItems = category.querySelectorAll('.achievement-items li');
-                    if (translations[lang].achievements[index].items) {
-                        achievementItems.forEach((item, i) => {
-                            if (translations[lang].achievements[index].items[i]) {
-                                item.textContent = translations[lang].achievements[index].items[i];
+                // Update skills section
+                const skillCategories = document.querySelectorAll('.skill-category');
+                skillCategories.forEach(category => {
+                    const categoryTitle = category.querySelector('h3');
+                    const skillItems = category.querySelectorAll('.skill-item');
+
+                    if (categoryTitle.textContent.toLowerCase().includes('línguas') || categoryTitle.textContent.toLowerCase().includes('languages')) {
+                        categoryTitle.textContent = translations[lang].skills.languages.title;
+                        skillItems[0].textContent = translations[lang].skills.languages.portuguese;
+                        skillItems[1].textContent = translations[lang].skills.languages.english;
+                        skillItems[2].textContent = translations[lang].skills.languages.spanish;
+                        skillItems[3].textContent = translations[lang].skills.languages.german;
+                    } else if (categoryTitle.textContent.toLowerCase().includes('digitais') || categoryTitle.textContent.toLowerCase().includes('digital')) {
+                        categoryTitle.textContent = translations[lang].skills.digital.title;
+                        translations[lang].skills.digital.items.forEach((item, index) => {
+                            if (skillItems[index]) {
+                                skillItems[index].textContent = item;
+                            }
+                        });
+                    } else if (categoryTitle.textContent.toLowerCase().includes('interpessoais') || categoryTitle.textContent.toLowerCase().includes('interpersonal')) {
+                        categoryTitle.textContent = translations[lang].skills.interpersonal.title;
+                        translations[lang].skills.interpersonal.items.forEach((item, index) => {
+                            if (skillItems[index]) {
+                                skillItems[index].textContent = item;
+                            }
+                        });
+                    } else if (categoryTitle.textContent.toLowerCase().includes('stack tecnológica') || categoryTitle.textContent.toLowerCase().includes('tech stack')) {
+                        categoryTitle.textContent = translations[lang].sections.techStack;
+                        translations[lang].skills.techStack.items.forEach((item, index) => {
+                            if (skillItems[index]) {
+                                skillItems[index].textContent = item;
                             }
                         });
                     }
-                }
-            });
+                });
 
-            // Update footer
-            document.querySelector('footer p').textContent = translations[lang].footer.copyright;
-            
-            // Update download CV text
-            document.getElementById('download-text').textContent = translations[lang].sections.downloadCV;
+                // Update projects section
+                const projectItems = document.querySelectorAll('.project-item');
+                projectItems.forEach((project, index) => {
+                    const projectTitle = project.querySelector('h3');
+                    if (translations[lang].projects && translations[lang].projects[index]) {
+                        projectTitle.textContent = translations[lang].projects[index].title;
+                        const projectDescription = project.querySelector('p');
+                        if (projectDescription && translations[lang].projects[index].description) {
+                            projectDescription.textContent = translations[lang].projects[index].description;
+                        }
+                    }
+                });
 
-            // Update theme toggle button text
-            const themeToggle = document.querySelector('.theme-toggle');
-            const currentTheme = document.body.getAttribute('data-theme');
-            themeToggle.textContent = currentTheme === 'dark' ? 
-                translations[lang].theme.darkMode : 
-                translations[lang].theme.lightMode;
+                // Update achievements section
+                const achievementCategories = document.querySelectorAll('.achievement-category');
+                achievementCategories.forEach((category, index) => {
+                    const categoryTitle = category.querySelector('h3');
+                    if (translations[lang].achievements && translations[lang].achievements[index]) {
+                        categoryTitle.textContent = translations[lang].achievements[index].title;
+                        const achievementItems = category.querySelectorAll('.achievement-items li');
+                        if (translations[lang].achievements[index].items) {
+                            achievementItems.forEach((item, i) => {
+                                if (translations[lang].achievements[index].items[i]) {
+                                    item.textContent = translations[lang].achievements[index].items[i];
+                                }
+                            });
+                        }
+                    }
+                });
+
+                // Update footer
+                document.querySelector('footer p').textContent = translations[lang].footer.copyright;
+                
+                // Update download CV text with animation
+                const downloadText = document.getElementById('download-text');
+                downloadText.style.opacity = '0';
+                setTimeout(() => {
+                    downloadText.textContent = translations[lang].sections.downloadCV;
+                    downloadText.style.opacity = '1';
+                }, 100);
+
+                // Update theme toggle button text with animation
+                const themeToggle = document.querySelector('.theme-toggle');
+                themeToggle.style.opacity = '0';
+                setTimeout(() => {
+                    const currentTheme = document.body.getAttribute('data-theme');
+                    themeToggle.textContent = currentTheme === 'dark' ? 
+                        translations[lang].theme.darkMode : 
+                        translations[lang].theme.lightMode;
+                    themeToggle.style.opacity = '1';
+                }, 100);
+                
+                // Add fade-in effect
+                container.style.opacity = '1';
+            }, 300); // Match this with the transition speed in CSS
         }
 
         // Initialize theme and language from localStorage
