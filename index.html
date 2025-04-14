@@ -16,6 +16,7 @@
             --container-bg: white;
             --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             --transition-speed: 0.3s;
+            --animation-delay: 50ms;
         }
 
         [data-theme="dark"] {
@@ -51,6 +52,7 @@
             box-shadow: var(--card-shadow);
             border-radius: 8px;
             overflow: hidden;
+            transition: opacity var(--transition-speed);
         }
         
         .header {
@@ -79,6 +81,7 @@
             display: flex;
             gap: 10px;
             z-index: 1000;
+            transition: transform var(--transition-speed);
         }
 
         .theme-toggle, .lang-toggle {
@@ -89,7 +92,7 @@
             border-radius: 5px;
             cursor: pointer;
             font-size: 14px;
-            transition: background-color var(--transition-speed);
+            transition: background-color var(--transition-speed), transform var(--transition-speed);
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
 
@@ -158,6 +161,7 @@
         .content-section {
             padding: 30px 40px;
             border-bottom: 1px solid var(--border-color);
+            transition: opacity var(--transition-speed);
         }
         
         .section-title {
@@ -176,6 +180,7 @@
             background-color: var(--light-bg);
             border-radius: 8px;
             box-shadow: var(--card-shadow);
+            transition: opacity var(--transition-speed), transform var(--transition-speed);
         }
         
         .job-title {
@@ -223,6 +228,7 @@
             background-color: var(--light-bg);
             border-radius: 8px;
             box-shadow: var(--card-shadow);
+            transition: opacity var(--transition-speed), transform var(--transition-speed);
         }
         
         .education-title {
@@ -257,6 +263,7 @@
             background-color: var(--light-bg);
             border-radius: 8px;
             box-shadow: var(--card-shadow);
+            transition: opacity var(--transition-speed), transform var(--transition-speed);
         }
         
         .skill-category h3 {
@@ -289,6 +296,7 @@
             background-color: var(--light-bg);
             border-radius: 8px;
             box-shadow: var(--card-shadow);
+            transition: opacity var(--transition-speed), transform var(--transition-speed);
         }
         
         .project-item h3, .achievement-category h3 {
@@ -328,6 +336,7 @@
             padding: 15px;
             background-color: var(--light-bg);
             box-shadow: var(--card-shadow);
+            transition: opacity var(--transition-speed), transform var(--transition-speed);
         }
         
         .reference-name {
@@ -434,6 +443,14 @@
                 margin: 10px auto;
             }
         }
+        
+        .job, .education, .skill-category, .project-item, .achievement-category, .reference-item {
+            transition: opacity var(--transition-speed), transform var(--transition-speed);
+        }
+        
+        .job:hover, .education:hover, .skill-category:hover, .project-item:hover, .achievement-category:hover, .reference-item:hover {
+            transform: translateY(-5px);
+        }
     </style>
 </head>
 <body>
@@ -446,12 +463,12 @@
 
     <div class="controls">
         <button class="theme-toggle" onclick="toggleTheme()">🌓 Modo Escuro</button>
-        <!-- <select class="lang-toggle" onchange="changeLanguage(this.value)">
+        <select class="lang-toggle" onchange="changeLanguage(this.value)">
             <option value="pt">🇵🇹 Português</option>
             <option value="en">🇬🇧 English</option>
             <option value="es">🇪🇸 Español</option>
             <option value="de">🇩🇪 Deutsch</option>
-        </select> -->
+        </select>
     </div>
 
     <div class="container">
@@ -467,12 +484,6 @@
                         </svg>
                         edsonjorgef1@icloud.com
                     </div>
-                    <!-- <div class="contact-item">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                            <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
-                        </svg>
-                        +258 845633335
-                    </div> -->
                     <div class="contact-item">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                             <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
@@ -520,7 +531,7 @@
             </div>
             
             <div class="job">
-                <h3 class="job-title">Técnico de TI e Programador</h3>
+                <h3 class="job-title">Técnico e Programador Informático</h3>
                 <div class="job-company">Associação Empoderando Moçambique (Equip Mozambique)</div>
                 <div class="job-date">Julho 2019 – Setembro 2022</div>
                 <ul class="job-description">
@@ -536,6 +547,7 @@
                 <div class="job-company">Associação Empoderando Moçambique (Equip Mozambique)</div>
                 <div class="job-date">Maio 2019 – Julho 2019</div>
                 <ul class="job-description">
+                    <li>Introdução ao desenvolvimento de sistemas e programação</li>
                     <li>Assistência em tarefas básicas de TI e operações</li>
                     <li>Aprendizagem de sistemas e protocolos organizacionais</li>
                 </ul>
@@ -588,21 +600,20 @@
                 
                 <div class="skill-category">
                     <h3>Competências Digitais</h3>
-                    <div class="skill-item">Gestão de Projetos: Metodologias Ágeis</div>
                     <div class="skill-item">Desenvolvimento de Software</div>
                     <div class="skill-item">Redes e Telecomunicações</div>
                     <div class="skill-item">Administração de Sistemas</div>
                     <div class="skill-item">Serviços em Nuvem: AWS, GCP, Azure</div>
-                    <div class="skill-item">Suítes de Escritório: Google Workplace, Microsoft 365</div>
-                    <div class="skill-item">+6 Anos de experiência</div>
-                    <div class="skill-item">Conhecimento extenso em API & Design de Banco de Dados</div>
-                    <div class="skill-item">Experiência com metodologia Ágil e gestão de projetos de TI</div>
+                    <div class="skill-item">Administração de Suítes de Escritório: Google Workplace e Microsoft 365</div>
+                    <div class="skill-item">Design de Banco de Dados</div>
+                    <div class="skill-item">Gestão de Projetos de TI</div>
+                    <div class="skill-item">Metodologias Ágeis, Scrum e KanBan</div>
+                    <div class="skill-item">Conhecimento extenso em criação e integração de API</div>
                 </div>
                 
                 <div class="skill-category">
                     <h3>Stack Tecnológica</h3>
-                    <div class="skill-item">Liderança, Desenvolvimento de Software, DevOps, AGILE</div>
-                    <div class="skill-item">PHP, Javascript, LAMP, Postman</div>
+                    <div class="skill-item">PHP, Javascript, Typescript, LAMP, Postman</div>
                     <div class="skill-item">Laravel, Livewire, jQuery, JSON</div>
                     <div class="skill-item">Quasar Framework, VueJS</div>
                     <div class="skill-item">MySQL, PostgreSQL, MongoDB</div>
@@ -627,8 +638,9 @@
                 <h3>Consultor de Soluções de TIC na Agricultura e Líder de Desenvolvimento Técnico e Estratégico</h3>
                 <p>FAMS (Sistema de Gestão de Agricultores e Agentes), financiado pela GIZ e COMO Consult</p>
                 <div class="project-links">
-                    <a href="https://github.com/edsonjorgef1/fams-desktop" target="_blank">Repositório GitHub</a> |
-                    <a href="https://fams.co.mz/en" target="_blank">Site Oficial</a>
+                    <a href="https://equipmoz.org/projects/tech-team/farmer-agent-management-system" target="_blank">Detalhes</a> |
+                    <a href="https://fams.co.mz/en" target="_blank">Site Oficial</a> |
+                    <a href="./assets/FAMS_Note_2023.pdf" target="_blank">Notas de Consultor (2023)</a>
                 </div>
             </div>
             
@@ -679,7 +691,7 @@
                     <li>
                         KUKURA
                         <div class="project-links">
-                            <a href="https://github.com/edsonjorgef1/kukura" target="_blank">GitHub</a> |
+                            <!-- <a href="https://github.com/edsonjorgef1/kukura" target="_blank">GitHub</a> | -->
                             <a href="https://play.google.com/store/apps/details?id=kukura.equipmoz.org" target="_blank">Google Play</a> |
                             <a href="https://xd.adobe.com/view/348a0ff6-0b41-438b-b218-97047ae23467-61d9" target="_blank">Protótipo</a>
                         </div>
@@ -742,8 +754,8 @@
                 <h3>Projetos Pessoais e Conquistas</h3>
                 <ul class="achievement-items">
                     <li>2022 - Participação no Hackability4Moz Hackathon organizado pela UEM com dois projetos: KUKANELA (aplicativo Android para aprender linguagem de sinais) e W11P (plugin web para ajudar pessoas com deficiência)</li>
-                    <li>🥈 2021 - Segundo lugar no #HACK Beira Hackathon com o projeto "DONANTE" (conceito de marketplace para conectar doadores, instituições e pessoas com necessidades reais)</li>
-                    <li>🥇 2020 - Primeiro lugar no #HACK Beira Hackathon com o projeto "C-YANGA" (My Church App)</li>
+                    <li>🥈 2021 - Segundo lugar na 2a Edição do #HACK Beira Hackathon com o projeto "DONANTE" (Conceito de marketplace para conectar doadores, instituições e pessoas com necessidades reais)</li>
+                    <li>🥇 2020 - Primeiro lugar na 1a Edição do #HACK Beira Hackathon com o projeto "C-YANGA" (My Church App)</li>
                     <li>2020 - Participação no MIT COVID19 Challenge Hackathon: Africa takes on COVID19</li>
                     <li>2019 - Participação nas VIII Jornadas Científicas na Universidade Zambeze, com a apresentação do Sistema Metamorphose Gymnasium</li>
                     <li>2018 - Participação nas VII Jornadas Científicas na Universidade Zambeze, com o aplicativo móvel Moz+Saude</li>
@@ -754,8 +766,8 @@
                 <h3>Outras Conquistas</h3>
                 <ul class="achievement-items">
                     <li>Excelência reconhecida em Hackathons locais e desafios tecnológicos</li>
-                    <li>2023: Especialista em Transformação Digital e Consultoria em AgriTech - Instalação e Treinamento em 10 empresas de diferentes cadeias de valor em 4 províncias: Manica, Zambézia, Nampula e Inhambane</li>
-                    <li>2021: Melhoria no Deploy, Gestão e Controle de Serviços Web (Aplicações, Sistemas, Websites, Servidores em Nuvem)</li>
+                    <li>2023: Participação na FACIM como expositor em representação dos projectos da Associação Empoderando Moçambique</li>
+                    <li>2023: Especialista em Transformação Digital e Consultoria em AgriTech - Desenvolvimento, Instalação, Configuração e Treinamento de Sistema FAMS em 10 empresas de diferentes cadeias de valor em 4 províncias: Manica, Zambézia, Nampula e Inhambane</li>
                 </ul>
             </div>
         </div>
@@ -767,7 +779,7 @@
                 <div class="reference-item">
                     <div class="reference-name">Adérito Mutane</div>
                     <div class="reference-position">Scrum Master na MPESA - Vodacom Moçambique</div>
-                    <div class="reference-contact">+258 847922831</div>
+                    <!-- <div class="reference-contact">+258 847922831</div> -->
                 </div>
                 
                 <div class="reference-item">
@@ -779,19 +791,19 @@
                 <div class="reference-item">
                     <div class="reference-name">Bernardo Magira</div>
                     <div class="reference-position">CEO da B&D Consultorias (ex-diretor da AEM)</div>
-                    <div class="reference-contact">+258 847432009</div>
+                    <!-- <div class="reference-contact">+258 847432009</div> -->
                 </div>
                 
                 <div class="reference-item">
                     <div class="reference-name">Edilson Marcelino</div>
                     <div class="reference-position">Diretor Executivo da Tech Solutions</div>
-                    <div class="reference-contact">+258 826456747</div>
+                    <!-- <div class="reference-contact">+258 826456747</div> -->
                 </div>
                 
                 <div class="reference-item">
                     <div class="reference-name">Ivan Vilanculos</div>
                     <div class="reference-position">Lead Web App na Vodacom Moçambique</div>
-                    <div class="reference-contact">+258 849902532 | ivan.vilanculo@vm.co.mz</div>
+                    <div class="reference-contact">ivan.vilanculo@vm.co.mz</div>
                 </div>
 
                 <div class="reference-item">
@@ -802,14 +814,14 @@
                 
                 <div class="reference-item">
                     <div class="reference-name">Nelson Soares de Sousa José</div>
-                    <div class="reference-position"> ICT Advisor na GIZ</div>
-                    <div class="reference-contact">+258 843182965</div>
+                    <div class="reference-position"> ICT Advisor na GIZ </div>
+                    <!-- <div class="reference-contact">+258 843182965</div> -->
                 </div>
                 
                 <div class="reference-item">
                     <div class="reference-name">Ralph Elsasser</div>
-                    <div class="reference-position">CEO da Geo-Solutions / Consultor Especialista (GIZ)</div>
-                    <div class="reference-contact">ralph.elsasser@geo-solutions.de</div>
+                    <div class="reference-position">CEO da Geo-Solutions / Consultor Especialista na GIZ</div>
+                    <div class="reference-contact">ralph.elsasser@geolutions.de</div>
                 </div>
             </div>
         </div>
@@ -830,59 +842,223 @@
             localStorage.setItem('theme', newTheme);
         }
 
-        // Language switching
+        // Language switching with smooth transition
         function changeLanguage(lang) {
-            document.documentElement.lang = lang;
-            localStorage.setItem('language', lang);
+            // Add fade-out effect
+            const container = document.querySelector('.container');
+            container.style.opacity = '0';
             
-            // Update title
-            document.title = translations[lang].title;
-            
-            // Update role
-            document.querySelector('.header-left h2').textContent = translations[lang].role;
-            
-            // Update section titles
-            document.querySelectorAll('.section-title').forEach(title => {
-                const section = title.textContent.toLowerCase();
-                if (section.includes('experiência')) {
-                    title.textContent = translations[lang].sections.experience;
-                } else if (section.includes('educação')) {
-                    title.textContent = translations[lang].sections.education;
-                } else if (section.includes('competências')) {
-                    title.textContent = translations[lang].sections.skills;
-                } else if (section.includes('projetos')) {
-                    title.textContent = translations[lang].sections.projects;
-                } else if (section.includes('conquistas')) {
-                    title.textContent = translations[lang].sections.achievements;
-                } else if (section.includes('referências')) {
-                    title.textContent = translations[lang].sections.references;
-                }
-            });
-            
-            // Update skill categories
-            document.querySelectorAll('.skill-category h3').forEach(category => {
-                const text = category.textContent.toLowerCase();
-                if (text.includes('línguas')) {
-                    category.textContent = translations[lang].skills.languages;
-                } else if (text.includes('digitais')) {
-                    category.textContent = translations[lang].skills.digital;
-                } else if (text.includes('interpessoais')) {
-                    category.textContent = translations[lang].skills.interpersonal;
-                } else if (text.includes('stack tecnológica') || text.includes('tech stack')) {
-                    category.textContent = translations[lang].sections.techStack;
-                }
-            });
-            
-            // Update achievement categories
-            document.querySelectorAll('.achievement-category h3').forEach(category => {
-                const text = category.textContent.toLowerCase();
-                if (text.includes('projetos pessoais')) {
-                    category.textContent = translations[lang].sections.personalProjects;
-                }
-            });
-            
-            // Update footer
-            document.querySelector('footer p').textContent = translations[lang].footer;
+            // Wait for fade-out to complete before changing content
+            setTimeout(() => {
+                document.documentElement.lang = lang;
+                localStorage.setItem('language', lang);
+                
+                // Update title
+                document.title = translations[lang].title;
+                
+                // Update role with animation
+                const roleElement = document.querySelector('.header-left h2');
+                roleElement.style.opacity = '0';
+                setTimeout(() => {
+                    roleElement.textContent = translations[lang].role;
+                    roleElement.style.opacity = '1';
+                }, 100);
+                
+                // Update section titles with staggered animation
+                const sectionTitles = document.querySelectorAll('.section-title');
+                sectionTitles.forEach((title, index) => {
+                    setTimeout(() => {
+                        title.style.opacity = '0';
+                        setTimeout(() => {
+                            const section = title.textContent.toLowerCase();
+                            if (section.includes('experiência') || section.includes('experience')) {
+                                title.textContent = translations[lang].sections.experience;
+                            } else if (section.includes('educação') || section.includes('education')) {
+                                title.textContent = translations[lang].sections.education;
+                            } else if (section.includes('competências') || section.includes('skills')) {
+                                title.textContent = translations[lang].sections.skills;
+                            } else if (section.includes('projetos') || section.includes('projects')) {
+                                title.textContent = translations[lang].sections.projects;
+                            } else if (section.includes('conquistas') || section.includes('achievements')) {
+                                title.textContent = translations[lang].sections.achievements;
+                            } else if (section.includes('referências') || section.includes('references')) {
+                                title.textContent = translations[lang].sections.references;
+                            }
+                            title.style.opacity = '1';
+                        }, 100);
+                    }, index * 50); // Using fixed delay instead of CSS variable
+                });
+                
+                // Update experience section with staggered animation
+                const jobs = document.querySelectorAll('.job');
+                jobs.forEach((job, index) => {
+                    setTimeout(() => {
+                        job.style.opacity = '0';
+                        setTimeout(() => {
+                            const jobTitle = job.querySelector('.job-title');
+                            const jobCompany = job.querySelector('.job-company');
+                            const jobDate = job.querySelector('.job-date');
+                            const jobDescription = job.querySelector('.job-description');
+
+                            let experienceKey;
+                            switch(index) {
+                                case 0:
+                                    experienceKey = 'itManager';
+                                    break;
+                                case 1:
+                                    experienceKey = 'programmer';
+                                    break;
+                                case 2:
+                                    experienceKey = 'technician';
+                                    break;
+                                case 3:
+                                    experienceKey = 'internAEM';
+                                    break;
+                                case 4:
+                                    experienceKey = 'internENSYS';
+                                    break;
+                            }
+
+                            if (experienceKey && translations[lang].experience[experienceKey]) {
+                                jobTitle.textContent = translations[lang].experience[experienceKey].title;
+                                jobCompany.textContent = translations[lang].experience[experienceKey].company;
+                                jobDate.textContent = translations[lang].experience[experienceKey].date;
+                                
+                                // Update responsibilities
+                                const responsibilities = translations[lang].experience[experienceKey].responsibilities;
+                                const listItems = jobDescription.querySelectorAll('li');
+                                listItems.forEach((item, i) => {
+                                    if (responsibilities[i + 1]) {
+                                        item.textContent = responsibilities[i + 1];
+                                    }
+                                });
+                            }
+                            job.style.opacity = '1';
+                        }, 100);
+                    }, index * 50); // Using fixed delay instead of CSS variable
+                });
+
+                // Update education section
+                const educations = document.querySelectorAll('.education');
+                educations.forEach((education, index) => {
+                    const educationTitle = education.querySelector('.education-title');
+                    const educationInstitution = education.querySelector('.education-institution');
+                    const educationDate = education.querySelector('.education-date');
+
+                    let educationKey;
+                    switch(index) {
+                        case 0:
+                            educationKey = 'computerEngineering';
+                            break;
+                        case 1:
+                            educationKey = 'secondary';
+                            break;
+                        case 2:
+                            educationKey = 'primary';
+                            break;
+                    }
+
+                    if (educationKey && translations[lang].education[educationKey]) {
+                        educationTitle.textContent = translations[lang].education[educationKey].title;
+                        educationInstitution.textContent = translations[lang].education[educationKey].institution || translations[lang].education[educationKey].school;
+                        educationDate.textContent = translations[lang].education[educationKey].date;
+                        if (translations[lang].education[educationKey].status) {
+                            education.querySelector('div:last-child').textContent = translations[lang].education[educationKey].status;
+                        }
+                    }
+                });
+
+                // Update skills section
+                const skillCategories = document.querySelectorAll('.skill-category');
+                skillCategories.forEach(category => {
+                    const categoryTitle = category.querySelector('h3');
+                    const skillItems = category.querySelectorAll('.skill-item');
+
+                    if (categoryTitle.textContent.toLowerCase().includes('línguas') || categoryTitle.textContent.toLowerCase().includes('languages')) {
+                        categoryTitle.textContent = translations[lang].skills.languages.title;
+                        skillItems[0].textContent = translations[lang].skills.languages.portuguese;
+                        skillItems[1].textContent = translations[lang].skills.languages.english;
+                        skillItems[2].textContent = translations[lang].skills.languages.spanish;
+                        skillItems[3].textContent = translations[lang].skills.languages.german;
+                    } else if (categoryTitle.textContent.toLowerCase().includes('digitais') || categoryTitle.textContent.toLowerCase().includes('digital')) {
+                        categoryTitle.textContent = translations[lang].skills.digital.title;
+                        translations[lang].skills.digital.items.forEach((item, index) => {
+                            if (skillItems[index]) {
+                                skillItems[index].textContent = item;
+                            }
+                        });
+                    } else if (categoryTitle.textContent.toLowerCase().includes('interpessoais') || categoryTitle.textContent.toLowerCase().includes('interpersonal')) {
+                        categoryTitle.textContent = translations[lang].skills.interpersonal.title;
+                        translations[lang].skills.interpersonal.items.forEach((item, index) => {
+                            if (skillItems[index]) {
+                                skillItems[index].textContent = item;
+                            }
+                        });
+                    } else if (categoryTitle.textContent.toLowerCase().includes('stack tecnológica') || categoryTitle.textContent.toLowerCase().includes('tech stack')) {
+                        categoryTitle.textContent = translations[lang].sections.techStack;
+                        translations[lang].skills.techStack.items.forEach((item, index) => {
+                            if (skillItems[index]) {
+                                skillItems[index].textContent = item;
+                            }
+                        });
+                    }
+                });
+
+                // Update projects section
+                const projectItems = document.querySelectorAll('.project-item');
+                projectItems.forEach((project, index) => {
+                    const projectTitle = project.querySelector('h3');
+                    if (translations[lang].projects && translations[lang].projects[index]) {
+                        projectTitle.textContent = translations[lang].projects[index].title;
+                        const projectDescription = project.querySelector('p');
+                        if (projectDescription && translations[lang].projects[index].description) {
+                            projectDescription.textContent = translations[lang].projects[index].description;
+                        }
+                    }
+                });
+
+                // Update achievements section
+                const achievementCategories = document.querySelectorAll('.achievement-category');
+                achievementCategories.forEach((category, index) => {
+                    const categoryTitle = category.querySelector('h3');
+                    if (translations[lang].achievements && translations[lang].achievements[index]) {
+                        categoryTitle.textContent = translations[lang].achievements[index].title;
+                        const achievementItems = category.querySelectorAll('.achievement-items li');
+                        if (translations[lang].achievements[index].items) {
+                            achievementItems.forEach((item, i) => {
+                                if (translations[lang].achievements[index].items[i]) {
+                                    item.textContent = translations[lang].achievements[index].items[i];
+                                }
+                            });
+                        }
+                    }
+                });
+
+                // Update footer
+                document.querySelector('footer p').textContent = translations[lang].footer.copyright;
+                
+                // Update download CV text with animation
+                const downloadText = document.getElementById('download-text');
+                downloadText.style.opacity = '0';
+                setTimeout(() => {
+                    downloadText.textContent = translations[lang].sections.downloadCV;
+                    downloadText.style.opacity = '1';
+                }, 100);
+
+                // Update theme toggle button text with animation
+                const themeToggle = document.querySelector('.theme-toggle');
+                themeToggle.style.opacity = '0';
+                setTimeout(() => {
+                    const currentTheme = document.body.getAttribute('data-theme');
+                    themeToggle.textContent = currentTheme === 'dark' ? 
+                        translations[lang].theme.darkMode : 
+                        translations[lang].theme.lightMode;
+                    themeToggle.style.opacity = '1';
+                }, 100);
+                
+                // Add fade-in effect
+                container.style.opacity = '1';
+            }, 300); // Match this with the transition speed in CSS
         }
 
         // Initialize theme and language from localStorage
