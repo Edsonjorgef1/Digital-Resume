@@ -3,8 +3,8 @@ const translations = {
         title: "CV Profissional - Edson Jorge Francisco",
         role: "Gestor de TI & Engenheiro Informático",
         theme: {
-            lightMode: "Modo Claro",
-            darkMode: "Modo Escuro"
+            lightMode: "☀️",
+            darkMode: "🌙"
         },
         sections: {
             about: "Sobre Mim",
@@ -20,7 +20,7 @@ const translations = {
         },
         about: {
             title: "Resumo Profissional",
-            content: "Profissional de TI com mais de 7 anos de experiência em gestão de equipes e desenvolvimento de soluções tecnológicas. Especializado em liderança de equipes de até 17 profissionais, com forte foco em projetos de impacto social e transformação digital. Experiência comprovada em implementação de sistemas cloud, administração de infraestrutura e desenvolvimento de aplicações web e móveis. Comprometido com a inovação e excelência técnica, sempre buscando soluções criativas para desafios complexos."
+            content: "Sou um profissional generalista de TI dedicado a liderar e apoiar projetos que capacitam comunidades locais com habilidades digitais e soluções inovadoras. Estudei na Universidade Zambeze, onde adquiri os fundamentos em engenharia de software, programação e administração de sistemas. Com mais de 7 anos de experiência, gerencio equipes de até 17 profissionais, atuo no treinamento e coaching de colaboradores juniores e desenvolvo aplicações web com foco no back-end e na implantação em nuvem. Proativo e comprometido, estou sempre me atualizando para aplicar práticas inovadoras que gerem impacto real e promovam a transformação digital."
         },
         experience: {
             itManager: {
@@ -281,8 +281,8 @@ const translations = {
         title: "Professional CV - Edson Jorge Francisco",
         role: "IT Manager & Computer Engineer",
         theme: {
-            lightMode: "Light Mode",
-            darkMode: "Dark Mode"
+            lightMode: "☀️",
+            darkMode: "🌙"
         },
         sections: {
             about: "About Me",
@@ -298,7 +298,7 @@ const translations = {
         },
         about: {
             title: "Professional Summary",
-            content: "IT professional with over 7 years of experience in team management and technological solution development. Specialized in leading teams of up to 17 professionals, with a strong focus on social impact projects and digital transformation. Proven experience in cloud systems implementation, infrastructure administration, and web and mobile application development. Committed to innovation and technical excellence, always seeking creative solutions to complex challenges."
+            content: "I am a generalist IT professional dedicated to leading and supporting projects that empower local communities with digital skills and innovative solutions. I studied at Universidade Zambeze, where I acquired the fundamentals in software engineering, programming, and systems administration. With over 7 years of experience, I manage teams of up to 17 professionals, work on training and coaching junior collaborators, and develop web applications focusing on back-end and cloud deployment. Proactive and committed, I am constantly updating myself to apply innovative practices that generate real impact and promote digital transformation."
         },
         experience: {
             itManager: {
@@ -559,8 +559,8 @@ const translations = {
         title: "CV Profesional - Edson Jorge Francisco",
         role: "Gerente de TI e Ingeniero Informático",
         theme: {
-            lightMode: "Modo Claro",
-            darkMode: "Modo Oscuro"
+            lightMode: "☀️",
+            darkMode: "🌙"
         },
         sections: {
             about: "Sobre Mí",
@@ -576,7 +576,7 @@ const translations = {
         },
         about: {
             title: "Resumen Profesional",
-            content: "Profesional de TI con más de 7 años de experiencia en gestión de equipos y desarrollo de soluciones tecnológicas. Especializado en liderar equipos de hasta 17 profesionales, con un fuerte enfoque en proyectos de impacto social y transformación digital. Experiencia probada en implementación de sistemas en la nube, administración de infraestructura y desarrollo de aplicaciones web y móviles. Comprometido con la innovación y la excelencia técnica, siempre buscando soluciones creativas para desafíos complejos."
+            content: "Soy un profesional generalista de TI dedicado a liderar y apoyar proyectos que empoderan a las comunidades locales con habilidades digitales y soluciones innovadoras. Estudié en la Universidade Zambeze, donde adquirí los fundamentos en ingeniería de software, programación y administración de sistemas. Con más de 7 años de experiencia, gestiono equipos de hasta 17 profesionales, trabajo en la formación y coaching de colaboradores junior y desarrollo aplicaciones web centrándome en el back-end y la implementación en la nube. Proactivo y comprometido, estoy constantemente actualizándome para aplicar prácticas innovadoras que generen impacto real y promuevan la transformación digital."
         },
         experience: {
             itManager: {
@@ -628,7 +628,7 @@ const translations = {
                 company: "ENSYS (Enterprise Systems and Development), LDA",
                 date: "Octubre 2018 – Noviembre 2018",
                 responsibilities: {
-                    1: "Operador en el Departamento Técnico de Control y Monitoreo de Vehículos y Videovigilancia"
+                    1: "Operator in the Technical Department of Vehicle Control and Monitoring and Video Surveillance"
                 }
             }
         },
@@ -771,7 +771,7 @@ const translations = {
                     "Coach: Apoyo al crecimiento personal de otros",
                     "Estratega: Pensamiento amplio y toma de decisiones",
                     "Filomata: Aprendizaje continuo y exploración",
-                    "Solucionador de Problemas: Diagnóstico de problemas y desarrollo de soluciones"
+                    "Problemlöser: Diagnose von Problemen und Entwicklung von Lösungen"
                 ]
             },
             {
@@ -837,8 +837,8 @@ const translations = {
         title: "Professioneller Lebenslauf - Edson Jorge Francisco",
         role: "IT-Manager & Informatikingenieur",
         theme: {
-            lightMode: "Hellmodus",
-            darkMode: "Dunkelmodus"
+            lightMode: "☀️",
+            darkMode: "🌙"
         },
         sections: {
             about: "Über Mich",
@@ -854,7 +854,7 @@ const translations = {
         },
         about: {
             title: "Professionelles Profil",
-            content: "IT-Experte mit über 7 Jahren Erfahrung im Teammanagement und der Entwicklung technologischer Lösungen. Spezialisiert auf die Führung von Teams mit bis zu 17 Fachkräften, mit starkem Fokus auf Projekte mit sozialer Wirkung und digitale Transformation. Bewährte Erfahrung in der Implementierung von Cloud-Systemen, Infrastrukturverwaltung und der Entwicklung von Web- und mobilen Anwendungen. Engagiert für Innovation und technische Exzellenz, stets auf der Suche nach kreativen Lösungen für komplexe Herausforderungen."
+            content: "Ich bin ein generalistischer IT-Experte, der sich der Führung und Unterstützung von Projekten widmet, die lokale Gemeinschaften mit digitalen Fähigkeiten und innovativen Lösungen stärken. Ich habe an der Universidade Zambeze studiert, wo ich die Grundlagen der Softwareentwicklung, Programmierung und Systemadministration erworben habe. Mit über 7 Jahren Erfahrung leite ich Teams von bis zu 17 Fachkräften, arbeite an der Ausbildung und dem Coaching von Junior-Mitarbeitern und entwickle Webanwendungen mit Fokus auf Back-End und Cloud-Bereitstellung. Proaktiv und engagiert, aktualisiere ich mich ständig, um innovative Praktiken anzuwenden, die echte Wirkung erzeugen und die digitale Transformation fördern."
         },
         experience: {
             itManager: {
