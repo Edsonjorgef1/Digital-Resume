@@ -3,10 +3,11 @@ const translations = {
         title: "CV Profissional - Edson Jorge Francisco",
         role: "Gestor de TI & Engenheiro Informático",
         theme: {
-            lightMode: "Modo Claro",
-            darkMode: "Modo Escuro"
+            lightMode: "☀️",
+            darkMode: "🌙"
         },
         sections: {
+            about: "Sobre Mim",
             experience: "Experiência Profissional",
             education: "Educação e Formação",
             skills: "Competências",
@@ -16,6 +17,10 @@ const translations = {
             techStack: "Stack Tecnológica",
             personalProjects: "Projetos Pessoais e Conquistas",
             downloadCV: "Baixar CV em PDF"
+        },
+        about: {
+            title: "Resumo Profissional",
+            content: "Sou um profissional generalista de TI dedicado a liderar e apoiar projetos que capacitam comunidades locais com habilidades digitais e soluções inovadoras. Estudei na Universidade Zambeze, onde adquiri os fundamentos em engenharia de software, programação e administração de sistemas. Com mais de 7 anos de experiência, gerencio equipes de até 17 profissionais, atuo no treinamento e coaching de colaboradores juniores e desenvolvo aplicações web com foco no back-end e na implantação em nuvem. Proativo e comprometido, estou sempre me atualizando para aplicar práticas inovadoras que gerem impacto real e promovam a transformação digital."
         },
         experience: {
             itManager: {
@@ -276,10 +281,11 @@ const translations = {
         title: "Professional CV - Edson Jorge Francisco",
         role: "IT Manager & Computer Engineer",
         theme: {
-            lightMode: "Light Mode",
-            darkMode: "Dark Mode"
+            lightMode: "☀️",
+            darkMode: "🌙"
         },
         sections: {
+            about: "About Me",
             experience: "Professional Experience",
             education: "Education and Training",
             skills: "Skills",
@@ -289,6 +295,10 @@ const translations = {
             techStack: "Tech Stack",
             personalProjects: "Personal Projects and Achievements",
             downloadCV: "Download CV in PDF"
+        },
+        about: {
+            title: "Professional Summary",
+            content: "I am a generalist IT professional dedicated to leading and supporting projects that empower local communities with digital skills and innovative solutions. I studied at Universidade Zambeze, where I acquired the fundamentals in software engineering, programming, and systems administration. With over 7 years of experience, I manage teams of up to 17 professionals, work on training and coaching junior collaborators, and develop web applications focusing on back-end and cloud deployment. Proactive and committed, I am constantly updating myself to apply innovative practices that generate real impact and promote digital transformation."
         },
         experience: {
             itManager: {
@@ -549,10 +559,11 @@ const translations = {
         title: "CV Profesional - Edson Jorge Francisco",
         role: "Gerente de TI e Ingeniero Informático",
         theme: {
-            lightMode: "Modo Claro",
-            darkMode: "Modo Oscuro"
+            lightMode: "☀️",
+            darkMode: "🌙"
         },
         sections: {
+            about: "Sobre Mí",
             experience: "Experiencia Profesional",
             education: "Educación y Formación",
             skills: "Competencias",
@@ -562,6 +573,10 @@ const translations = {
             techStack: "Stack Tecnológico",
             personalProjects: "Proyectos Personales y Logros",
             downloadCV: "Descargar CV en PDF"
+        },
+        about: {
+            title: "Resumen Profesional",
+            content: "Soy un profesional generalista de TI dedicado a liderar y apoyar proyectos que empoderan a las comunidades locales con habilidades digitales y soluciones innovadoras. Estudié en la Universidade Zambeze, donde adquirí los fundamentos en ingeniería de software, programación y administración de sistemas. Con más de 7 años de experiencia, gestiono equipos de hasta 17 profesionales, trabajo en la formación y coaching de colaboradores junior y desarrollo aplicaciones web centrándome en el back-end y la implementación en la nube. Proactivo y comprometido, estoy constantemente actualizándome para aplicar prácticas innovadoras que generen impacto real y promuevan la transformación digital."
         },
         experience: {
             itManager: {
@@ -613,7 +628,7 @@ const translations = {
                 company: "ENSYS (Enterprise Systems and Development), LDA",
                 date: "Octubre 2018 – Noviembre 2018",
                 responsibilities: {
-                    1: "Operador en el Departamento Técnico de Control y Monitoreo de Vehículos y Videovigilancia"
+                    1: "Operator in the Technical Department of Vehicle Control and Monitoring and Video Surveillance"
                 }
             }
         },
@@ -756,7 +771,7 @@ const translations = {
                     "Coach: Apoyo al crecimiento personal de otros",
                     "Estratega: Pensamiento amplio y toma de decisiones",
                     "Filomata: Aprendizaje continuo y exploración",
-                    "Solucionador de Problemas: Diagnóstico de problemas y desarrollo de soluciones"
+                    "Problemlöser: Diagnose von Problemen und Entwicklung von Lösungen"
                 ]
             },
             {
@@ -822,19 +837,24 @@ const translations = {
         title: "Professioneller Lebenslauf - Edson Jorge Francisco",
         role: "IT-Manager & Informatikingenieur",
         theme: {
-            lightMode: "Hellmodus",
-            darkMode: "Dunkelmodus"
+            lightMode: "☀️",
+            darkMode: "🌙"
         },
         sections: {
+            about: "Über Mich",
             experience: "Berufserfahrung",
             education: "Ausbildung und Qualifikation",
             skills: "Fähigkeiten",
             projects: "Projekte",
             achievements: "Erfolge und Bewertungen",
             references: "Referenzen",
-            techStack: "Tech-Stack",
+            techStack: "Technologie-Stack",
             personalProjects: "Persönliche Projekte und Erfolge",
             downloadCV: "Lebenslauf als PDF herunterladen"
+        },
+        about: {
+            title: "Professionelles Profil",
+            content: "Ich bin ein generalistischer IT-Experte, der sich der Führung und Unterstützung von Projekten widmet, die lokale Gemeinschaften mit digitalen Fähigkeiten und innovativen Lösungen stärken. Ich habe an der Universidade Zambeze studiert, wo ich die Grundlagen der Softwareentwicklung, Programmierung und Systemadministration erworben habe. Mit über 7 Jahren Erfahrung leite ich Teams von bis zu 17 Fachkräften, arbeite an der Ausbildung und dem Coaching von Junior-Mitarbeitern und entwickle Webanwendungen mit Fokus auf Back-End und Cloud-Bereitstellung. Proaktiv und engagiert, aktualisiere ich mich ständig, um innovative Praktiken anzuwenden, die echte Wirkung erzeugen und die digitale Transformation fördern."
         },
         experience: {
             itManager: {
@@ -933,7 +953,7 @@ const translations = {
                 ]
             },
             techStack: {
-                title: "Tech-Stack",
+                title: "Technologie-Stack",
                 items: [
                     "PHP, Javascript, Typescript, LAMP, Postman",
                     "Laravel, Livewire, jQuery, JSON",
