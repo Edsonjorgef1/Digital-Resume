@@ -797,14 +797,14 @@
                 
                 <div class="reference-item">
                     <div class="reference-name">Nelson Soares de Sousa José</div>
-                    <div class="reference-position"> ICT Advisor na GIZ</div>
+                    <div class="reference-position"> ICT Advisor na GIZ </div>
                     <!-- <div class="reference-contact">+258 843182965</div> -->
                 </div>
                 
                 <div class="reference-item">
                     <div class="reference-name">Ralph Elsasser</div>
-                    <div class="reference-position">CEO da Geo-Solutions / Consultor Especialista (GIZ)</div>
-                    <div class="reference-contact">ralph.elsasser@geo-solutions.de</div>
+                    <div class="reference-position">CEO da Geo-Solutions / Consultor Especialista na GIZ</div>
+                    <div class="reference-contact">ralph.elsasser@geolutions.de</div>
                 </div>
             </div>
         </div>
@@ -839,45 +839,172 @@
             // Update section titles
             document.querySelectorAll('.section-title').forEach(title => {
                 const section = title.textContent.toLowerCase();
-                if (section.includes('experiência')) {
+                if (section.includes('experiência') || section.includes('experience')) {
                     title.textContent = translations[lang].sections.experience;
-                } else if (section.includes('educação')) {
+                } else if (section.includes('educação') || section.includes('education')) {
                     title.textContent = translations[lang].sections.education;
-                } else if (section.includes('competências')) {
+                } else if (section.includes('competências') || section.includes('skills')) {
                     title.textContent = translations[lang].sections.skills;
-                } else if (section.includes('projetos')) {
+                } else if (section.includes('projetos') || section.includes('projects')) {
                     title.textContent = translations[lang].sections.projects;
-                } else if (section.includes('conquistas')) {
+                } else if (section.includes('conquistas') || section.includes('achievements')) {
                     title.textContent = translations[lang].sections.achievements;
-                } else if (section.includes('referências')) {
+                } else if (section.includes('referências') || section.includes('references')) {
                     title.textContent = translations[lang].sections.references;
                 }
             });
             
-            // Update skill categories
-            document.querySelectorAll('.skill-category h3').forEach(category => {
-                const text = category.textContent.toLowerCase();
-                if (text.includes('línguas')) {
-                    category.textContent = translations[lang].skills.languages;
-                } else if (text.includes('digitais')) {
-                    category.textContent = translations[lang].skills.digital;
-                } else if (text.includes('interpessoais')) {
-                    category.textContent = translations[lang].skills.interpersonal;
-                } else if (text.includes('stack tecnológica') || text.includes('tech stack')) {
-                    category.textContent = translations[lang].sections.techStack;
+            // Update experience section
+            const jobs = document.querySelectorAll('.job');
+            jobs.forEach((job, index) => {
+                const jobTitle = job.querySelector('.job-title');
+                const jobCompany = job.querySelector('.job-company');
+                const jobDate = job.querySelector('.job-date');
+                const jobDescription = job.querySelector('.job-description');
+
+                let experienceKey;
+                switch(index) {
+                    case 0:
+                        experienceKey = 'itManager';
+                        break;
+                    case 1:
+                        experienceKey = 'programmer';
+                        break;
+                    case 2:
+                        experienceKey = 'technician';
+                        break;
+                    case 3:
+                        experienceKey = 'internAEM';
+                        break;
+                    case 4:
+                        experienceKey = 'internENSYS';
+                        break;
+                }
+
+                if (experienceKey && translations[lang].experience[experienceKey]) {
+                    jobTitle.textContent = translations[lang].experience[experienceKey].title;
+                    jobCompany.textContent = translations[lang].experience[experienceKey].company;
+                    jobDate.textContent = translations[lang].experience[experienceKey].date;
+                    
+                    // Update responsibilities
+                    const responsibilities = translations[lang].experience[experienceKey].responsibilities;
+                    const listItems = jobDescription.querySelectorAll('li');
+                    listItems.forEach((item, i) => {
+                        if (responsibilities[i + 1]) {
+                            item.textContent = responsibilities[i + 1];
+                        }
+                    });
                 }
             });
-            
-            // Update achievement categories
-            document.querySelectorAll('.achievement-category h3').forEach(category => {
-                const text = category.textContent.toLowerCase();
-                if (text.includes('projetos pessoais')) {
-                    category.textContent = translations[lang].sections.personalProjects;
+
+            // Update education section
+            const educations = document.querySelectorAll('.education');
+            educations.forEach((education, index) => {
+                const educationTitle = education.querySelector('.education-title');
+                const educationInstitution = education.querySelector('.education-institution');
+                const educationDate = education.querySelector('.education-date');
+
+                let educationKey;
+                switch(index) {
+                    case 0:
+                        educationKey = 'computerEngineering';
+                        break;
+                    case 1:
+                        educationKey = 'secondary';
+                        break;
+                    case 2:
+                        educationKey = 'primary';
+                        break;
+                }
+
+                if (educationKey && translations[lang].education[educationKey]) {
+                    educationTitle.textContent = translations[lang].education[educationKey].title;
+                    educationInstitution.textContent = translations[lang].education[educationKey].institution || translations[lang].education[educationKey].school;
+                    educationDate.textContent = translations[lang].education[educationKey].date;
+                    if (translations[lang].education[educationKey].status) {
+                        education.querySelector('div:last-child').textContent = translations[lang].education[educationKey].status;
+                    }
                 }
             });
-            
+
+            // Update skills section
+            const skillCategories = document.querySelectorAll('.skill-category');
+            skillCategories.forEach(category => {
+                const categoryTitle = category.querySelector('h3');
+                const skillItems = category.querySelectorAll('.skill-item');
+
+                if (categoryTitle.textContent.toLowerCase().includes('línguas') || categoryTitle.textContent.toLowerCase().includes('languages')) {
+                    categoryTitle.textContent = translations[lang].skills.languages.title;
+                    skillItems[0].textContent = translations[lang].skills.languages.portuguese;
+                    skillItems[1].textContent = translations[lang].skills.languages.english;
+                    skillItems[2].textContent = translations[lang].skills.languages.spanish;
+                    skillItems[3].textContent = translations[lang].skills.languages.german;
+                } else if (categoryTitle.textContent.toLowerCase().includes('digitais') || categoryTitle.textContent.toLowerCase().includes('digital')) {
+                    categoryTitle.textContent = translations[lang].skills.digital.title;
+                    translations[lang].skills.digital.items.forEach((item, index) => {
+                        if (skillItems[index]) {
+                            skillItems[index].textContent = item;
+                        }
+                    });
+                } else if (categoryTitle.textContent.toLowerCase().includes('interpessoais') || categoryTitle.textContent.toLowerCase().includes('interpersonal')) {
+                    categoryTitle.textContent = translations[lang].skills.interpersonal.title;
+                    translations[lang].skills.interpersonal.items.forEach((item, index) => {
+                        if (skillItems[index]) {
+                            skillItems[index].textContent = item;
+                        }
+                    });
+                } else if (categoryTitle.textContent.toLowerCase().includes('stack tecnológica') || categoryTitle.textContent.toLowerCase().includes('tech stack')) {
+                    categoryTitle.textContent = translations[lang].sections.techStack;
+                    translations[lang].skills.techStack.items.forEach((item, index) => {
+                        if (skillItems[index]) {
+                            skillItems[index].textContent = item;
+                        }
+                    });
+                }
+            });
+
+            // Update projects section
+            const projectItems = document.querySelectorAll('.project-item');
+            projectItems.forEach((project, index) => {
+                const projectTitle = project.querySelector('h3');
+                if (translations[lang].projects && translations[lang].projects[index]) {
+                    projectTitle.textContent = translations[lang].projects[index].title;
+                    const projectDescription = project.querySelector('p');
+                    if (projectDescription && translations[lang].projects[index].description) {
+                        projectDescription.textContent = translations[lang].projects[index].description;
+                    }
+                }
+            });
+
+            // Update achievements section
+            const achievementCategories = document.querySelectorAll('.achievement-category');
+            achievementCategories.forEach((category, index) => {
+                const categoryTitle = category.querySelector('h3');
+                if (translations[lang].achievements && translations[lang].achievements[index]) {
+                    categoryTitle.textContent = translations[lang].achievements[index].title;
+                    const achievementItems = category.querySelectorAll('.achievement-items li');
+                    if (translations[lang].achievements[index].items) {
+                        achievementItems.forEach((item, i) => {
+                            if (translations[lang].achievements[index].items[i]) {
+                                item.textContent = translations[lang].achievements[index].items[i];
+                            }
+                        });
+                    }
+                }
+            });
+
             // Update footer
-            document.querySelector('footer p').textContent = translations[lang].footer;
+            document.querySelector('footer p').textContent = translations[lang].footer.copyright;
+            
+            // Update download CV text
+            document.getElementById('download-text').textContent = translations[lang].sections.downloadCV;
+
+            // Update theme toggle button text
+            const themeToggle = document.querySelector('.theme-toggle');
+            const currentTheme = document.body.getAttribute('data-theme');
+            themeToggle.textContent = currentTheme === 'dark' ? 
+                translations[lang].theme.darkMode : 
+                translations[lang].theme.lightMode;
         }
 
         // Initialize theme and language from localStorage
