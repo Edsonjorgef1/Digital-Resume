@@ -40,6 +40,35 @@ const translations = {
                     2: "Participação em projetos de configuração de servidores na nuvem",
                     3: "Integração de novos sistemas garantindo compatibilidade e desempenho ideal"
                 }
+            },
+            technician: {
+                title: "Técnico e Programador Informático",
+                company: "Associação Empoderando Moçambique (Equip Mozambique)",
+                date: "Julho 2019 – Setembro 2022",
+                responsibilities: {
+                    1: "Participação no desenvolvimento de sistemas e programação",
+                    2: "Prestação de suporte técnico e operações de helpdesk",
+                    3: "Realização de manutenção preventiva e corretiva de hardware e software",
+                    4: "Colaboração com clientes para garantir satisfação"
+                }
+            },
+            internAEM: {
+                title: "Estagiário de TI",
+                company: "Associação Empoderando Moçambique (Equip Mozambique)",
+                date: "Maio 2019 – Julho 2019",
+                responsibilities: {
+                    1: "Introdução ao desenvolvimento de sistemas e programação",
+                    2: "Assistência em tarefas básicas de TI e operações",
+                    3: "Aprendizagem de sistemas e protocolos organizacionais"
+                }
+            },
+            internENSYS: {
+                title: "Estagiário de TI",
+                company: "ENSYS (Enterprise Systems and Development), LDA",
+                date: "Outubro 2018 – Novembro 2018",
+                responsibilities: {
+                    1: "Operator no Departamento Técnico de Controle e Monitoramento de Veículos e Videovigilância"
+                }
             }
         },
         education: {
@@ -48,6 +77,21 @@ const translations = {
                 institution: "Universidade Zambeze, Beira",
                 date: "Conclusão prevista: 2025",
                 status: "Finalista – Aguardando Defesa de Monografia"
+            },
+            university: {
+                // ... existing code ...
+            },
+            secondary: {
+                title: "Ensino Secundário",
+                school: "Escola Secundária de Tete",
+                date: "2014 – 2016",
+                details: "Conclusão do ensino secundário com foco em ciências e matemática"
+            },
+            primary: {
+                title: "Ensino Primário",
+                school: "Escola Primária Completa de Tete",
+                date: "2006 – 2013",
+                details: "Conclusão do ensino primário com excelente desempenho acadêmico"
             }
         },
         skills: {
@@ -91,9 +135,57 @@ const translations = {
                     "Integração em equipe e adaptabilidade",
                     "Abordagem dinâmica para resolução de problemas"
                 ]
+            },
+            title: "Habilidades Técnicas",
+            programming: {
+                title: "Linguagens de Programação",
+                items: [
+                    "JavaScript",
+                    "Python",
+                    "Java",
+                    "PHP",
+                    "HTML/CSS"
+                ]
+            },
+            frameworks: {
+                title: "Frameworks e Bibliotecas",
+                items: [
+                    "React",
+                    "Node.js",
+                    "Express",
+                    "Django",
+                    "Laravel"
+                ]
+            },
+            databases: {
+                title: "Bancos de Dados",
+                items: [
+                    "MySQL",
+                    "PostgreSQL",
+                    "MongoDB",
+                    "Redis"
+                ]
+            },
+            tools: {
+                title: "Ferramentas e Tecnologias",
+                items: [
+                    "Git",
+                    "Docker",
+                    "AWS",
+                    "Linux",
+                    "REST APIs"
+                ]
             }
         },
-        footer: "© 2025 Edson Jorge Francisco. Todos os direitos reservados."
+        footer: {
+            contact: "Contato",
+            email: "Email",
+            phone: "Telefone",
+            address: "Endereço",
+            social: "Redes Sociais",
+            copyright: "© 2024 Edson Manuel. Todos os direitos reservados.",
+            madeWith: "Feito com ❤️ usando HTML, CSS e JavaScript"
+        }
     },
     en: {
         title: "Professional CV - Edson Jorge Francisco",
@@ -135,6 +227,35 @@ const translations = {
                     1: "Contribution to systems analysis and development",
                     2: "Participation in cloud server configuration projects",
                     3: "Integration of new systems ensuring compatibility and optimal performance"
+                }
+            },
+            technician: {
+                title: "IT Technician and Programmer",
+                company: "Empowering Mozambique Association (Equip Mozambique)",
+                date: "July 2019 – September 2022",
+                responsibilities: {
+                    1: "Participation in system development and programming",
+                    2: "Provision of technical support and helpdesk operations",
+                    3: "Conducting preventive and corrective maintenance of hardware and software",
+                    4: "Collaboration with clients to ensure satisfaction"
+                }
+            },
+            internAEM: {
+                title: "IT Intern",
+                company: "Empowering Mozambique Association (Equip Mozambique)",
+                date: "May 2019 – July 2019",
+                responsibilities: {
+                    1: "Introduction to system development and programming",
+                    2: "Assistance with basic IT tasks and operations",
+                    3: "Learning about systems and organizational protocols"
+                }
+            },
+            internENSYS: {
+                title: "IT Intern",
+                company: "ENSYS (Enterprise Systems and Development), LDA",
+                date: "October 2018 – November 2018",
+                responsibilities: {
+                    1: "Operator in the Vehicle Control and Video Surveillance Department"
                 }
             }
         },
@@ -232,6 +353,35 @@ const translations = {
                     2: "Participación en proyectos de configuración de servidores en la nube",
                     3: "Integración de nuevos sistemas garantizando compatibilidad y rendimiento óptimo"
                 }
+            },
+            technician: {
+                title: "Técnico y Programador Informático",
+                company: "Asociación Empoderando Mozambique (Equip Mozambique)",
+                date: "Julio 2019 – Septiembre 2022",
+                responsibilities: {
+                    1: "Participación en el desarrollo de sistemas y programación",
+                    2: "Prestación de soporte técnico y operaciones de helpdesk",
+                    3: "Realización de mantenimiento preventivo y correctivo de hardware y software",
+                    4: "Colaboración con clientes para garantizar satisfacción"
+                }
+            },
+            internAEM: {
+                title: "Pasante de TI",
+                company: "Asociación Empoderando Mozambique (Equip Mozambique)",
+                date: "Mayo 2019 – Julio 2019",
+                responsibilities: {
+                    1: "Introducción al desarrollo de sistemas y programación",
+                    2: "Asistencia con tareas básicas de TI y operaciones",
+                    3: "Aprendizaje de sistemas y protocolos organizacionales"
+                }
+            },
+            internENSYS: {
+                title: "Pasante de TI",
+                company: "ENSYS (Enterprise Systems and Development), LDA",
+                date: "Octubre 2018 – Noviembre 2018",
+                responsibilities: {
+                    1: "Operator en el Departamento Técnico de Control y Monitoreo de Vehículos y Videovigilancia"
+                }
             }
         },
         education: {
@@ -327,6 +477,35 @@ const translations = {
                     1: "Beitrag zur Systemanalyse und -entwicklung",
                     2: "Teilnahme an Cloud-Server-Konfigurationsprojekten",
                     3: "Integration neuer Systeme unter Gewährleistung von Kompatibilität und optimaler Leistung"
+                }
+            },
+            technician: {
+                title: "IT-Techniker und Programmierer",
+                company: "Empowering Mozambique Association (Equip Mozambique)",
+                date: "Juli 2019 – September 2022",
+                responsibilities: {
+                    1: "Teilnahme am Systementwicklungs- und Programmierungsprozess",
+                    2: "Bereitstellung von technischem Support und Helpdesk-Diensten",
+                    3: "Durchführung von vorbeugenden und korrektiven Hardware- und Softwarewartungen",
+                    4: "Zusammenarbeit mit Kunden zur Gewährleistung der Zufriedenheit"
+                }
+            },
+            internAEM: {
+                title: "Praktikant IT",
+                company: "Empowering Mozambique Association (Equip Mozambique)",
+                date: "Mai 2019 – Juli 2019",
+                responsibilities: {
+                    1: "Einführung in Systementwicklung und Programmierung",
+                    2: "Hilfe bei grundlegenden IT-Aufgaben und -Vorgängen",
+                    3: "Lernen von Systemen und Organisationsprotokollen"
+                }
+            },
+            internENSYS: {
+                title: "Praktikant IT",
+                company: "ENSYS (Enterprise Systems and Development), LDA",
+                date: "Oktober 2018 – November 2018",
+                responsibilities: {
+                    1: "Operator im Technischen Abteilung von Fahrzeugkontrolle und Videoverfolgung"
                 }
             }
         },
