@@ -7,6 +7,7 @@ const translations = {
             darkMode: "Modo Escuro"
         },
         sections: {
+            about: "Sobre Mim",
             experience: "Experiência Profissional",
             education: "Educação e Formação",
             skills: "Competências",
@@ -16,6 +17,10 @@ const translations = {
             techStack: "Stack Tecnológica",
             personalProjects: "Projetos Pessoais e Conquistas",
             downloadCV: "Baixar CV em PDF"
+        },
+        about: {
+            title: "Resumo Profissional",
+            content: "Profissional de TI com mais de 7 anos de experiência em gestão de equipes e desenvolvimento de soluções tecnológicas. Especializado em liderança de equipes de até 17 profissionais, com forte foco em projetos de impacto social e transformação digital. Experiência comprovada em implementação de sistemas cloud, administração de infraestrutura e desenvolvimento de aplicações web e móveis. Comprometido com a inovação e excelência técnica, sempre buscando soluções criativas para desafios complexos."
         },
         experience: {
             itManager: {
@@ -280,6 +285,7 @@ const translations = {
             darkMode: "Dark Mode"
         },
         sections: {
+            about: "About Me",
             experience: "Professional Experience",
             education: "Education and Training",
             skills: "Skills",
@@ -289,6 +295,10 @@ const translations = {
             techStack: "Tech Stack",
             personalProjects: "Personal Projects and Achievements",
             downloadCV: "Download CV in PDF"
+        },
+        about: {
+            title: "Professional Summary",
+            content: "IT professional with over 7 years of experience in team management and technological solution development. Specialized in leading teams of up to 17 professionals, with a strong focus on social impact projects and digital transformation. Proven experience in cloud systems implementation, infrastructure administration, and web and mobile application development. Committed to innovation and technical excellence, always seeking creative solutions to complex challenges."
         },
         experience: {
             itManager: {
@@ -553,6 +563,7 @@ const translations = {
             darkMode: "Modo Oscuro"
         },
         sections: {
+            about: "Sobre Mí",
             experience: "Experiencia Profesional",
             education: "Educación y Formación",
             skills: "Competencias",
@@ -562,6 +573,10 @@ const translations = {
             techStack: "Stack Tecnológico",
             personalProjects: "Proyectos Personales y Logros",
             downloadCV: "Descargar CV en PDF"
+        },
+        about: {
+            title: "Resumen Profesional",
+            content: "Profesional de TI con más de 7 años de experiencia en gestión de equipos y desarrollo de soluciones tecnológicas. Especializado en liderar equipos de hasta 17 profesionales, con un fuerte enfoque en proyectos de impacto social y transformación digital. Experiencia probada en implementación de sistemas en la nube, administración de infraestructura y desarrollo de aplicaciones web y móviles. Comprometido con la innovación y la excelencia técnica, siempre buscando soluciones creativas para desafíos complejos."
         },
         experience: {
             itManager: {
@@ -826,15 +841,20 @@ const translations = {
             darkMode: "Dunkelmodus"
         },
         sections: {
+            about: "Über Mich",
             experience: "Berufserfahrung",
             education: "Ausbildung und Qualifikation",
             skills: "Fähigkeiten",
             projects: "Projekte",
             achievements: "Erfolge und Bewertungen",
             references: "Referenzen",
-            techStack: "Tech-Stack",
+            techStack: "Technologie-Stack",
             personalProjects: "Persönliche Projekte und Erfolge",
             downloadCV: "Lebenslauf als PDF herunterladen"
+        },
+        about: {
+            title: "Professionelles Profil",
+            content: "IT-Experte mit über 7 Jahren Erfahrung im Teammanagement und der Entwicklung technologischer Lösungen. Spezialisiert auf die Führung von Teams mit bis zu 17 Fachkräften, mit starkem Fokus auf Projekte mit sozialer Wirkung und digitale Transformation. Bewährte Erfahrung in der Implementierung von Cloud-Systemen, Infrastrukturverwaltung und der Entwicklung von Web- und mobilen Anwendungen. Engagiert für Innovation und technische Exzellenz, stets auf der Suche nach kreativen Lösungen für komplexe Herausforderungen."
         },
         experience: {
             itManager: {
@@ -933,7 +953,7 @@ const translations = {
                 ]
             },
             techStack: {
-                title: "Tech-Stack",
+                title: "Technologie-Stack",
                 items: [
                     "PHP, Javascript, Typescript, LAMP, Postman",
                     "Laravel, Livewire, jQuery, JSON",
