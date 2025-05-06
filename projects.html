@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projetos - Edson Jorge Francisco</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --text-color: #333;
+            --light-bg: #f5f7fa;
+            --border-color: #ddd;
+            --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        [data-theme="dark"] {
+            --primary-color: #3498db;
+            --secondary-color: #2ecc71;
+            --accent-color: #e74c3c;
+            --text-color: #ecf0f1;
+            --light-bg: #2c3e50;
+            --border-color: #34495e;
+            --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-bg);
+            color: var(--text-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+        }
+
+        .project-category {
+            margin-bottom: 4rem;
+        }
+
+        .category-title {
+            color: var(--secondary-color);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .swiper {
+            width: 100%;
+            height: 500px;
+            margin-bottom: 2rem;
+        }
+
+        .swiper-slide {
+            background: var(--light-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-title {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-description {
+            color: var(--text-color);
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        .project-links {
+            margin-top: auto;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .project-link {
+            color: var(--secondary-color);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--secondary-color);
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .project-link:hover {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: var(--primary-color);
+        }
+
+        .swiper-pagination-bullet {
+            background: var(--primary-color);
+        }
+
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            z-index: 1000;
+        }
+
+        .back-button:hover {
+            background-color: var(--secondary-color);
+        }
+
+        @media (max-width: 768px) {
+            .swiper {
+                height: 600px;
+            }
+
+            .project-image {
+                height: 200px;
+            }
+
+            .back-button {
+                position: static;
+                display: block;
+                margin-bottom: 20px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-button">← Voltar ao CV</a>
+    
+    <div class="container">
+        <h1 class="section-title">Meus Projetos</h1>
+
+        <!-- Projetos de Tecnologia -->
+        <div class="project-category">
+            <h2 class="category-title">Projetos de Tecnologia</h2>
+            <div class="swiper tech-projects">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="assets/images/projects/0.jpg" alt="FAMS" class="project-image">
+                        <div class="project-content">
+                            <h3 class="project-title">FAMS - Sistema de Gestão de Agricultores</h3>
+                            <p class="project-description">Sistema desenvolvido para GIZ e COMO Consult para gestão de agricultores e agentes, com foco em transformação digital no setor agrícola.</p>
+                            <div class="project-links">
+                                <a href="https://fams.co.mz" class="project-link" target="_blank">Site Oficial</a>
+                                <a href="./assets/FAMS_Note_2023.pdf" class="project-link" target="_blank">Notas de Consultor</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="assets/images/projects/0.jpg" alt="Consultare" class="project-image">
+                        <div class="project-content">
+                            <h3 class="project-title">Consultare - Plataforma de Saúde</h3>
+                            <p class="project-description">Plataforma web para agendamento de consultas médicas e gestão de prontuários eletrônicos.</p>
+                            <div class="project-links">
+                                <a href="https://consultare.app" class="project-link" target="_blank">Site Oficial</a>
+                                <a href="https://web.consultare.app" class="project-link" target="_blank">Web App</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="assets/images/projects/0.jpg" alt="Fonte da Vida" class="project-image">
+                        <div class="project-content">
+                            <h3 class="project-title">Fonte da Vida - App Bíblico</h3>
+                            <p class="project-description">Aplicativo web para estudo bíblico e recursos cristãos.</p>
+                            <div class="project-links">
+                                <a href="https://web.fontedavida.org" class="project-link" target="_blank">Web App</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="assets/images/projects/0.jpg" alt="JURIS" class="project-image">
+                        <div class="project-content">
+                            <h3 class="project-title">JURIS - App de Direitos</h3>
+                            <p class="project-description">Aplicativo para acesso a informações jurídicas e direitos legais.</p>
+                            <div class="project-links">
+                                <a href="https://juris.co.mz" class="project-link" target="_blank">Site Oficial</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+
+        <!-- Implementações de Redes -->
+        <div class="project-category">
+            <h2 class="category-title">Implementações de Redes</h2>
+            <div class="swiper network-projects">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="assets/images/projects/0.jpg" alt="Infraestrutura de Rede" class="project-image">
+                        <div class="project-content">
+                            <h3 class="project-title">Infraestrutura de Rede Corporativa</h3>
+                            <p class="project-description">Implementação de rede corporativa com alta disponibilidade e segurança para empresa de médio porte.</p>
+                            <div class="project-links">
+                                <a href="#" class="project-link">Detalhes</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+
+        <!-- Projetos Freelance -->
+        <div class="project-category">
+            <h2 class="category-title">Projetos Freelance</h2>
+            <div class="swiper freelance-projects">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="assets/images/projects/0.jpg" alt="Djobar" class="project-image">
+                        <div class="project-content">
+                            <h3 class="project-title">Djobar - Plataforma de Emprego</h3>
+                            <p class="project-description">Plataforma web para busca e oferta de empregos em Moçambique.</p>
+                            <div class="project-links">
+                                <a href="https://djobar.co.mz" class="project-link" target="_blank">Site Oficial</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="assets/images/projects/0.jpg" alt="Casa Msika" class="project-image">
+                        <div class="project-content">
+                            <h3 class="project-title">Casa Msika</h3>
+                            <p class="project-description">Website institucional para empresa de construção civil.</p>
+                            <div class="project-links">
+                                <a href="https://casamsika.com" class="project-link" target="_blank">Site Oficial</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="assets/images/projects/0.jpg" alt="Município do Dondo" class="project-image">
+                        <div class="project-content">
+                            <h3 class="project-title">Município do Dondo</h3>
+                            <p class="project-description">Portal institucional do município com informações e serviços.</p>
+                            <div class="project-links">
+                                <a href="https://municipiododondo.gov.mz" class="project-link" target="_blank">Site Oficial</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+
+        <!-- Liderança e Treinamento -->
+        <div class="project-category">
+            <h2 class="category-title">Liderança e Treinamento</h2>
+            <div class="swiper leadership-projects">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="assets/images/projects/0.jpg" alt="Equipe" class="project-image">
+                        <div class="project-content">
+                            <h3 class="project-title">Gestão de Equipe de TI</h3>
+                            <p class="project-description">Liderança de equipe de 17 profissionais, implementação de metodologias ágeis e treinamentos técnicos.</p>
+                            <div class="project-links">
+                                <a href="#" class="project-link">Detalhes</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+
+        <!-- Casos de Uso de Transformação Digital -->
+        <div class="project-category">
+            <h2 class="category-title">Casos de Uso de Transformação Digital</h2>
+            <div class="swiper digital-projects">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="assets/images/projects/0.jpg" alt="Transformação Digital" class="project-image">
+                        <div class="project-content">
+                            <h3 class="project-title">Transformação Digital em Agricultura</h3>
+                            <p class="project-description">Implementação de soluções digitais para modernização do setor agrícola em 4 províncias de Moçambique.</p>
+                            <div class="project-links">
+                                <a href="#" class="project-link">Detalhes</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        // Inicializar todos os carrosséis
+        const swipers = [
+            new Swiper('.tech-projects', {
+                slidesPerView: 1,
+                spaceBetween: 30,
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                breakpoints: {
+                    768: {
+                        slidesPerView: 2,
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                    }
+                }
+            }),
+            new Swiper('.network-projects', {
+                slidesPerView: 1,
+                spaceBetween: 30,
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                breakpoints: {
+                    768: {
+                        slidesPerView: 2,
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                    }
+                }
+            }),
+            new Swiper('.freelance-projects', {
+                slidesPerView: 1,
+                spaceBetween: 30,
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                breakpoints: {
+                    768: {
+                        slidesPerView: 2,
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                    }
+                }
+            }),
+            new Swiper('.leadership-projects', {
+                slidesPerView: 1,
+                spaceBetween: 30,
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                breakpoints: {
+                    768: {
+                        slidesPerView: 2,
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                    }
+                }
+            }),
+            new Swiper('.digital-projects', {
+                slidesPerView: 1,
+                spaceBetween: 30,
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                breakpoints: {
+                    768: {
+                        slidesPerView: 2,
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                    }
+                }
+            })
+        ];
+    </script>
+</body>
+</html> 
