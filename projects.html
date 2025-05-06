@@ -3,116 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projetos - Edson Jorge Francisco</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <style>
         :root {
             --primary-color: #2c3e50;
             --secondary-color: #3498db;
-            --accent-color: #e74c3c;
             --text-color: #333;
-            --light-bg: #f5f7fa;
-            --border-color: #ddd;
-            --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --background-color: #fff;
+            --card-background: #f8f9fa;
+            --border-color: #dee2e6;
         }
 
         [data-theme="dark"] {
-            --primary-color: #3498db;
-            --secondary-color: #2ecc71;
-            --accent-color: #e74c3c;
-            --text-color: #ecf0f1;
-            --light-bg: #2c3e50;
-            --border-color: #34495e;
-            --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            --primary-color: #1a1a1a;
+            --secondary-color: #2980b9;
+            --text-color: #f8f9fa;
+            --background-color: #121212;
+            --card-background: #1e1e1e;
+            --border-color: #2d2d2d;
         }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: var(--light-bg);
+            background-color: var(--background-color);
             color: var(--text-color);
+            transition: background-color 0.3s, color 0.3s;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        .section-title {
+        .header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem;
             text-align: center;
-            color: var(--primary-color);
-            margin-bottom: 2rem;
-            font-size: 2.5rem;
+            position: relative;
+        }
+
+        .back-button {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            background-color: var(--secondary-color);
+        }
+
+        .theme-toggle, .language-toggle {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 1.5rem;
+            padding: 0.5rem;
+            transition: opacity 0.3s;
+        }
+
+        .theme-toggle {
+            right: 1rem;
+        }
+
+        .language-toggle {
+            right: 4rem;
+        }
+
+        .theme-toggle:hover, .language-toggle:hover {
+            opacity: 0.8;
         }
 
         .project-category {
-            margin-bottom: 4rem;
+            margin: 2rem 0;
+            padding: 0 1rem;
         }
 
         .category-title {
-            color: var(--secondary-color);
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
             text-align: center;
         }
 
         .swiper {
             width: 100%;
-            height: 500px;
-            margin-bottom: 2rem;
+            padding: 2rem 0;
         }
 
         .swiper-slide {
-            background: var(--light-bg);
+            background-color: var(--card-background);
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: var(--card-shadow);
-            display: flex;
-            flex-direction: column;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .swiper-slide:hover {
+            transform: translateY(-5px);
         }
 
         .project-image {
             width: 100%;
-            height: 250px;
+            height: 200px;
             object-fit: cover;
         }
 
         .project-content {
-            padding: 1.5rem;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
+            padding: 1rem;
         }
 
         .project-title {
+            margin: 0 0 0.5rem 0;
             color: var(--primary-color);
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+            font-size: 1.2rem;
         }
 
         .project-description {
+            margin: 0 0 1rem 0;
+            font-size: 0.9rem;
             color: var(--text-color);
-            margin-bottom: 1rem;
-            flex-grow: 1;
         }
 
         .project-links {
-            margin-top: auto;
             display: flex;
             gap: 1rem;
-            flex-wrap: wrap;
         }
 
         .project-link {
             color: var(--secondary-color);
             text-decoration: none;
-            padding: 0.5rem 1rem;
-            border: 1px solid var(--secondary-color);
-            border-radius: 5px;
-            transition: all 0.3s ease;
             font-size: 0.9rem;
+            padding: 0.3rem 0.6rem;
+            border: 1px solid var(--secondary-color);
+            border-radius: 3px;
+            transition: all 0.3s;
         }
 
         .project-link:hover {
@@ -122,56 +150,38 @@
 
         .swiper-button-next,
         .swiper-button-prev {
-            color: var(--primary-color);
+            color: var(--secondary-color);
         }
 
-        .swiper-pagination-bullet {
-            background: var(--primary-color);
-        }
-
-        .back-button {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            background-color: var(--primary-color);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            z-index: 1000;
-        }
-
-        .back-button:hover {
+        .swiper-pagination-bullet-active {
             background-color: var(--secondary-color);
         }
 
         @media (max-width: 768px) {
-            .swiper {
-                height: 600px;
+            .swiper-slide {
+                width: 100%;
             }
-
-            .project-image {
-                height: 200px;
-            }
-
-            .back-button {
-                position: static;
-                display: block;
-                margin-bottom: 20px;
-                text-align: center;
+            
+            .language-toggle {
+                right: 3.5rem;
             }
         }
     </style>
 </head>
 <body>
-    <a href="index.html" class="back-button">← Voltar ao CV</a>
+    <div class="header">
+        <a href="index.html" class="back-button" data-translate="Voltar">← Voltar</a>
+        <h1 data-translate="Meus Projetos">Meus Projetos</h1>
+        <button class="language-toggle" onclick="toggleLanguage()">🌐</button>
+        <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+    </div>
     
     <div class="container">
         <h1 class="section-title">Meus Projetos</h1>
 
         <!-- Projetos de Tecnologia -->
         <div class="project-category">
-            <h2 class="category-title">Projetos de Tecnologia</h2>
+            <h2 class="category-title" data-translate="Projetos de Tecnologia">Projetos de Tecnologia</h2>
             <div class="swiper tech-projects">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
@@ -216,6 +226,58 @@
                             </div>
                         </div>
                     </div>
+                    <div class="swiper-slide">
+                        <img src="assets/images/projects/0.jpg" alt="AIDAI" class="project-image">
+                        <div class="project-content">
+                            <h3 class="project-title">AIDAI</h3>
+                            <p class="project-description">Aplicativo para assistência e desenvolvimento de inteligência artificial.</p>
+                            <div class="project-links">
+                                <a href="https://equipmoz.org/projects/tech-team/other-apps/" class="project-link" target="_blank">Detalhes</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="assets/images/projects/0.jpg" alt="KULTUARE" class="project-image">
+                        <div class="project-content">
+                            <h3 class="project-title">KULTUARE</h3>
+                            <p class="project-description">Plataforma cultural e educacional.</p>
+                            <div class="project-links">
+                                <a href="https://equipmoz.org/projects/tech-team/other-apps" class="project-link" target="_blank">Detalhes</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="assets/images/projects/0.jpg" alt="HLINK" class="project-image">
+                        <div class="project-content">
+                            <h3 class="project-title">HLINK</h3>
+                            <p class="project-description">Plataforma de conexão e networking.</p>
+                            <div class="project-links">
+                                <a href="https://hlink.app" class="project-link" target="_blank">Website</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="assets/images/projects/0.jpg" alt="KUKURA" class="project-image">
+                        <div class="project-content">
+                            <h3 class="project-title">KUKURA</h3>
+                            <p class="project-description">Aplicativo móvel para desenvolvimento pessoal.</p>
+                            <div class="project-links">
+                                <a href="https://play.google.com/store/apps/details?id=kukura.equipmoz.org" class="project-link" target="_blank">Google Play</a>
+                                <a href="https://xd.adobe.com/view/348a0ff6-0b41-438b-b218-97047ae23467-61d9" class="project-link" target="_blank">Protótipo</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="assets/images/projects/0.jpg" alt="SEMMO" class="project-image">
+                        <div class="project-content">
+                            <h3 class="project-title">SEMMO</h3>
+                            <p class="project-description">Guia de urgência médica.</p>
+                            <div class="project-links">
+                                <a href="https://play.google.com/store/apps/details?id=org.equipmoz.guia_de_urgencia" class="project-link" target="_blank">Google Play</a>
+                                <a href="https://xd.adobe.com/view/348a0ff6-0b41-438b-b218-97047ae23467-61d9/" class="project-link" target="_blank">Protótipo</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="swiper-pagination"></div>
                 <div class="swiper-button-next"></div>
@@ -225,7 +287,7 @@
 
         <!-- Implementações de Redes -->
         <div class="project-category">
-            <h2 class="category-title">Implementações de Redes</h2>
+            <h2 class="category-title" data-translate="Implementações de Redes">Implementações de Redes</h2>
             <div class="swiper network-projects">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
@@ -247,7 +309,7 @@
 
         <!-- Projetos Freelance -->
         <div class="project-category">
-            <h2 class="category-title">Projetos Freelance</h2>
+            <h2 class="category-title" data-translate="Projetos Freelance">Projetos Freelance</h2>
             <div class="swiper freelance-projects">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
@@ -289,7 +351,7 @@
 
         <!-- Liderança e Treinamento -->
         <div class="project-category">
-            <h2 class="category-title">Liderança e Treinamento</h2>
+            <h2 class="category-title" data-translate="Liderança e Treinamento">Liderança e Treinamento</h2>
             <div class="swiper leadership-projects">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
@@ -311,7 +373,7 @@
 
         <!-- Casos de Uso de Transformação Digital -->
         <div class="project-category">
-            <h2 class="category-title">Casos de Uso de Transformação Digital</h2>
+            <h2 class="category-title" data-translate="Casos de Uso de Transformação Digital">Casos de Uso de Transformação Digital</h2>
             <div class="swiper digital-projects">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
@@ -334,9 +396,9 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-        // Inicializar todos os carrosséis
-        const swipers = [
-            new Swiper('.tech-projects', {
+        // Inicialização dos Swipers
+        const swipers = document.querySelectorAll('.swiper').forEach(swiper => {
+            new Swiper(swiper, {
                 slidesPerView: 1,
                 spaceBetween: 30,
                 pagination: {
@@ -348,95 +410,75 @@
                     prevEl: '.swiper-button-prev',
                 },
                 breakpoints: {
-                    768: {
+                    640: {
                         slidesPerView: 2,
                     },
                     1024: {
                         slidesPerView: 3,
-                    }
-                }
-            }),
-            new Swiper('.network-projects', {
-                slidesPerView: 1,
-                spaceBetween: 30,
-                pagination: {
-                    el: '.swiper-pagination',
-                    clickable: true,
-                },
-                navigation: {
-                    nextEl: '.swiper-button-next',
-                    prevEl: '.swiper-button-prev',
-                },
-                breakpoints: {
-                    768: {
-                        slidesPerView: 2,
                     },
-                    1024: {
-                        slidesPerView: 3,
-                    }
+                },
+            });
+        });
+
+        // Função para alternar o tema
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        }
+
+        // Função para alternar o idioma
+        function toggleLanguage() {
+            const currentLang = document.documentElement.lang;
+            const newLang = currentLang === 'pt' ? 'en' : 'pt';
+            document.documentElement.lang = newLang;
+            translatePage(newLang);
+            localStorage.setItem('language', newLang);
+        }
+
+        // Função para traduzir o conteúdo
+        function translatePage(lang) {
+            const translations = {
+                'pt': {
+                    'Meus Projetos': 'Meus Projetos',
+                    'Voltar': 'Voltar',
+                    'Projetos de Tecnologia': 'Projetos de Tecnologia',
+                    'Implementações de Redes': 'Implementações de Redes',
+                    'Projetos Freelance': 'Projetos Freelance',
+                    'Liderança e Treinamento': 'Liderança e Treinamento',
+                    'Casos de Uso de Transformação Digital': 'Casos de Uso de Transformação Digital'
+                },
+                'en': {
+                    'Meus Projetos': 'My Projects',
+                    'Voltar': 'Back',
+                    'Projetos de Tecnologia': 'Technology Projects',
+                    'Implementações de Redes': 'Network Implementations',
+                    'Projetos Freelance': 'Freelance Projects',
+                    'Liderança e Treinamento': 'Leadership & Training',
+                    'Casos de Uso de Transformação Digital': 'Digital Transformation Use Cases'
                 }
-            }),
-            new Swiper('.freelance-projects', {
-                slidesPerView: 1,
-                spaceBetween: 30,
-                pagination: {
-                    el: '.swiper-pagination',
-                    clickable: true,
-                },
-                navigation: {
-                    nextEl: '.swiper-button-next',
-                    prevEl: '.swiper-button-prev',
-                },
-                breakpoints: {
-                    768: {
-                        slidesPerView: 2,
-                    },
-                    1024: {
-                        slidesPerView: 3,
-                    }
+            };
+
+            // Traduzir elementos com data-translate
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[lang][key]) {
+                    element.textContent = translations[lang][key];
                 }
-            }),
-            new Swiper('.leadership-projects', {
-                slidesPerView: 1,
-                spaceBetween: 30,
-                pagination: {
-                    el: '.swiper-pagination',
-                    clickable: true,
-                },
-                navigation: {
-                    nextEl: '.swiper-button-next',
-                    prevEl: '.swiper-button-prev',
-                },
-                breakpoints: {
-                    768: {
-                        slidesPerView: 2,
-                    },
-                    1024: {
-                        slidesPerView: 3,
-                    }
-                }
-            }),
-            new Swiper('.digital-projects', {
-                slidesPerView: 1,
-                spaceBetween: 30,
-                pagination: {
-                    el: '.swiper-pagination',
-                    clickable: true,
-                },
-                navigation: {
-                    nextEl: '.swiper-button-next',
-                    prevEl: '.swiper-button-prev',
-                },
-                breakpoints: {
-                    768: {
-                        slidesPerView: 2,
-                    },
-                    1024: {
-                        slidesPerView: 3,
-                    }
-                }
-            })
-        ];
+            });
+        }
+
+        // Carregar tema e idioma salvos
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            const savedLang = localStorage.getItem('language') || 'pt';
+            
+            document.body.setAttribute('data-theme', savedTheme);
+            document.documentElement.lang = savedLang;
+            translatePage(savedLang);
+        });
     </script>
 </body>
 </html> 
