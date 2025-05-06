@@ -587,7 +587,7 @@
                     'Projetos Freelance': 'Projetos Freelance',
                     'Liderança e Treinamento': 'Liderança e Treinamento',
                     'Casos de Uso de Transformação Digital': 'Casos de Uso de Transformação Digital',
-                    'Ver Detalhes': 'Ver Detalhes',
+                    'Ver Detalhes': 'Mais Detalhes',
                     'Website Institucional': 'Website Institucional',
                     'Aplicação Web': 'Aplicação Web',
                     'Aplicativo Mobile': 'Aplicativo Mobile',
@@ -601,7 +601,7 @@
                     'Projetos Freelance': 'Freelance Projects',
                     'Liderança e Treinamento': 'Leadership & Training',
                     'Casos de Uso de Transformação Digital': 'Digital Transformation Use Cases',
-                    'Ver Detalhes': 'View Details',
+                    'Ver Detalhes': 'More Details',
                     'Website Institucional': 'Institutional Website',
                     'Aplicação Web': 'Web Application',
                     'Aplicativo Mobile': 'Mobile App',
@@ -615,7 +615,7 @@
                     'Projetos Freelance': 'Proyectos Freelance',
                     'Liderança e Treinamento': 'Liderazgo y Entrenamiento',
                     'Casos de Uso de Transformação Digital': 'Casos de Uso de Transformación Digital',
-                    'Ver Detalhes': 'Ver Detalles',
+                    'Ver Detalhes': 'Más Detalles',
                     'Website Institucional': 'Sitio Web Institucional',
                     'Aplicação Web': 'Aplicación Web',
                     'Aplicativo Mobile': 'Aplicación Móvil',
@@ -629,7 +629,7 @@
                     'Projetos Freelance': 'Freelance-Projekte',
                     'Liderança e Treinamento': 'Führung & Training',
                     'Casos de Uso de Transformação Digital': 'Digitale Transformationsfälle',
-                    'Ver Detalhes': 'Details anzeigen',
+                    'Ver Detalhes': 'Mehr Details',
                     'Website Institucional': 'Institutionelle Website',
                     'Aplicação Web': 'Webanwendung',
                     'Aplicativo Mobile': 'Mobile App',
@@ -764,18 +764,188 @@
                         caption: "Aplicativo Mobile"
                     }
                 ]
+            },
+            aidai: {
+                title: "AIDAI",
+                images: [
+                    {
+                        src: "assets/images/projects/aidai/website.jpg",
+                        caption: "Website"
+                    },
+                    {
+                        src: "assets/images/projects/aidai/webapp.jpg",
+                        caption: "Aplicação Web"
+                    }
+                ]
+            },
+            kultuare: {
+                title: "KULTUARE",
+                images: [
+                    {
+                        src: "assets/images/projects/kultuare/website.jpg",
+                        caption: "Website"
+                    },
+                    {
+                        src: "assets/images/projects/kultuare/webapp.jpg",
+                        caption: "Aplicação Web"
+                    }
+                ]
+            },
+            hlink: {
+                title: "HLINK",
+                images: [
+                    {
+                        src: "assets/images/projects/hlink/website.jpg",
+                        caption: "Website"
+                    },
+                    {
+                        src: "assets/images/projects/hlink/webapp.jpg",
+                        caption: "Aplicação Web"
+                    }
+                ]
+            },
+            kukura: {
+                title: "KUKURA",
+                images: [
+                    {
+                        src: "assets/images/projects/kukura/website.jpg",
+                        caption: "Website"
+                    },
+                    {
+                        src: "assets/images/projects/kukura/mobile.jpg",
+                        caption: "Aplicativo Mobile"
+                    }
+                ]
+            },
+            semmo: {
+                title: "SEMMO",
+                images: [
+                    {
+                        src: "assets/images/projects/semmo/website.jpg",
+                        caption: "Website"
+                    },
+                    {
+                        src: "assets/images/projects/semmo/mobile.jpg",
+                        caption: "Aplicativo Mobile"
+                    }
+                ]
+            },
+            djobar: {
+                title: "Djobar - Plataforma de Emprego",
+                images: [
+                    {
+                        src: "assets/images/projects/djobar/website.jpg",
+                        caption: "Website"
+                    },
+                    {
+                        src: "assets/images/projects/djobar/webapp.jpg",
+                        caption: "Aplicação Web"
+                    }
+                ]
+            },
+            casaMsika: {
+                title: "Casa Msika",
+                images: [
+                    {
+                        src: "assets/images/projects/casamsika/website.jpg",
+                        caption: "Website"
+                    }
+                ]
+            },
+            municipioDondo: {
+                title: "Município do Dondo",
+                images: [
+                    {
+                        src: "assets/images/projects/dondo/website.jpg",
+                        caption: "Website"
+                    }
+                ]
+            },
+            infraestruturaRede: {
+                title: "Infraestrutura de Rede Corporativa",
+                images: [
+                    {
+                        src: "assets/images/projects/rede/network.jpg",
+                        caption: "Infraestrutura de Rede"
+                    },
+                    {
+                        src: "assets/images/projects/rede/dashboard.jpg",
+                        caption: "Dashboard de Monitoramento"
+                    }
+                ]
+            },
+            gestaoEquipe: {
+                title: "Gestão de Equipe de TI",
+                images: [
+                    {
+                        src: "assets/images/projects/equipe/team.jpg",
+                        caption: "Equipe de TI"
+                    },
+                    {
+                        src: "assets/images/projects/equipe/training.jpg",
+                        caption: "Sessões de Treinamento"
+                    }
+                ]
+            },
+            transformacaoDigital: {
+                title: "Transformação Digital em Agricultura",
+                images: [
+                    {
+                        src: "assets/images/projects/digital/field.jpg",
+                        caption: "Implementação no Campo"
+                    },
+                    {
+                        src: "assets/images/projects/digital/training.jpg",
+                        caption: "Treinamento de Agricultores"
+                    }
+                ]
             }
         };
 
         // Atualizar os cards dos projetos para incluir o botão de detalhes
         document.querySelectorAll('.swiper-slide').forEach(slide => {
-            const projectId = slide.querySelector('.project-title').textContent.toLowerCase().replace(/[^a-z0-9]/g, '');
+            const title = slide.querySelector('.project-title')?.textContent || '';
+            const projectId = title.toLowerCase()
+                .replace(/[^a-z0-9]/g, '')
+                .replace(/sistema/g, '')
+                .replace(/plataforma/g, '')
+                .replace(/corporativa/g, '')
+                .replace(/gestão/g, '')
+                .replace(/equipe/g, '')
+                .replace(/ti/g, '')
+                .replace(/digital/g, '')
+                .replace(/agricultura/g, '')
+                .trim();
+
             const linksDiv = slide.querySelector('.project-links');
-            if (linksDiv && projectData[projectId]) {
+            if (linksDiv) {
+                // Remover botão existente se houver
+                const existingButton = linksDiv.querySelector('.project-link[data-project-id]');
+                if (existingButton) {
+                    existingButton.remove();
+                }
+
                 const detailsButton = document.createElement('button');
                 detailsButton.className = 'project-link';
-                detailsButton.textContent = 'Ver Detalhes';
-                detailsButton.onclick = () => openModal(projectId);
+                detailsButton.textContent = 'Mais Detalhes';
+                detailsButton.dataset.projectId = projectId;
+                detailsButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const projectId = this.dataset.projectId;
+                    if (projectData[projectId]) {
+                        openModal(projectId);
+                    } else {
+                        // Mostrar mensagem quando não há dados disponíveis
+                        const currentLang = document.documentElement.lang || 'pt';
+                        const messages = {
+                            'pt': 'Detalhes em breve!',
+                            'en': 'Details coming soon!',
+                            'es': '¡Detalles próximamente!',
+                            'de': 'Details folgen bald!'
+                        };
+                        alert(messages[currentLang] || messages['pt']);
+                    }
+                });
                 linksDiv.appendChild(detailsButton);
             }
         });
@@ -785,34 +955,71 @@
             const modal = document.getElementById('projectModal');
             const project = projectData[projectId];
             
-            if (!project) return;
+            if (!modal || !project) return;
 
             // Atualizar título
-            document.getElementById('modalTitle').textContent = project.title;
+            const modalTitle = document.getElementById('modalTitle');
+            if (modalTitle) {
+                modalTitle.textContent = project.title;
+            }
 
             // Atualizar galeria
             const gallery = document.getElementById('modalGallery');
-            gallery.innerHTML = project.images.map(img => `
-                <div>
-                    <img src="${img.src}" alt="${img.caption}" class="modal-image">
-                    <p class="modal-caption">${img.caption}</p>
-                </div>
-            `).join('');
+            if (gallery) {
+                gallery.innerHTML = project.images.map(img => `
+                    <div>
+                        <img src="${img.src}" alt="${img.caption}" class="modal-image" 
+                             onerror="this.onerror=null; this.src='assets/images/projects/0.jpg';">
+                        <p class="modal-caption">${img.caption}</p>
+                    </div>
+                `).join('');
+            }
 
             modal.style.display = 'block';
         }
 
         // Função para fechar o modal
         function closeModal() {
-            document.getElementById('projectModal').style.display = 'none';
+            const modal = document.getElementById('projectModal');
+            if (modal) {
+                modal.style.display = 'none';
+            }
         }
 
         // Fechar modal ao clicar fora
         window.onclick = function(event) {
             const modal = document.getElementById('projectModal');
-            if (event.target == modal) {
+            if (event.target === modal) {
                 closeModal();
             }
+        }
+
+        // Fechar modal com a tecla ESC
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Traduzir botões de detalhes quando o idioma é alterado
+        function translateDetailsButtons(lang) {
+            const translations = {
+                'pt': 'Mais Detalhes',
+                'en': 'More Details',
+                'es': 'Más Detalles',
+                'de': 'Mehr Details'
+            };
+            
+            document.querySelectorAll('.project-link[data-project-id]').forEach(button => {
+                button.textContent = translations[lang] || translations['pt'];
+            });
+        }
+
+        // Atualizar a função changeLanguage para incluir a tradução dos botões
+        const originalChangeLanguage = changeLanguage;
+        function changeLanguage(lang) {
+            originalChangeLanguage(lang);
+            translateDetailsButtons(lang);
         }
     </script>
 </body>
