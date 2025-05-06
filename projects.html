@@ -157,6 +157,94 @@
             background-color: var(--secondary-color);
         }
 
+        /* Estilos do Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            background-color: var(--card-background);
+            margin: 5% auto;
+            padding: 2rem;
+            width: 90%;
+            max-width: 1000px;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+            font-size: 2rem;
+            color: var(--text-color);
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .close-modal:hover {
+            color: var(--secondary-color);
+        }
+
+        .modal-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .modal-image {
+            width: 100%;
+            height: 300px;
+            object-fit: contain;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s;
+            background-color: var(--background-color);
+            padding: 0.5rem;
+        }
+
+        .modal-image:hover {
+            transform: scale(1.05);
+        }
+
+        .modal-caption {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text-color);
+            text-align: center;
+        }
+
+        .modal-phases {
+            margin-top: 2rem;
+        }
+
+        .phase-item {
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background-color: var(--background-color);
+            border-radius: 5px;
+        }
+
+        .phase-title {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .phase-description {
+            color: var(--text-color);
+            font-size: 0.9rem;
+        }
+
         @media (max-width: 768px) {
             .swiper-slide {
                 width: 100%;
@@ -165,15 +253,67 @@
             .language-toggle {
                 right: 3.5rem;
             }
+
+            .modal-content {
+                margin: 10% auto;
+                width: 95%;
+                padding: 1rem;
+            }
+
+            .modal-gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .language-menu {
+            position: absolute;
+            top: 100%;
+            right: 4rem;
+            background-color: var(--card-background);
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            display: none;
+            z-index: 1000;
+        }
+
+        .language-menu.active {
+            display: block;
+        }
+
+        .language-option {
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            color: var(--text-color);
+        }
+
+        .language-option:hover {
+            background-color: var(--secondary-color);
+            color: white;
         }
     </style>
 </head>
 <body>
+    <!-- Modal -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle" class="project-title"></h2>
+            <div class="modal-gallery" id="modalGallery"></div>
+        </div>
+    </div>
+
     <div class="header">
         <a href="index.html" class="back-button" data-translate="Voltar">← Voltar</a>
         <h1 data-translate="Meus Projetos">Meus Projetos</h1>
         <button class="language-toggle" onclick="toggleLanguage()">🌐</button>
         <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+        <div class="language-menu">
+            <div class="language-option" onclick="changeLanguage('pt')">🇵🇹 Português</div>
+            <div class="language-option" onclick="changeLanguage('en')">🇬🇧 English</div>
+            <div class="language-option" onclick="changeLanguage('es')">🇪🇸 Español</div>
+            <div class="language-option" onclick="changeLanguage('de')">🇩🇪 Deutsch</div>
+        </div>
     </div>
     
     <div class="container">
@@ -192,6 +332,7 @@
                             <div class="project-links">
                                 <a href="https://fams.co.mz" class="project-link" target="_blank">Site Oficial</a>
                                 <a href="./assets/FAMS_Note_2023.pdf" class="project-link" target="_blank">Notas de Consultor</a>
+                                <button class="project-link" onclick="openModal('fams')">Ver Detalhes</button>
                             </div>
                         </div>
                     </div>
@@ -431,11 +572,8 @@
 
         // Função para alternar o idioma
         function toggleLanguage() {
-            const currentLang = document.documentElement.lang;
-            const newLang = currentLang === 'pt' ? 'en' : 'pt';
-            document.documentElement.lang = newLang;
-            translatePage(newLang);
-            localStorage.setItem('language', newLang);
+            const menu = document.querySelector('.language-menu');
+            menu.classList.toggle('active');
         }
 
         // Função para traduzir o conteúdo
@@ -443,21 +581,59 @@
             const translations = {
                 'pt': {
                     'Meus Projetos': 'Meus Projetos',
-                    'Voltar': 'Voltar',
+                    'Voltar': '← Voltar',
                     'Projetos de Tecnologia': 'Projetos de Tecnologia',
                     'Implementações de Redes': 'Implementações de Redes',
                     'Projetos Freelance': 'Projetos Freelance',
                     'Liderança e Treinamento': 'Liderança e Treinamento',
-                    'Casos de Uso de Transformação Digital': 'Casos de Uso de Transformação Digital'
+                    'Casos de Uso de Transformação Digital': 'Casos de Uso de Transformação Digital',
+                    'Ver Detalhes': 'Ver Detalhes',
+                    'Website Institucional': 'Website Institucional',
+                    'Aplicação Web': 'Aplicação Web',
+                    'Aplicativo Mobile': 'Aplicativo Mobile',
+                    'Website': 'Website'
                 },
                 'en': {
                     'Meus Projetos': 'My Projects',
-                    'Voltar': 'Back',
+                    'Voltar': '← Back',
                     'Projetos de Tecnologia': 'Technology Projects',
                     'Implementações de Redes': 'Network Implementations',
                     'Projetos Freelance': 'Freelance Projects',
                     'Liderança e Treinamento': 'Leadership & Training',
-                    'Casos de Uso de Transformação Digital': 'Digital Transformation Use Cases'
+                    'Casos de Uso de Transformação Digital': 'Digital Transformation Use Cases',
+                    'Ver Detalhes': 'View Details',
+                    'Website Institucional': 'Institutional Website',
+                    'Aplicação Web': 'Web Application',
+                    'Aplicativo Mobile': 'Mobile App',
+                    'Website': 'Website'
+                },
+                'es': {
+                    'Meus Projetos': 'Mis Proyectos',
+                    'Voltar': '← Volver',
+                    'Projetos de Tecnologia': 'Proyectos de Tecnología',
+                    'Implementações de Redes': 'Implementaciones de Redes',
+                    'Projetos Freelance': 'Proyectos Freelance',
+                    'Liderança e Treinamento': 'Liderazgo y Entrenamiento',
+                    'Casos de Uso de Transformação Digital': 'Casos de Uso de Transformación Digital',
+                    'Ver Detalhes': 'Ver Detalles',
+                    'Website Institucional': 'Sitio Web Institucional',
+                    'Aplicação Web': 'Aplicación Web',
+                    'Aplicativo Mobile': 'Aplicación Móvil',
+                    'Website': 'Sitio Web'
+                },
+                'de': {
+                    'Meus Projetos': 'Meine Projekte',
+                    'Voltar': '← Zurück',
+                    'Projetos de Tecnologia': 'Technologieprojekte',
+                    'Implementações de Redes': 'Netzwerkimplementierungen',
+                    'Projetos Freelance': 'Freelance-Projekte',
+                    'Liderança e Treinamento': 'Führung & Training',
+                    'Casos de Uso de Transformação Digital': 'Digitale Transformationsfälle',
+                    'Ver Detalhes': 'Details anzeigen',
+                    'Website Institucional': 'Institutionelle Website',
+                    'Aplicação Web': 'Webanwendung',
+                    'Aplicativo Mobile': 'Mobile App',
+                    'Website': 'Website'
                 }
             };
 
@@ -468,6 +644,40 @@
                     element.textContent = translations[lang][key];
                 }
             });
+
+            // Traduzir botões de detalhes
+            document.querySelectorAll('.project-link').forEach(button => {
+                if (button.textContent === 'Ver Detalhes') {
+                    button.textContent = translations[lang]['Ver Detalhes'];
+                }
+            });
+
+            // Traduzir legendas do modal
+            const modalCaptions = document.querySelectorAll('.modal-caption');
+            modalCaptions.forEach(caption => {
+                const key = caption.textContent;
+                if (translations[lang][key]) {
+                    caption.textContent = translations[lang][key];
+                }
+            });
+        }
+
+        // Atualizar o HTML para incluir o menu de idiomas
+        document.querySelector('.header').insertAdjacentHTML('beforeend', `
+            <div class="language-menu">
+                <div class="language-option" onclick="changeLanguage('pt')">🇵🇹 Português</div>
+                <div class="language-option" onclick="changeLanguage('en')">🇬🇧 English</div>
+                <div class="language-option" onclick="changeLanguage('es')">🇪🇸 Español</div>
+                <div class="language-option" onclick="changeLanguage('de')">🇩🇪 Deutsch</div>
+            </div>
+        `);
+
+        // Função para mudar o idioma
+        function changeLanguage(lang) {
+            document.documentElement.lang = lang;
+            translatePage(lang);
+            localStorage.setItem('language', lang);
+            document.querySelector('.language-menu').classList.remove('active');
         }
 
         // Carregar tema e idioma salvos
@@ -479,6 +689,131 @@
             document.documentElement.lang = savedLang;
             translatePage(savedLang);
         });
+
+        // Fechar menu de idiomas ao clicar fora
+        document.addEventListener('click', (event) => {
+            const menu = document.querySelector('.language-menu');
+            const button = document.querySelector('.language-toggle');
+            if (!menu.contains(event.target) && !button.contains(event.target)) {
+                menu.classList.remove('active');
+            }
+        });
+
+        // Dados dos projetos
+        const projectData = {
+            fams: {
+                title: "FAMS - Sistema de Gestão de Agricultores",
+                images: [
+                    {
+                        src: "assets/images/projects/fams/website.jpg",
+                        caption: "Website Institucional"
+                    },
+                    {
+                        src: "assets/images/projects/fams/webapp.jpg",
+                        caption: "Aplicação Web"
+                    },
+                    {
+                        src: "assets/images/projects/fams/mobile.jpg",
+                        caption: "Aplicativo Mobile"
+                    }
+                ]
+            },
+            consultare: {
+                title: "Consultare - Plataforma de Saúde",
+                images: [
+                    {
+                        src: "assets/images/projects/consultare/website.jpg",
+                        caption: "Website Institucional"
+                    },
+                    {
+                        src: "assets/images/projects/consultare/webapp.jpg",
+                        caption: "Aplicação Web"
+                    },
+                    {
+                        src: "assets/images/projects/consultare/mobile.jpg",
+                        caption: "Aplicativo Mobile"
+                    }
+                ]
+            },
+            fonteDaVida: {
+                title: "Fonte da Vida - App Bíblico",
+                images: [
+                    {
+                        src: "assets/images/projects/fonte/website.jpg",
+                        caption: "Website"
+                    },
+                    {
+                        src: "assets/images/projects/fonte/webapp.jpg",
+                        caption: "Aplicação Web"
+                    },
+                    {
+                        src: "assets/images/projects/fonte/mobile.jpg",
+                        caption: "Aplicativo Mobile"
+                    }
+                ]
+            },
+            juris: {
+                title: "JURIS - App de Direitos",
+                images: [
+                    {
+                        src: "assets/images/projects/juris/website.jpg",
+                        caption: "Website"
+                    },
+                    {
+                        src: "assets/images/projects/juris/mobile.jpg",
+                        caption: "Aplicativo Mobile"
+                    }
+                ]
+            }
+        };
+
+        // Atualizar os cards dos projetos para incluir o botão de detalhes
+        document.querySelectorAll('.swiper-slide').forEach(slide => {
+            const projectId = slide.querySelector('.project-title').textContent.toLowerCase().replace(/[^a-z0-9]/g, '');
+            const linksDiv = slide.querySelector('.project-links');
+            if (linksDiv && projectData[projectId]) {
+                const detailsButton = document.createElement('button');
+                detailsButton.className = 'project-link';
+                detailsButton.textContent = 'Ver Detalhes';
+                detailsButton.onclick = () => openModal(projectId);
+                linksDiv.appendChild(detailsButton);
+            }
+        });
+
+        // Função para abrir o modal
+        function openModal(projectId) {
+            const modal = document.getElementById('projectModal');
+            const project = projectData[projectId];
+            
+            if (!project) return;
+
+            // Atualizar título
+            document.getElementById('modalTitle').textContent = project.title;
+
+            // Atualizar galeria
+            const gallery = document.getElementById('modalGallery');
+            gallery.innerHTML = project.images.map(img => `
+                <div>
+                    <img src="${img.src}" alt="${img.caption}" class="modal-image">
+                    <p class="modal-caption">${img.caption}</p>
+                </div>
+            `).join('');
+
+            modal.style.display = 'block';
+        }
+
+        // Função para fechar o modal
+        function closeModal() {
+            document.getElementById('projectModal').style.display = 'none';
+        }
+
+        // Fechar modal ao clicar fora
+        window.onclick = function(event) {
+            const modal = document.getElementById('projectModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
     </script>
 </body>
 </html> 
