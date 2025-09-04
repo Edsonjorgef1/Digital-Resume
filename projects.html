@@ -294,12 +294,17 @@
     </style>
 </head>
 <body>
-    <!-- Modal -->
+    <!-- Modal (Carrossel) -->
     <div id="projectModal" class="modal">
         <div class="modal-content">
-            <span class="close-modal" onclick="closeModal()">&times;</span>
-            <h2 id="modalTitle" class="project-title"></h2>
-            <div class="modal-gallery" id="modalGallery"></div>
+            <button class="close-modal" onclick="closeModal()" aria-label="Fechar" onkeydown="if(event.key==='Enter'||event.key===' ')closeModal();">&times;</button>
+            <h2 id="modalTitle" class="project-title" aria-live="polite">&nbsp;</h2>
+            <div class="modal-swiper swiper">
+                <div class="swiper-wrapper" id="modalGallery"></div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
         </div>
     </div>
 
@@ -308,25 +313,24 @@
     <h1 data-translate="Meus Projetos">Meus Projetos</h1>
         <button class="language-toggle" onclick="toggleLanguage()">🌐</button>
         <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
-        <div class="language-menu">
-            <div class="language-option" onclick="changeLanguage('pt')">🇵🇹 Português</div>
-            <div class="language-option" onclick="changeLanguage('en')">🇬🇧 English</div>
-            <div class="language-option" onclick="changeLanguage('es')">🇪🇸 Español</div>
-            <div class="language-option" onclick="changeLanguage('de')">🇩🇪 Deutsch</div>
+        <div class="language-menu" role="menu" aria-label="Selecionar idioma">
+            <button class="language-option" role="menuitem" onclick="changeLanguage('pt')" onkeydown="if(event.key==='Enter')changeLanguage('pt')">🇵🇹 Português</button>
+            <button class="language-option" role="menuitem" onclick="changeLanguage('en')" onkeydown="if(event.key==='Enter')changeLanguage('en')">🇬🇧 English</button>
+            <button class="language-option" role="menuitem" onclick="changeLanguage('es')" onkeydown="if(event.key==='Enter')changeLanguage('es')">🇪🇸 Español</button>
+            <button class="language-option" role="menuitem" onclick="changeLanguage('de')" onkeydown="if(event.key==='Enter')changeLanguage('de')">🇩🇪 Deutsch</button>
         </div>
     </div>
 
     <!-- Secção de perfil removida para manter apenas os projetos -->
 
     <div class="container">
-        <!-- <h1 class="section-title">Meus Projetos</h1> -->
 
         <!-- Projetos de Tecnologia -->
         <div class="project-category">
             <h2 class="category-title" data-translate="Projetos de Tecnologia">Projetos de Tecnologia</h2>
             <div class="swiper tech-projects">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide">
+                    <div class="swiper-slide" data-project-id="fams">
                         <img src="assets/images/projects/0.jpg" alt="FAMS" class="project-image">
                         <div class="project-content">
                             <h3 class="project-title">FAMS - Sistema de Gestão de Agricultores e Agentes</h3>
@@ -335,11 +339,11 @@
                                 <a href="https://fams.co.mz" class="project-link" target="_blank">Site Oficial</a>
                                 <a href="./assets/FAMS_Note_2023.pdf" class="project-link" target="_blank">Notas de Consultor</a>
                                 <a href="https://equipmoz.org/projects/tech-team/farmer-agent-management-system/" class="project-link" target="_blank">Ver Projeto</a>
-                                <button class="project-link" onclick="openModal('fams')">Ver Detalhes</button>
+                                <button class="project-link" onclick="openModal('fams')" data-translate="Ver Detalhes">Ver Detalhes</button>
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-slide">
+                    <div class="swiper-slide" data-project-id="consultare">
                         <img src="assets/images/projects/0.jpg" alt="Consultare" class="project-image">
                         <div class="project-content">
                             <h3 class="project-title">Consultare - Aplicativo de Saúde</h3>
@@ -351,7 +355,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-slide">
+                    <div class="swiper-slide" data-project-id="fonte">
                         <img src="assets/images/projects/0.jpg" alt="Fonte da Vida" class="project-image">
                         <div class="project-content">
                             <h3 class="project-title">Fonte da Vida - App de Recursos Cristãos</h3>
@@ -362,7 +366,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-slide">
+                    <div class="swiper-slide" data-project-id="juris">
                         <img src="assets/images/projects/0.jpg" alt="JURIS" class="project-image">
                         <div class="project-content">
                             <h3 class="project-title">JURIS - App de Direitos e Lei Moçambicana</h3>
@@ -373,7 +377,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-slide">
+                    <div class="swiper-slide" data-project-id="aidai">
                         <img src="assets/images/projects/0.jpg" alt="AIDAI" class="project-image">
                         <div class="project-content">
                             <h3 class="project-title">AIDAI</h3>
@@ -383,7 +387,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-slide">
+                    <div class="swiper-slide" data-project-id="kultuare">
                         <img src="assets/images/projects/0.jpg" alt="KULTUARE" class="project-image">
                         <div class="project-content">
                             <h3 class="project-title">KULTUARE</h3>
@@ -393,7 +397,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-slide">
+                    <div class="swiper-slide" data-project-id="hlink">
                         <img src="assets/images/projects/0.jpg" alt="HLINK" class="project-image">
                         <div class="project-content">
                             <h3 class="project-title">HLINK</h3>
@@ -403,7 +407,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-slide">
+                    <div class="swiper-slide" data-project-id="manna">
                         <img src="assets/images/projects/0.jpg" alt="Manna Software" class="project-image">
                         <div class="project-content">
                             <h3 class="project-title">Manna Software - Gestão de Restaurantes</h3>
@@ -413,18 +417,19 @@
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-slide">
+                    <div class="swiper-slide" data-project-id="kukura">
                         <img src="assets/images/projects/0.jpg" alt="KUKURA" class="project-image">
                         <div class="project-content">
                             <h3 class="project-title">KUKURA - Solução Digital "Giving for Change"</h3>
                             <p class="project-description">Solução digital para projeto "Giving for Change" em Moçambique, para melhorar o crescimento e impacto de organizações filantrópicas pequenas e médias em Moçambique. Desenvolvido em Out 2023.</p>
                             <div class="project-links">
+                                <a href="https://kukura.co.mz" class="project-link" target="_blank">Website</a>
                                 <a href="https://play.google.com/store/apps/details?id=kukura.equipmoz.org" class="project-link" target="_blank">Google Play</a>
                                 <a href="https://xd.adobe.com/view/348a0ff6-0b41-438b-b218-97047ae23467-61d9" class="project-link" target="_blank">Protótipo</a>
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-slide">
+                    <div class="swiper-slide" data-project-id="semmo">
                         <img src="assets/images/projects/0.jpg" alt="SEMMO" class="project-image">
                         <div class="project-content">
                             <h3 class="project-title">SEMMO - Guia de Urgência Médica</h3>
@@ -435,7 +440,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-slide">
+                    <div class="swiper-slide" data-project-id="cpres">
                         <img src="assets/images/projects/0.jpg" alt="CPRES" class="project-image">
                         <div class="project-content">
                             <h3 class="project-title">CPRES - Controle de Presenças</h3>
@@ -445,13 +450,13 @@
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-slide">
+                    <div class="swiper-slide" data-project-id="startescolar">
                         <img src="assets/images/projects/0.jpg" alt="Start Escolar" class="project-image">
                         <div class="project-content">
                             <h3 class="project-title">Start Escolar - Sistema de Gestão Escolar</h3>
                             <p class="project-description">Sistema de Gestão Escolar em desenvolvimento contínuo. Recursos em módulos: registros de usuários com nível de acesso escolar, registros de funcionários e estudantes, registros de classes e turnos, lançamento de notas e histórico, processo estudantil, pagamentos, aplicativo com leitor de presença por código de barras/QR-Code. Jul 2019 - Jan 2022.</p>
                             <div class="project-links">
-                                <a href="#" class="project-link">Em Desenvolvimento</a>
+                                <a href="#" class="project-link">Projeto Concluído</a>
                             </div>
                         </div>
                     </div>
@@ -467,7 +472,7 @@
             <h2 class="category-title" data-translate="Implementações de Redes">Implementações de Redes</h2>
             <div class="swiper network-projects">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide">
+                    <div class="swiper-slide" data-project-id="infraestruturaRede">
                         <img src="assets/images/projects/0.jpg" alt="Infraestrutura de Rede" class="project-image">
                         <div class="project-content">
                             <h3 class="project-title">Infraestrutura de Rede Corporativa</h3>
@@ -489,7 +494,7 @@
             <h2 class="category-title" data-translate="Projetos Freelance">Projetos Freelance</h2>
             <div class="swiper freelance-projects">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide">
+                    <div class="swiper-slide" data-project-id="djobar">
                         <img src="assets/images/projects/0.jpg" alt="Djobar" class="project-image">
                         <div class="project-content">
                             <h3 class="project-title">Djobar - Plataforma de Emprego</h3>
@@ -499,7 +504,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-slide">
+                    <div class="swiper-slide" data-project-id="casamsika">
                         <img src="assets/images/projects/0.jpg" alt="Casa Msika" class="project-image">
                         <div class="project-content">
                             <h3 class="project-title">Casa Msika</h3>
@@ -509,7 +514,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-slide">
+                    <div class="swiper-slide" data-project-id="kukanela">
                         <img src="assets/images/projects/0.jpg" alt="Kukanela" class="project-image">
                         <div class="project-content">
                             <h3 class="project-title">Kukanela - App de Comunicação em Linguagem de Sinais</h3>
@@ -519,7 +524,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-slide">
+                    <div class="swiper-slide" data-project-id="donante">
                         <img src="assets/images/projects/0.jpg" alt="DONANTE" class="project-image">
                         <div class="project-content">
                             <h3 class="project-title">DONANTE - Plataforma de Doações</h3>
@@ -529,7 +534,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-slide">
+                    <div class="swiper-slide" data-project-id="cyanga">
                         <img src="assets/images/projects/0.jpg" alt="C-Yanga" class="project-image">
                         <div class="project-content">
                             <h3 class="project-title">C-Yanga - Mural Digital da Igreja</h3>
@@ -539,7 +544,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-slide">
+                    <div class="swiper-slide" data-project-id="municipiodondo">
                         <img src="assets/images/projects/0.jpg" alt="Município do Dondo" class="project-image">
                         <div class="project-content">
                             <h3 class="project-title">Município do Dondo</h3>
@@ -561,7 +566,7 @@
             <h2 class="category-title" data-translate="Liderança e Treinamento">Liderança e Treinamento</h2>
             <div class="swiper leadership-projects">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide">
+                    <div class="swiper-slide" data-project-id="gestaoequipe">
                         <img src="assets/images/projects/0.jpg" alt="Equipe" class="project-image">
                         <div class="project-content">
                             <h3 class="project-title">Gestão de Equipe de TI</h3>
@@ -583,7 +588,7 @@
             <h2 class="category-title" data-translate="Casos de Uso de Transformação Digital">Casos de Uso de Transformação Digital</h2>
             <div class="swiper digital-projects">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide">
+                    <div class="swiper-slide" data-project-id="transformacaodigital">
                         <img src="assets/images/projects/0.jpg" alt="Transformação Digital" class="project-image">
                         <div class="project-content">
                             <h3 class="project-title">Transformação Digital em Agricultura</h3>
@@ -603,29 +608,30 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-        // Inicialização dos Swipers
-        const swipers = document.querySelectorAll('.swiper').forEach(swiper => {
-            new Swiper(swiper, {
-                slidesPerView: 1,
-                spaceBetween: 30,
-                pagination: {
-                    el: '.swiper-pagination',
-                    clickable: true,
-                },
-                navigation: {
-                    nextEl: '.swiper-button-next',
-                    prevEl: '.swiper-button-prev',
-                },
-                breakpoints: {
-                    640: {
-                        slidesPerView: 2,
-                    },
-                    1024: {
-                        slidesPerView: 3,
-                    },
-                },
+        // Inicialização dos Swipers (escopados)
+    // Removida coleção não utilizada swiperInstances
+        function initSwipers() {
+            document.querySelectorAll('.swiper').forEach(swiper => {
+                // Evitar reinicializar Swiper do modal agora
+                if (swiper.closest('#projectModal')) return;
+                if (swiper.swiper) return; // já inicializado
+                const paginationEl = swiper.querySelector('.swiper-pagination');
+                const nextEl = swiper.querySelector('.swiper-button-next');
+                const prevEl = swiper.querySelector('.swiper-button-prev');
+                const instance = new Swiper(swiper, {
+                    slidesPerView: 1,
+                    spaceBetween: 30,
+                    pagination: { el: paginationEl, clickable: true },
+                    navigation: { nextEl, prevEl },
+                    breakpoints: {
+                        640: { slidesPerView: 2 },
+                        1024: { slidesPerView: 3 }
+                    }
+                });
+                swiperInstances.push(instance);
             });
-        });
+        }
+        initSwipers();
 
         // Função para alternar o tema
         function toggleTheme() {
@@ -759,8 +765,8 @@
             }
         });
 
-        // Dados dos projetos
-        const projectData = {
+    // Dados dos projetos (imagens para o modal)
+    const projectData = {
             fams: {
                 title: "FAMS - Sistema de Gestão de Agricultores",
                 images: [
@@ -962,80 +968,194 @@
             }
         };
 
-        // Atualizar os cards dos projetos para incluir o botão de detalhes
-        document.querySelectorAll('.swiper-slide').forEach(slide => {
-            const title = slide.querySelector('.project-title')?.textContent || '';
-            const projectId = title.toLowerCase()
-                .replace(/[^a-z0-9]/g, '')
-                .replace(/sistema/g, '')
-                .replace(/plataforma/g, '')
-                .replace(/corporativa/g, '')
-                .replace(/gestão/g, '')
-                .replace(/equipe/g, '')
-                .replace(/ti/g, '')
-                .replace(/digital/g, '')
-                .replace(/agricultura/g, '')
-                .trim();
-
-            const linksDiv = slide.querySelector('.project-links');
-            if (linksDiv) {
-                // Remover botão existente se houver
-                const existingButton = linksDiv.querySelector('.project-link[data-project-id]');
-                if (existingButton) {
-                    existingButton.remove();
-                }
-
-                const detailsButton = document.createElement('button');
-                detailsButton.className = 'project-link';
-                detailsButton.textContent = 'Mais Detalhes';
-                detailsButton.dataset.projectId = projectId;
-                detailsButton.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const projectId = this.dataset.projectId;
-                    if (projectData[projectId]) {
-                        openModal(projectId);
-                    } else {
-                        // Mostrar mensagem quando não há dados disponíveis
-                        const currentLang = document.documentElement.lang || 'pt';
-                        const messages = {
-                            'pt': 'Detalhes em breve!',
-                            'en': 'Details coming soon!',
-                            'es': '¡Detalles próximamente!',
-                            'de': 'Details folgen bald!'
-                        };
-                        alert(messages[currentLang] || messages['pt']);
-                    }
-                });
-                linksDiv.appendChild(detailsButton);
+        // Traduções de títulos e descrições de projetos
+        const projectTranslations = {
+            fams: {
+                pt: { title: 'FAMS - Sistema de Gestão de Agricultores e Agentes', desc: 'Sistema multi-plataforma para gestão de agricultores, formação, rastreabilidade e relatórios.' },
+                en: { title: 'FAMS - Farmer & Agent Management System', desc: 'Multi-platform system for farmer management, training, traceability and reporting.' },
+                es: { title: 'FAMS - Sistema de Gestión de Agricultores y Agentes', desc: 'Sistema multiplataforma para gestión de agricultores, formación, trazabilidad e informes.' },
+                de: { title: 'FAMS - System zur Verwaltung von Landwirten & Agenten', desc: 'Multi-Plattform-System für Verwaltung, Schulung, Rückverfolgbarkeit und Berichte.' }
+            },
+            consultare: {
+                pt: { title: 'Consultare - Aplicativo de Saúde', desc: 'App com informação sobre doenças comuns e primeiros socorros (Web + Back-office).' },
+                en: { title: 'Consultare - Health App', desc: 'App with information about common diseases and first aid (Web + Back-office).' },
+                es: { title: 'Consultare - Aplicación de Salud', desc: 'App con información sobre enfermedades comunes y primeros auxilios (Web + Back-office).' },
+                de: { title: 'Consultare - Gesundheits-App', desc: 'App mit Infos zu häufigen Krankheiten und Erste Hilfe (Web + Backoffice).' }
+            },
+            fonte: {
+                pt: { title: 'Fonte da Vida - App de Recursos Cristãos', desc: 'Recursos cristãos: Bíblias áudio, sermões e conteúdos multi-igrejas.' },
+                en: { title: 'Fonte da Vida - Christian Resources App', desc: 'Christian resources: audio Bibles, sermons and multi-church content.' },
+                es: { title: 'Fonte da Vida - App de Recursos Cristianos', desc: 'Recursos cristianos: Biblias de audio, sermones y contenido multi-iglesias.' },
+                de: { title: 'Fonte da Vida - Christliche Ressourcen App', desc: 'Christliche Ressourcen: Audio-Bibeln, Predigten und Inhalte.' }
+            },
+            juris: {
+                pt: { title: 'JURIS - App de Direitos e Lei Moçambicana', desc: 'Lei Moçambicana interpretada para acesso e transparência.' },
+                en: { title: 'JURIS - Mozambican Law & Rights App', desc: 'Mozambican law interpreted for access and transparency.' },
+                es: { title: 'JURIS - App de Ley y Derechos Mozambicanos', desc: 'Ley mozambicana interpretada para acceso y transparencia.' },
+                de: { title: 'JURIS - Gesetz & Rechte App', desc: 'Mosambikanisches Recht für Zugang und Transparenz.' }
+            },
+            aidai: {
+                pt: { title: 'AIDAI', desc: 'Plataforma de assistência e desenvolvimento de IA.' },
+                en: { title: 'AIDAI', desc: 'AI assistance and development platform.' },
+                es: { title: 'AIDAI', desc: 'Plataforma de asistencia y desarrollo de IA.' },
+                de: { title: 'AIDAI', desc: 'Plattform für KI-Unterstützung und Entwicklung.' }
+            },
+            kultuare: {
+                pt: { title: 'KULTUARE', desc: 'Plataforma cultural e educacional.' },
+                en: { title: 'KULTUARE', desc: 'Cultural & educational platform.' },
+                es: { title: 'KULTUARE', desc: 'Plataforma cultural y educativa.' },
+                de: { title: 'KULTUARE', desc: 'Kulturelle & pädagogische Plattform.' }
+            },
+            hlink: {
+                pt: { title: 'HLINK', desc: 'Plataforma de conexão e networking.' },
+                en: { title: 'HLINK', desc: 'Connection & networking platform.' },
+                es: { title: 'HLINK', desc: 'Plataforma de conexión y networking.' },
+                de: { title: 'HLINK', desc: 'Plattform für Verbindung & Networking.' }
+            },
+            manna: {
+                pt: { title: 'Manna Software - Gestão de Restaurantes', desc: 'Gestão de pedidos, menus digitais, promoções e multi-restaurante.' },
+                en: { title: 'Manna Software - Restaurant Management', desc: 'Orders, digital menus, promotions and multi-restaurant management.' },
+                es: { title: 'Manna Software - Gestión de Restaurantes', desc: 'Pedidos, menús digitales, promociones y multi-restaurante.' },
+                de: { title: 'Manna Software - Restaurantverwaltung', desc: 'Bestellungen, digitale Menüs, Aktionen & Multi-Restaurant.' }
+            },
+            kukura: {
+                pt: { title: 'KUKURA - Solução Digital "Giving for Change"', desc: 'Solução para fortalecer organizações filantrópicas.' },
+                en: { title: 'KUKURA - "Giving for Change" Digital Solution', desc: 'Solution to strengthen philanthropic organisations.' },
+                es: { title: 'KUKURA - Solución Digital "Giving for Change"', desc: 'Solución para fortalecer organizaciones filantrópicas.' },
+                de: { title: 'KUKURA - Digitale Lösung "Giving for Change"', desc: 'Lösung zur Stärkung philanthropischer Organisationen.' }
+            },
+            semmo: {
+                pt: { title: 'SEMMO - Guia de Urgência Médica', desc: 'Guia digital de protocolos médicos e parto.' },
+                en: { title: 'SEMMO - Medical Emergency Guide', desc: 'Digital guide for medical and birth protocols.' },
+                es: { title: 'SEMMO - Guía de Urgencia Médica', desc: 'Guía digital de protocolos médicos y de parto.' },
+                de: { title: 'SEMMO - Medizinischer Notfallleitfaden', desc: 'Digitaler Leitfaden für medizinische & Geburtsprotokolle.' }
+            },
+            cpres: {
+                pt: { title: 'CPRES - Controle de Presenças', desc: 'Registo de presenças via código de barras/QR.' },
+                en: { title: 'CPRES - Attendance Control', desc: 'Attendance registration via barcode/QR.' },
+                es: { title: 'CPRES - Control de Asistencias', desc: 'Registro de asistencia vía código de barras/QR.' },
+                de: { title: 'CPRES - Anwesenheitskontrolle', desc: 'Anwesenheit per Barcode/QR.' }
+            },
+            startescolar: {
+                pt: { title: 'Start Escolar - Sistema de Gestão Escolar', desc: 'Gestão de estudantes, notas, pagamentos e presença.' },
+                en: { title: 'Start Escolar - School Management System', desc: 'Manage students, grades, payments and attendance.' },
+                es: { title: 'Start Escolar - Sistema de Gestión Escolar', desc: 'Gestión de estudiantes, notas, pagos y asistencia.' },
+                de: { title: 'Start Escolar - Schulverwaltungssystem', desc: 'Verwaltung von Schülern, Noten, Zahlungen & Anwesenheit.' }
+            },
+            infraestruturaRede: {
+                pt: { title: 'Infraestrutura de Rede Corporativa', desc: 'Rede corporativa com alta disponibilidade e segurança.' },
+                en: { title: 'Corporate Network Infrastructure', desc: 'Corporate network with high availability and security.' },
+                es: { title: 'Infraestructura de Red Corporativa', desc: 'Red corporativa con alta disponibilidad y seguridad.' },
+                de: { title: 'Unternehmensnetz-Infrastruktur', desc: 'Netzwerk mit hoher Verfügbarkeit und Sicherheit.' }
+            },
+            djobar: {
+                pt: { title: 'Djobar - Plataforma de Emprego', desc: 'Plataforma web para busca e oferta de empregos.' },
+                en: { title: 'Djobar - Job Platform', desc: 'Web platform for job search and offers.' },
+                es: { title: 'Djobar - Plataforma de Empleo', desc: 'Plataforma web para búsqueda y oferta de empleos.' },
+                de: { title: 'Djobar - Jobplattform', desc: 'Webplattform für Jobsuche & Angebote.' }
+            },
+            casamsika: {
+                pt: { title: 'Casa Msika', desc: 'Website institucional de construção civil.' },
+                en: { title: 'Casa Msika', desc: 'Institutional construction company website.' },
+                es: { title: 'Casa Msika', desc: 'Sitio institucional de construcción.' },
+                de: { title: 'Casa Msika', desc: 'Institutionelle Bauunternehmens-Website.' }
+            },
+            kukanela: {
+                pt: { title: 'Kukanela - App de Comunicação em Sinais', desc: 'Comunicação usando linguagem de sinais (híbrido).' },
+                en: { title: 'Kukanela - Sign Language Communication App', desc: 'Communication using sign language (hybrid).' },
+                es: { title: 'Kukanela - App de Comunicación en Señas', desc: 'Comunicación usando lenguaje de señas (híbrido).' },
+                de: { title: 'Kukanela - Gebärdensprache-Kommunikationsapp', desc: 'Kommunikation mit Gebärdensprache (hybrid).' }
+            },
+            donante: {
+                pt: { title: 'DONANTE - Plataforma de Doações', desc: 'Liga doadores a instituições credíveis (MVP).' },
+                en: { title: 'DONANTE - Donation Platform', desc: 'Connects donors to credible institutions (MVP).' },
+                es: { title: 'DONANTE - Plataforma de Donaciones', desc: 'Conecta donantes con instituciones fiables (MVP).' },
+                de: { title: 'DONANTE - Spendenplattform', desc: 'Verbindet Spender mit vertrauenswürdigen Institutionen (MVP).' }
+            },
+            cyanga: {
+                pt: { title: 'C-Yanga - Mural Digital da Igreja', desc: 'Partilha rápida de eventos e informações da igreja.' },
+                en: { title: 'C-Yanga - Church Digital Board', desc: 'Fast sharing of church events and information.' },
+                es: { title: 'C-Yanga - Mural Digital de la Iglesia', desc: 'Compartición rápida de eventos e información.' },
+                de: { title: 'C-Yanga - Digitales Kirchenboard', desc: 'Schnelles Teilen von Kirchenereignissen & Infos.' }
+            },
+            municipiodondo: {
+                pt: { title: 'Município do Dondo', desc: 'Portal institucional com informações e serviços.' },
+                en: { title: 'Dondo Municipality', desc: 'Institutional portal with information and services.' },
+                es: { title: 'Municipio de Dondo', desc: 'Portal institucional con información y servicios.' },
+                de: { title: 'Gemeinde Dondo', desc: 'Institutionelles Portal mit Informationen & Diensten.' }
+            },
+            gestaoequipe: {
+                pt: { title: 'Gestão de Equipe de TI', desc: 'Liderança de 17 profissionais e adoção de métodos ágeis.' },
+                en: { title: 'IT Team Management', desc: 'Leadership of 17 professionals and agile adoption.' },
+                es: { title: 'Gestión de Equipo de TI', desc: 'Liderazgo de 17 profesionales y metodologías ágiles.' },
+                de: { title: 'IT-Team-Management', desc: 'Führung von 17 Fachleuten und agile Methoden.' }
+            },
+            transformacaodigital: {
+                pt: { title: 'Transformação Digital em Agricultura', desc: 'Modernização digital em 4 províncias.' },
+                en: { title: 'Digital Transformation in Agriculture', desc: 'Digital modernization in 4 provinces.' },
+                es: { title: 'Transformación Digital en Agricultura', desc: 'Modernización digital en 4 provincias.' },
+                de: { title: 'Digitale Transformation in der Landwirtschaft', desc: 'Digitale Modernisierung in 4 Provinzen.' }
             }
-        });
+        };
+
+        function translateProjects(lang) {
+            document.querySelectorAll('.swiper-slide[data-project-id]').forEach(slide => {
+                const id = slide.getAttribute('data-project-id');
+                const data = projectTranslations[id];
+                if (!data || !data[lang]) return;
+                const titleEl = slide.querySelector('.project-title');
+                const descEl = slide.querySelector('.project-description');
+                if (titleEl) titleEl.textContent = data[lang].title;
+                if (descEl) descEl.textContent = data[lang].desc;
+            });
+        }
 
         // Função para abrir o modal
+        let modalSwiper = null;
         function openModal(projectId) {
             const modal = document.getElementById('projectModal');
             const project = projectData[projectId];
-
             if (!modal || !project) return;
 
-            // Atualizar título
             const modalTitle = document.getElementById('modalTitle');
-            if (modalTitle) {
-                modalTitle.textContent = project.title;
-            }
+            if (modalTitle) modalTitle.textContent = project.title;
 
-            // Atualizar galeria
             const gallery = document.getElementById('modalGallery');
             if (gallery) {
                 gallery.innerHTML = project.images.map(img => `
-                    <div>
-                        <img src="${img.src}" alt="${img.caption}" class="modal-image"
-                             onerror="this.onerror=null; this.src='assets/images/projects/0.jpg';">
-                        <p class="modal-caption">${img.caption}</p>
+                    <div class="swiper-slide">
+                        <div style="text-align:center">
+                            <img src="${img.src}" alt="${img.caption}" class="modal-image" onerror="this.onerror=null; this.src='assets/images/projects/0.jpg';">
+                            <p class="modal-caption" data-translate="${img.caption}">${img.caption}</p>
+                        </div>
                     </div>
                 `).join('');
             }
 
             modal.style.display = 'block';
+
+            // Destruir instância anterior se existir
+            if (modalSwiper) {
+                modalSwiper.destroy(true, true);
+                modalSwiper = null;
+            }
+            const modalSwiperContainer = modal.querySelector('.modal-swiper');
+            if (modalSwiperContainer) {
+                modalSwiper = new Swiper(modalSwiperContainer, {
+                    slidesPerView: 1,
+                    spaceBetween: 20,
+                    navigation: {
+                        nextEl: modalSwiperContainer.querySelector('.swiper-button-next'),
+                        prevEl: modalSwiperContainer.querySelector('.swiper-button-prev')
+                    },
+                    pagination: {
+                        el: modalSwiperContainer.querySelector('.swiper-pagination'),
+                        clickable: true
+                    }
+                });
+            }
+            // Aplicar tradução atual a legendas
+            translatePage(document.documentElement.lang || 'pt');
         }
 
         // Função para fechar o modal
@@ -1080,10 +1200,16 @@
             document.documentElement.lang = lang;
             translatePage(lang);
             translateDetailsButtons(lang);
+            translateProjects(lang);
             localStorage.setItem('language', lang);
             const menu = document.querySelector('.language-menu');
             if (menu) menu.classList.remove('active');
         }
+
+        // Tradução inicial de projetos após DOM pronto
+        document.addEventListener('DOMContentLoaded', () => {
+            translateProjects(localStorage.getItem('language') || 'pt');
+        });
     </script>
 </body>
 </html>
