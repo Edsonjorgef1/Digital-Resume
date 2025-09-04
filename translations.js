@@ -36,6 +36,20 @@ const translations = {
                     6: "Fornecimento de formação técnica para a equipe em vários domínios de TI"
                 }
             },
+            famsLead: {
+                title: "Líder Técnico / Co-Fundador & Consultor de Transformação Digital",
+                company: "FAMS - Farmer & Agent Management System",
+                date: "Fevereiro 2021 – Atualmente",
+                responsibilities: {
+                    1: "Conceção técnica e evolução da arquitetura multi-plataforma (Android, Desktop, Web)",
+                    2: "Planeamento e priorização de funcionalidades alinhadas às cadeias de valor (Coco, Algodão, Arroz, Soja, Feijão, Mel)",
+                    3: "Implementação de módulos de registro de agricultores, agentes, rastreabilidade e formação",
+                    4: "Desenho de processos de sincronização offline/online e otimização de desempenho em campo",
+                    5: "Treinamento, onboarding e suporte técnico a equipas de implementação em várias províncias",
+                    6: "Integração de relatórios analíticos para tomada de decisão operacional e estratégica",
+                    7: "Garantia de ciclo de melhoria contínua (feedback → roadmap → release)"
+                }
+            },
             programmer: {
                 title: "Programador e Analista de Sistemas",
                 company: "TechSolutions, LDA",
@@ -312,6 +326,20 @@ const translations = {
                     4: "Implementation and maintenance of network monitoring systems, achieving 98-99.9% service availability",
                     5: "Establishment of IT policies and procedures to improve team communication and performance",
                     6: "Provision of technical training for the team in various IT domains"
+                }
+            },
+            famsLead: {
+                title: "Technical Lead / Co-Founder & Digital Transformation Consultant",
+                company: "FAMS - Farmer & Agent Management System",
+                date: "February 2021 – Present",
+                responsibilities: {
+                    1: "Technical design and evolution of a multi-platform architecture (Android, Desktop, Web)",
+                    2: "Feature planning and prioritization aligned to agricultural value chains (Coconut, Cotton, Rice, Soy, Beans, Honey)",
+                    3: "Implementation of farmer, agent, traceability and training modules",
+                    4: "Design of offline/online sync processes and performance optimization for field usage",
+                    5: "Training, onboarding and technical support for deployment teams across provinces",
+                    6: "Integration of analytical reporting for operational and strategic decision making",
+                    7: "Continuous improvement loop (feedback → roadmap → release)"
                 }
             },
             programmer: {
@@ -592,6 +620,20 @@ const translations = {
                     6: "Provisión de formación técnica para el equipo en varios dominios de TI"
                 }
             },
+            famsLead: {
+                title: "Líder Técnico / Co-Fundador & Consultor de Transformación Digital",
+                company: "FAMS - Farmer & Agent Management System",
+                date: "Febrero 2021 – Actualmente",
+                responsibilities: {
+                    1: "Diseño técnico y evolución de la arquitectura multiplataforma (Android, Desktop, Web)",
+                    2: "Planificación y priorización de funcionalidades alineadas a cadenas de valor agrícolas (Coco, Algodón, Arroz, Soya, Frijol, Miel)",
+                    3: "Implementación de módulos de registro de agricultores, agentes, trazabilidad y formación",
+                    4: "Diseño de procesos de sincronización offline/online y optimización de rendimiento en campo",
+                    5: "Capacitación, onboarding y soporte técnico a equipos de despliegue en varias provincias",
+                    6: "Integración de reportes analíticos para decisiones operativas y estratégicas",
+                    7: "Ciclo de mejora continua (feedback → roadmap → release)"
+                }
+            },
             programmer: {
                 title: "Programador y Analista de Sistemas",
                 company: "TechSolutions, LDA",
@@ -870,6 +912,20 @@ const translations = {
                     6: "Bereitstellung technischer Schulungen für das Team in verschiedenen IT-Bereichen"
                 }
             },
+            famsLead: {
+                title: "Technischer Leiter / Co-Founder & Berater Digitale Transformation",
+                company: "FAMS - Farmer & Agent Management System",
+                date: "Februar 2021 – Gegenwärtig",
+                responsibilities: {
+                    1: "Technisches Design und Weiterentwicklung einer Multi-Plattform-Architektur (Android, Desktop, Web)",
+                    2: "Planung und Priorisierung von Funktionen entlang landwirtschaftlicher Wertschöpfungsketten (Kokosnuss, Baumwolle, Reis, Soja, Bohnen, Honig)",
+                    3: "Umsetzung von Modulen für Landwirte, Agenten, Rückverfolgbarkeit und Schulung",
+                    4: "Design von Offline/Online-Synchronisationsprozessen und Performance-Optimierung für Feldeinsatz",
+                    5: "Schulung, Onboarding und technischer Support für Rollout-Teams in mehreren Provinzen",
+                    6: "Integration analytischer Berichte für operative und strategische Entscheidungen",
+                    7: "Kontinuierlicher Verbesserungszyklus (Feedback → Roadmap → Release)"
+                }
+            },
             programmer: {
                 title: "Programmierer und Systemanalytiker",
                 company: "TechSolutions, LDA",
@@ -1111,4 +1167,4 @@ const translations = {
             }
         ]
     }
-}; 
+};

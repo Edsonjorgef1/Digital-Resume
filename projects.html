@@ -249,7 +249,7 @@
             .swiper-slide {
                 width: 100%;
             }
-            
+
             .language-toggle {
                 right: 3.5rem;
             }
@@ -305,7 +305,7 @@
 
     <div class="header">
         <a href="index.html" class="back-button" data-translate="Voltar">← Voltar</a>
-        <h1 data-translate="Meus Projetos">Meus Projetos</h1>
+    <h1 data-translate="Meus Projetos">Meus Projetos</h1>
         <button class="language-toggle" onclick="toggleLanguage()">🌐</button>
         <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
         <div class="language-menu">
@@ -315,7 +315,9 @@
             <div class="language-option" onclick="changeLanguage('de')">🇩🇪 Deutsch</div>
         </div>
     </div>
-    
+
+    <!-- Secção de perfil removida para manter apenas os projetos -->
+
     <div class="container">
         <!-- <h1 class="section-title">Meus Projetos</h1> -->
 
@@ -327,11 +329,12 @@
                     <div class="swiper-slide">
                         <img src="assets/images/projects/0.jpg" alt="FAMS" class="project-image">
                         <div class="project-content">
-                            <h3 class="project-title">FAMS - Sistema de Gestão de Agricultores</h3>
-                            <p class="project-description">Sistema desenvolvido para GIZ e COMO Consult para gestão de agricultores e agentes, com foco em transformação digital no setor agrícola.</p>
+                            <h3 class="project-title">FAMS - Sistema de Gestão de Agricultores e Agentes</h3>
+                            <p class="project-description">Sistema desenvolvido para múltiplas empresas do setor agrícola (Copra/Coco, Algodão, Arroz, Soja, Feijão e Mel). Plataformas: Android, Windows e Web. Recursos principais: gestão de agricultores, módulos de treinamento agrícola, coordenação de rede de agentes, rastreamento de produtos e relatórios de desempenho. Lançado em 2021, atualmente em operação contínua.</p>
                             <div class="project-links">
                                 <a href="https://fams.co.mz" class="project-link" target="_blank">Site Oficial</a>
                                 <a href="./assets/FAMS_Note_2023.pdf" class="project-link" target="_blank">Notas de Consultor</a>
+                                <a href="https://equipmoz.org/projects/tech-team/farmer-agent-management-system/" class="project-link" target="_blank">Ver Projeto</a>
                                 <button class="project-link" onclick="openModal('fams')">Ver Detalhes</button>
                             </div>
                         </div>
@@ -339,31 +342,34 @@
                     <div class="swiper-slide">
                         <img src="assets/images/projects/0.jpg" alt="Consultare" class="project-image">
                         <div class="project-content">
-                            <h3 class="project-title">Consultare - Plataforma de Saúde</h3>
-                            <p class="project-description">Plataforma web para agendamento de consultas médicas e gestão de prontuários eletrônicos.</p>
+                            <h3 class="project-title">Consultare - Aplicativo de Saúde</h3>
+                            <p class="project-description">Aplicativo que permite obter informações sobre as doenças mais comuns e primeiros socorros para as principais ocorrências que representam ameaça à saúde pública. Possui Website (Português e Inglês) e sistema Back-office (API). Período: Jul 2019 - Feb 2025.</p>
                             <div class="project-links">
                                 <a href="https://consultare.app" class="project-link" target="_blank">Site Oficial</a>
                                 <a href="https://web.consultare.app" class="project-link" target="_blank">Web App</a>
+                                <a href="https://equipmoz.org/projects/tech-team/consultare-health-app/" class="project-link" target="_blank">Ver Projeto</a>
                             </div>
                         </div>
                     </div>
                     <div class="swiper-slide">
                         <img src="assets/images/projects/0.jpg" alt="Fonte da Vida" class="project-image">
                         <div class="project-content">
-                            <h3 class="project-title">Fonte da Vida - App Bíblico</h3>
-                            <p class="project-description">Aplicativo web para estudo bíblico e recursos cristãos.</p>
+                            <h3 class="project-title">Fonte da Vida - App de Recursos Cristãos</h3>
+                            <p class="project-description">Aplicativo de recursos cristãos gratuitos, em desenvolvimento contínuo, para equipar a igreja em Moçambique e outros países. Recursos incluem: Bíblias de áudio em várias línguas incluindo línguas moçambicanas, sermões e mensagens de várias igrejas e ministérios. Iniciado em Jul 2019.</p>
                             <div class="project-links">
                                 <a href="https://web.fontedavida.org" class="project-link" target="_blank">Web App</a>
+                                <a href="https://equipmoz.org/projects/tech-team/fountain-of-life-bible-app/" class="project-link" target="_blank">Ver Projeto</a>
                             </div>
                         </div>
                     </div>
                     <div class="swiper-slide">
                         <img src="assets/images/projects/0.jpg" alt="JURIS" class="project-image">
                         <div class="project-content">
-                            <h3 class="project-title">JURIS - App de Direitos</h3>
-                            <p class="project-description">Aplicativo para acesso a informações jurídicas e direitos legais.</p>
+                            <h3 class="project-title">JURIS - App de Direitos e Lei Moçambicana</h3>
+                            <p class="project-description">Aplicativo com Lei Moçambicana interpretada, com a intenção de promover transparência e acesso à informação, capacitando cidadãos com conhecimento da legislação moçambicana. Inclui sistema back-office (API) para gestão de conteúdo. Período: Out 2019 - Presente.</p>
                             <div class="project-links">
                                 <a href="https://juris.co.mz" class="project-link" target="_blank">Site Oficial</a>
+                                <a href="https://equipmoz.org/projects/tech-team/juris-law-rights-app/" class="project-link" target="_blank">Ver Projeto</a>
                             </div>
                         </div>
                     </div>
@@ -398,10 +404,20 @@
                         </div>
                     </div>
                     <div class="swiper-slide">
+                        <img src="assets/images/projects/0.jpg" alt="Manna Software" class="project-image">
+                        <div class="project-content">
+                            <h3 class="project-title">Manna Software - Gestão de Restaurantes</h3>
+                            <p class="project-description">MANNA - solução robusta para gestão de restaurantes, menus digitais, pedidos e muito mais. Plataforma completa para digitalizar e otimizar operações no setor de restauração. Recursos: menu digital, controle de pedidos por mesa, promoções dinâmicas, administração multi-restaurante, integração QR Code e rastreamento de pedidos em tempo real. Abr 2025.</p>
+                            <div class="project-links">
+                                <a href="#" class="project-link">Em Desenvolvimento</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
                         <img src="assets/images/projects/0.jpg" alt="KUKURA" class="project-image">
                         <div class="project-content">
-                            <h3 class="project-title">KUKURA</h3>
-                            <p class="project-description">Aplicativo móvel para desenvolvimento pessoal.</p>
+                            <h3 class="project-title">KUKURA - Solução Digital "Giving for Change"</h3>
+                            <p class="project-description">Solução digital para projeto "Giving for Change" em Moçambique, para melhorar o crescimento e impacto de organizações filantrópicas pequenas e médias em Moçambique. Desenvolvido em Out 2023.</p>
                             <div class="project-links">
                                 <a href="https://play.google.com/store/apps/details?id=kukura.equipmoz.org" class="project-link" target="_blank">Google Play</a>
                                 <a href="https://xd.adobe.com/view/348a0ff6-0b41-438b-b218-97047ae23467-61d9" class="project-link" target="_blank">Protótipo</a>
@@ -411,11 +427,31 @@
                     <div class="swiper-slide">
                         <img src="assets/images/projects/0.jpg" alt="SEMMO" class="project-image">
                         <div class="project-content">
-                            <h3 class="project-title">SEMMO</h3>
-                            <p class="project-description">Guia de urgência médica.</p>
+                            <h3 class="project-title">SEMMO - Guia de Urgência Médica</h3>
+                            <p class="project-description">SEMMO: Solução Digital para Profissionais Médicos. 'Guia de Urgência (SEMMO)' é uma solução digital projetada para auxiliar médicos e funcionários de saúde na gestão de protocolos específicos comumente associados a doenças e operações durante o parto. Período: Jun 2024 - Jan 2025.</p>
                             <div class="project-links">
                                 <a href="https://play.google.com/store/apps/details?id=org.equipmoz.guia_de_urgencia" class="project-link" target="_blank">Google Play</a>
                                 <a href="https://xd.adobe.com/view/348a0ff6-0b41-438b-b218-97047ae23467-61d9/" class="project-link" target="_blank">Protótipo</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="assets/images/projects/0.jpg" alt="CPRES" class="project-image">
+                        <div class="project-content">
+                            <h3 class="project-title">CPRES - Controle de Presenças</h3>
+                            <p class="project-description">Aplicativo com funcionalidades de leitura de código de barras/QR-Code para registrar presenças de estudantes e funcionários de uma instituição. Altamente personalizável e pode ser configurado para qualquer instituição. Dez 2019 - Jan 2022.</p>
+                            <div class="project-links">
+                                <a href="#" class="project-link">Projeto Concluído</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="assets/images/projects/0.jpg" alt="Start Escolar" class="project-image">
+                        <div class="project-content">
+                            <h3 class="project-title">Start Escolar - Sistema de Gestão Escolar</h3>
+                            <p class="project-description">Sistema de Gestão Escolar em desenvolvimento contínuo. Recursos em módulos: registros de usuários com nível de acesso escolar, registros de funcionários e estudantes, registros de classes e turnos, lançamento de notas e histórico, processo estudantil, pagamentos, aplicativo com leitor de presença por código de barras/QR-Code. Jul 2019 - Jan 2022.</p>
+                            <div class="project-links">
+                                <a href="#" class="project-link">Em Desenvolvimento</a>
                             </div>
                         </div>
                     </div>
@@ -470,6 +506,36 @@
                             <p class="project-description">Website institucional para empresa de construção civil.</p>
                             <div class="project-links">
                                 <a href="https://casamsika.com" class="project-link" target="_blank">Site Oficial</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="assets/images/projects/0.jpg" alt="Kukanela" class="project-image">
+                        <div class="project-content">
+                            <h3 class="project-title">Kukanela - App de Comunicação em Linguagem de Sinais</h3>
+                            <p class="project-description">App híbrido para Android e iOS para ajudar na comunicação com pessoas que usam linguagem de sinais. Utiliza recursos do smartphone como câmera para interpretação de linguagem de sinais em texto simples. Período: Jan 2022 - Jul 2022.</p>
+                            <div class="project-links">
+                                <a href="#" class="project-link">Projeto Finalizado</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="assets/images/projects/0.jpg" alt="DONANTE" class="project-image">
+                        <div class="project-content">
+                            <h3 class="project-title">DONANTE - Plataforma de Doações</h3>
+                            <p class="project-description">MVP de plataforma que conecta doadores a instituições credíveis que alocam recursos para necessidades reais das pessoas. Doe recursos, tempo, talento ou valor para impactar e transformar uma vida! Vencedor do 2º lugar no 2º Hackathon #HACK Indigitous Beira. Out-Nov 2021.</p>
+                            <div class="project-links">
+                                <a href="#" class="project-link">MVP Concluído</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="assets/images/projects/0.jpg" alt="C-Yanga" class="project-image">
+                        <div class="project-content">
+                            <h3 class="project-title">C-Yanga - Mural Digital da Igreja</h3>
+                            <p class="project-description">Aplicativo para compartilhamento rápido de informações da igreja (formato de mural digital). Eventos, atividades, horários de culto, links sugestivos e outros conteúdos úteis para membros da igreja. Com integração de serviço de mensagens SMS. Vencedor do 1º Hackathon #HACK Indigitous Beira (Melhor Tecnologia e Inovação). Out 2020 - Fev 2021.</p>
+                            <div class="project-links">
+                                <a href="#" class="project-link">Projeto Concluído</a>
                             </div>
                         </div>
                     </div>
@@ -672,19 +738,13 @@
             </div>
         `);
 
-        // Função para mudar o idioma
-        function changeLanguage(lang) {
-            document.documentElement.lang = lang;
-            translatePage(lang);
-            localStorage.setItem('language', lang);
-            document.querySelector('.language-menu').classList.remove('active');
-        }
+    // (Removida definição duplicada de changeLanguage; versão extendida permanece no final)
 
         // Carregar tema e idioma salvos
         document.addEventListener('DOMContentLoaded', () => {
             const savedTheme = localStorage.getItem('theme') || 'light';
             const savedLang = localStorage.getItem('language') || 'pt';
-            
+
             document.body.setAttribute('data-theme', savedTheme);
             document.documentElement.lang = savedLang;
             translatePage(savedLang);
@@ -954,7 +1014,7 @@
         function openModal(projectId) {
             const modal = document.getElementById('projectModal');
             const project = projectData[projectId];
-            
+
             if (!modal || !project) return;
 
             // Atualizar título
@@ -968,7 +1028,7 @@
             if (gallery) {
                 gallery.innerHTML = project.images.map(img => `
                     <div>
-                        <img src="${img.src}" alt="${img.caption}" class="modal-image" 
+                        <img src="${img.src}" alt="${img.caption}" class="modal-image"
                              onerror="this.onerror=null; this.src='assets/images/projects/0.jpg';">
                         <p class="modal-caption">${img.caption}</p>
                     </div>
@@ -1009,18 +1069,21 @@
                 'es': 'Más Detalles',
                 'de': 'Mehr Details'
             };
-            
+
             document.querySelectorAll('.project-link[data-project-id]').forEach(button => {
                 button.textContent = translations[lang] || translations['pt'];
             });
         }
 
-        // Atualizar a função changeLanguage para incluir a tradução dos botões
-        const originalChangeLanguage = changeLanguage;
+        // Função única para mudar idioma (inclui tradução de botões de detalhes)
         function changeLanguage(lang) {
-            originalChangeLanguage(lang);
+            document.documentElement.lang = lang;
+            translatePage(lang);
             translateDetailsButtons(lang);
+            localStorage.setItem('language', lang);
+            const menu = document.querySelector('.language-menu');
+            if (menu) menu.classList.remove('active');
         }
     </script>
 </body>
-</html> 
+</html>
