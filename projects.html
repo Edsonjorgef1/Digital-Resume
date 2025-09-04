@@ -663,7 +663,24 @@
                     'Website Institucional': 'Website Institucional',
                     'Aplicação Web': 'Aplicação Web',
                     'Aplicativo Mobile': 'Aplicativo Mobile',
-                    'Website': 'Website'
+                    'Website': 'Website',
+                    'Site Oficial': 'Site Oficial',
+                    'Web App': 'Web App',
+                    'Ver Projeto': 'Ver Projeto',
+                    'Notas de Consultor': 'Notas de Consultor',
+                    'Google Play': 'Google Play',
+                    'Protótipo': 'Protótipo',
+                    'Projeto Concluído': 'Projeto Concluído',
+                    'Em Desenvolvimento': 'Em Desenvolvimento',
+                    'Projeto Finalizado': 'Projeto Finalizado',
+                    'MVP Concluído': 'MVP Concluído',
+                    'Detalhes': 'Detalhes',
+                    'Infraestrutura de Rede': 'Infraestrutura de Rede',
+                    'Dashboard de Monitoramento': 'Dashboard de Monitoramento',
+                    'Equipe de TI': 'Equipe de TI',
+                    'Sessões de Treinamento': 'Sessões de Treinamento',
+                    'Implementação no Campo': 'Implementação no Campo',
+                    'Treinamento de Agricultores': 'Treinamento de Agricultores'
                 },
                 'en': {
                     'Meus Projetos': 'My Projects',
@@ -677,7 +694,24 @@
                     'Website Institucional': 'Institutional Website',
                     'Aplicação Web': 'Web Application',
                     'Aplicativo Mobile': 'Mobile App',
-                    'Website': 'Website'
+                    'Website': 'Website',
+                    'Site Oficial': 'Official Site',
+                    'Web App': 'Web App',
+                    'Ver Projeto': 'View Project',
+                    'Notas de Consultor': 'Consultant Notes',
+                    'Google Play': 'Google Play',
+                    'Protótipo': 'Prototype',
+                    'Projeto Concluído': 'Completed Project',
+                    'Em Desenvolvimento': 'In Development',
+                    'Projeto Finalizado': 'Finished Project',
+                    'MVP Concluído': 'MVP Completed',
+                    'Detalhes': 'Details',
+                    'Infraestrutura de Rede': 'Network Infrastructure',
+                    'Dashboard de Monitoramento': 'Monitoring Dashboard',
+                    'Equipe de TI': 'IT Team',
+                    'Sessões de Treinamento': 'Training Sessions',
+                    'Implementação no Campo': 'Field Deployment',
+                    'Treinamento de Agricultores': 'Farmer Training'
                 },
                 'es': {
                     'Meus Projetos': 'Mis Proyectos',
@@ -691,7 +725,24 @@
                     'Website Institucional': 'Sitio Web Institucional',
                     'Aplicação Web': 'Aplicación Web',
                     'Aplicativo Mobile': 'Aplicación Móvil',
-                    'Website': 'Sitio Web'
+                    'Website': 'Sitio Web',
+                    'Site Oficial': 'Sitio Oficial',
+                    'Web App': 'Web App',
+                    'Ver Projeto': 'Ver Proyecto',
+                    'Notas de Consultor': 'Notas del Consultor',
+                    'Google Play': 'Google Play',
+                    'Protótipo': 'Prototipo',
+                    'Projeto Concluído': 'Proyecto Completado',
+                    'Em Desenvolvimento': 'En Desarrollo',
+                    'Projeto Finalizado': 'Proyecto Finalizado',
+                    'MVP Concluído': 'MVP Completado',
+                    'Detalhes': 'Detalles',
+                    'Infraestrutura de Rede': 'Infraestructura de Red',
+                    'Dashboard de Monitoramento': 'Panel de Monitoreo',
+                    'Equipe de TI': 'Equipo de TI',
+                    'Sessões de Treinamento': 'Sesiones de Entrenamiento',
+                    'Implementação no Campo': 'Implementación en Campo',
+                    'Treinamento de Agricultores': 'Capacitación de Agricultores'
                 },
                 'de': {
                     'Meus Projetos': 'Meine Projekte',
@@ -705,7 +756,24 @@
                     'Website Institucional': 'Institutionelle Website',
                     'Aplicação Web': 'Webanwendung',
                     'Aplicativo Mobile': 'Mobile App',
-                    'Website': 'Website'
+                    'Website': 'Website',
+                    'Site Oficial': 'Offizielle Seite',
+                    'Web App': 'Web App',
+                    'Ver Projeto': 'Projekt ansehen',
+                    'Notas de Consultor': 'Beraternotizen',
+                    'Google Play': 'Google Play',
+                    'Protótipo': 'Prototyp',
+                    'Projeto Concluído': 'Abgeschlossenes Projekt',
+                    'Em Desenvolvimento': 'In Entwicklung',
+                    'Projeto Finalizado': 'Beendetes Projekt',
+                    'MVP Concluído': 'MVP Abgeschlossen',
+                    'Detalhes': 'Details',
+                    'Infraestrutura de Rede': 'Netzwerkinfrastruktur',
+                    'Dashboard de Monitoramento': 'Monitoring-Dashboard',
+                    'Equipe de TI': 'IT-Team',
+                    'Sessões de Treinamento': 'Schulungssitzungen',
+                    'Implementação no Campo': 'Feldeinsatz',
+                    'Treinamento de Agricultores': 'Schulung von Landwirten'
                 }
             };
 
@@ -732,6 +800,14 @@
                     caption.textContent = translations[lang][key];
                 }
             });
+
+            // Traduzir links de projetos se tiverem data-translate
+            document.querySelectorAll('.project-link[data-translate]').forEach(a => {
+                const key = a.getAttribute('data-translate');
+                if (translations[lang][key]) {
+                    a.textContent = translations[lang][key];
+                }
+            });
         }
 
         // Atualizar o HTML para incluir o menu de idiomas
@@ -750,9 +826,18 @@
         document.addEventListener('DOMContentLoaded', () => {
             const savedTheme = localStorage.getItem('theme') || 'light';
             const savedLang = localStorage.getItem('language') || 'pt';
-
             document.body.setAttribute('data-theme', savedTheme);
             document.documentElement.lang = savedLang;
+
+            // Atribuir data-translate aos links de projeto com base no texto inicial (Português)
+            document.querySelectorAll('.project-link').forEach(a => {
+                if (!a.hasAttribute('data-translate')) {
+                    const text = a.textContent.trim();
+                    if (text.length && text.length < 40) { // heurística simples
+                        a.setAttribute('data-translate', text);
+                    }
+                }
+            });
             translatePage(savedLang);
         });
 
