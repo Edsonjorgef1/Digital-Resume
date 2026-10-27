@@ -31,7 +31,7 @@
             --container-bg: #2c3e50;
             --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
         }
-        
+
         * {
             margin: 0;
             padding: 0;
@@ -43,13 +43,13 @@
                         opacity var(--transition-speed) var(--animation-timing);
             will-change: transform, opacity;
         }
-        
+
         body {
             background-color: #f9f9f9;
             color: var(--text-color);
             line-height: 1.6;
         }
-        
+
         .container {
             max-width: 1000px;
             margin: 30px auto;
@@ -60,7 +60,7 @@
             transition: opacity var(--transition-speed) var(--animation-timing);
             will-change: opacity;
         }
-        
+
         .header {
             background-color: var(--header-bg);
             color: white;
@@ -131,45 +131,59 @@
             background-color: #c0392b;
             transform: translateY(-2px);
         }
-        
+
         .header-left h1 {
             font-size: 2.5rem;
-            margin-bottom: 5px;
-            font-weight: 600;
+            margin-bottom: 8px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
         }
-        
+
         .header-left h2 {
-            font-size: 1.5rem;
-            font-weight: 400;
+            font-size: 1.4rem;
+            font-weight: 500;
             color: #ecf0f1;
             margin-bottom: 20px;
+            line-height: 1.4;
+            border-left: 4px solid var(--secondary-color);
+            padding-left: 12px;
         }
-        
+
         .contact-info {
             display: flex;
             flex-wrap: wrap;
             gap: 12px;
             margin-top: 10px;
         }
-        
+
         .contact-item {
             display: flex;
             align-items: center;
             margin-bottom: 8px;
             color: #ecf0f1;
+            font-size: 0.95rem;
         }
-        
+
+        .contact-item:first-child {
+            flex-basis: 100%;
+            font-weight: 600;
+            background: rgba(52, 152, 219, 0.2);
+            padding: 8px 12px;
+            border-radius: 6px;
+            border-left: 3px solid var(--secondary-color);
+        }
+
         .contact-item svg {
             margin-right: 8px;
             flex-shrink: 0;
         }
-        
+
         .content-section {
             padding: 30px 40px;
             border-bottom: 1px solid var(--border-color);
             transition: opacity var(--transition-speed);
         }
-        
+
         .section-title {
             color: var(--primary-color);
             font-size: 1.6rem;
@@ -179,7 +193,7 @@
             border-bottom: 2px solid var(--secondary-color);
             position: relative;
         }
-        
+
         .about-section {
             background-color: var(--light-bg);
             border-radius: 8px;
@@ -192,25 +206,25 @@
             backface-visibility: hidden;
             transform: translateZ(0);
         }
-        
+
         .about-section:hover {
             transform: translateY(-5px) translateZ(0);
         }
-        
+
         .about-title {
             color: var(--primary-color);
             font-size: 1.3rem;
             font-weight: 600;
             margin-bottom: 15px;
         }
-        
+
         .about-content {
             color: var(--text-color);
             line-height: 1.8;
             font-size: 1.1rem;
             text-align: justify;
         }
-        
+
         .job {
             margin-bottom: 30px;
             padding: 20px;
@@ -223,46 +237,52 @@
             backface-visibility: hidden;
             transform: translateZ(0);
         }
-        
+
         .job-title {
             font-size: 1.25rem;
             font-weight: 600;
             color: var(--primary-color);
             margin-bottom: 5px;
         }
-        
+
         .job-company {
             font-size: 1.1rem;
             font-weight: 500;
             color: var(--secondary-color);
             margin-bottom: 5px;
         }
-        
+
         .job-date {
             color: #7f8c8d;
             font-style: italic;
             margin-bottom: 12px;
             font-size: 0.95rem;
         }
-        
+
         .job-description {
             margin-left: 25px;
         }
-        
+
         .job-description li {
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             position: relative;
+            line-height: 1.6;
         }
-        
+
+        .job-description li strong {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
         .job-description li::before {
-            content: "•";
+            content: "▸";
             color: var(--secondary-color);
             font-weight: bold;
             display: inline-block;
             width: 15px;
             margin-left: -15px;
         }
-        
+
         .education {
             margin-bottom: 25px;
             padding: 20px;
@@ -275,33 +295,33 @@
             backface-visibility: hidden;
             transform: translateZ(0);
         }
-        
+
         .education-title {
             font-size: 1.2rem;
             font-weight: 600;
             color: var(--primary-color);
             margin-bottom: 5px;
         }
-        
+
         .education-institution {
             font-size: 1.05rem;
             color: var(--secondary-color);
             margin-bottom: 5px;
         }
-        
+
         .education-date {
             color: #7f8c8d;
             font-style: italic;
             font-size: 0.95rem;
         }
-        
+
         .skills-section {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 30px;
             margin-bottom: 20px;
         }
-        
+
         .skill-category {
             margin-bottom: 25px;
             padding: 20px;
@@ -314,31 +334,31 @@
             backface-visibility: hidden;
             transform: translateZ(0);
         }
-        
+
         .skill-category h3 {
             color: var(--primary-color);
             font-size: 1.2rem;
             margin-bottom: 12px;
             font-weight: 600;
         }
-        
+
         .skill-item {
             margin-bottom: 8px;
             position: relative;
             padding-left: 20px;
         }
-        
+
         .skill-item::before {
             content: "→";
             color: var(--secondary-color);
             position: absolute;
             left: 0;
         }
-        
+
         .projects-section, .achievements-section, .references-section {
             margin-bottom: 30px;
         }
-        
+
         .project-item, .achievement-category {
             margin-bottom: 20px;
             padding: 20px;
@@ -351,23 +371,23 @@
             backface-visibility: hidden;
             transform: translateZ(0);
         }
-        
+
         .project-item h3, .achievement-category h3 {
             color: var(--primary-color);
             font-size: 1.15rem;
             margin-bottom: 10px;
             font-weight: 600;
         }
-        
+
         .achievement-items {
             margin-left: 25px;
         }
-        
+
         .achievement-items li {
             margin-bottom: 8px;
             position: relative;
         }
-        
+
         .achievement-items li::before {
             content: "•";
             color: var(--secondary-color);
@@ -376,13 +396,13 @@
             width: 15px;
             margin-left: -15px;
         }
-        
+
         .references-list {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 20px;
         }
-        
+
         .reference-item {
             border: 1px solid var(--border-color);
             border-radius: 6px;
@@ -395,24 +415,24 @@
             backface-visibility: hidden;
             transform: translateZ(0);
         }
-        
+
         .reference-name {
             font-weight: 600;
             color: var(--primary-color);
             margin-bottom: 5px;
         }
-        
+
         .reference-position {
             color: var(--secondary-color);
             font-size: 0.95rem;
             margin-bottom: 8px;
         }
-        
+
         .reference-contact {
             font-size: 0.9rem;
             color: #555;
         }
-        
+
         footer {
             text-align: center;
             padding: 20px;
@@ -420,87 +440,87 @@
             color: white;
             font-size: 0.9rem;
         }
-        
+
         .project-links {
             margin-top: 5px;
             font-size: 0.9rem;
         }
-        
+
         .project-links a {
             color: var(--secondary-color);
             text-decoration: none;
             margin-right: 5px;
             transition: color var(--transition-speed);
         }
-        
+
         .project-links a:hover {
             text-decoration: underline;
             color: var(--accent-color);
         }
-        
+
         @media print {
             body {
                 background-color: white;
             }
-            
+
             .container {
                 box-shadow: none;
                 margin: 0;
                 max-width: 100%;
             }
-            
+
             .section-title {
                 break-after: avoid;
             }
-            
+
             .job, .education {
                 break-inside: avoid;
             }
-            
+
             footer {
                 display: none;
             }
-            
+
             .controls, .download-cv {
                 display: none;
             }
         }
-        
+
         @media (max-width: 768px) {
             .header {
                 flex-direction: column;
             }
-            
+
             .container {
                 margin: 10px;
             }
-            
+
             .content-section {
                 padding: 20px;
             }
-            
+
             .skills-section, .references-list {
                 grid-template-columns: 1fr;
             }
-            
+
             .profile-image {
                 margin: 20px auto;
                 display: block;
             }
-            
+
             .controls {
                 position: static;
                 justify-content: center;
                 margin-bottom: 20px;
             }
-            
+
             .download-cv {
                 position: static;
                 display: inline-block;
                 margin: 10px auto;
             }
         }
-        
+
         .job, .education, .skill-category, .project-item, .achievement-category, .reference-item {
             transition: opacity var(--transition-speed) var(--animation-timing),
                         transform var(--transition-speed) var(--animation-timing);
@@ -508,8 +528,8 @@
             backface-visibility: hidden;
             transform: translateZ(0);
         }
-        
-        .job:hover, .education:hover, .skill-category:hover, .project-item:hover, 
+
+        .job:hover, .education:hover, .skill-category:hover, .project-item:hover,
         .achievement-category:hover, .reference-item:hover {
             transform: translateY(-5px) translateZ(0);
         }
@@ -541,7 +561,7 @@
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
             <path d="M8 0a8 8 0 0 1 8 8 8 8 0 0 1-8 8A8 8 0 0 1 0 8a8 8 0 0 1 8-8zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
         </svg>
-        <span id="download-text">Baixar CV em PDF</span>
+        <span id="download-text">Download PDF CV</span>
     </a>
 
     <div class="controls">
@@ -558,14 +578,27 @@
         <div class="header">
             <div class="header-left">
                 <h1>Edson Jorge Francisco</h1>
-                <h2>Gestor de TI &amp; Engenheiro Informático</h2>
-                
+                <h2>IT Project Manager | Digital Transformation Specialist | Tech Lead</h2>
+
                 <div class="contact-info">
+                    <div class="contact-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M12 2.02c.83 0 1.5.67 1.5 1.5v.51c.58.45 1.5 1.27 1.5 2.528V14.5c0 .83-.67 1.5-1.5 1.5h-11A1.5 1.5 0 0 1 1 14.5V6.57c0-1.258.92-2.078 1.5-2.528v-.51C2.5 2.67 3.17 2 4 2h8c0-.55.45-1 1-1zM4 3c-.28 0-.5.22-.5.5v.513c0 .34-.16.66-.43.86-.58.41-1.07.89-1.07 1.697V14.5c0 .28.22.5.5.5h11c.28 0 .5-.22.5-.5V6.57c0-.807-.49-1.287-1.07-1.697-.27-.2-.43-.52-.43-.86V3.5c0-.28-.22-.5-.5-.5H4z"/>
+                            <path d="M8.5 7a.5.5 0 0 0-1 0v5.793L5.354 10.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 12.793V7z"/>
+                        </svg>
+                        📍 Maputo, Mozambique | Open to Relocation (Germany & EU)
+                    </div>
                     <div class="contact-item">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                             <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383-4.758 2.855L15 11.114v-5.73zm-.034 6.878L9.271 8.82 8 9.583 6.728 8.82l-5.694 3.44A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.739zM1 11.114l4.758-2.876L1 5.383v5.73z"/>
                         </svg>
-                        edsonjorgef1@icloud.com
+                        edsonjorgef1@gmail.com
+                    </div>
+                    <div class="contact-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+                        </svg>
+                        +258 84 563 3335
                     </div>
                     <div class="contact-item">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -573,353 +606,333 @@
                         </svg>
                         <a href="https://www.linkedin.com/in/edsonjorgef1" style="color: #ecf0f1; text-decoration: none;">linkedin.com/in/edsonjorgef1</a>
                     </div>
-                    
                     <div class="contact-item">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                             <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
                         </svg>
                         <a href="https://github.com/edsonjorgef1" style="color: #ecf0f1; text-decoration: none;">github.com/edsonjorgef1</a>
                     </div>
+                    <div class="contact-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.67.204-1.335.82-1.887 1.855A7.97 7.97 0 0 0 5.145 4H7.5V1.077zM4.09 4a9.267 9.267 0 0 1 .64-1.539 6.7 6.7 0 0 1 .597-.933A7.025 7.025 0 0 0 2.255 4H4.09zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a6.958 6.958 0 0 0-.656 2.5h2.49zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5H4.847zM8.5 5v2.5h2.99a12.495 12.495 0 0 0-.337-2.5H8.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5H4.51zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5H8.5zM5.145 12c.138.386.295.744.468 1.068.552 1.035 1.218 1.65 1.887 1.855V12H5.145zm.182 2.472a6.696 6.696 0 0 1-.597-.933A9.268 9.268 0 0 1 4.09 12H2.255a7.024 7.024 0 0 0 3.072 2.472zM3.82 11a13.652 13.652 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5H3.82zm6.853 3.472A7.024 7.024 0 0 0 13.745 12H11.91a9.27 9.27 0 0 1-.64 1.539 6.688 6.688 0 0 1-.597.933zM8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855.173-.324.33-.682.468-1.068H8.5zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.65 13.65 0 0 1-.312 2.5zm2.802-3.5a6.959 6.959 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5h2.49zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7.024 7.024 0 0 0-3.072-2.472c.218.284.418.598.597.933zM10.855 4a7.966 7.966 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4h2.355z"/>
+                        </svg>
+                        <a href="https://edsonjorgef1.github.io/Digital-Resume" style="color: #ecf0f1; text-decoration: none;">Digital Resume</a>
+                    </div>
+                    <div class="contact-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M3 2.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3.5 5a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9zM3 7.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5z"/>
+                            <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2z"/>
+                        </svg>
+                        <a href="https://wakatime.com/@edsonjorgef1" style="color: #ecf0f1; text-decoration: none;">WakaTime Stats</a>
+                    </div>
                 </div>
             </div>
             <img src="assets/images/profile_pic.png" alt="Edson Jorge Francisco" class="profile-image">
         </div>
-        
+
         <div class="content-section">
-            <h2 class="section-title">Sobre Mim</h2>
+            <h2 class="section-title">Professional Summary</h2>
             <div class="about-section">
-                <h3 class="about-title">Resumo Profissional</h3>
-                <p class="about-content">Profissional de TI com mais de 5 anos de experiência em gestão de equipes e desenvolvimento de soluções tecnológicas. Especializado em liderança de equipes de até 17 profissionais, com forte foco em projetos de impacto social e transformação digital. Experiência comprovada em implementação de sistemas cloud, administração de infraestrutura e desenvolvimento de aplicações web e móveis. Comprometido com a inovação e excelência técnica, sempre buscando soluções criativas para desafios complexos.</p>
+                <p class="about-content"><strong>IT Project Manager and ICT Professional</strong> with over <strong>6 years of experience in Information Technology</strong>, including <strong>3+ years leading IT projects, digital transformation initiatives, and software implementations</strong>.</p>
+
+                <p class="about-content">Strong background in <strong>end-to-end project delivery, coordination of multidisciplinary teams (16+ professionals)</strong>, and implementation of infrastructure, cloud platforms, and digital solutions. Proven experience in <strong>multi-site and donor-funded projects (GIZ, Enabel)</strong>, working closely with international consulting firms such as <strong>NIRAS and COMO Consult</strong> across multiple provinces in Mozambique.</p>
+
+                <p class="about-content">Hands-on expertise in <strong>IT infrastructure management, cloud services (AWS, Azure, GCP), software development lifecycle (SDLC), DevOps</strong>, and <strong>Agile methodologies</strong>. Track record of achieving <strong>98–99.9% service availability</strong> through strategic monitoring and operational excellence.</p>
+
+                <p class="about-content">Co-creator of <strong>social impact digital platforms</strong> funded by international organizations (<strong>Mozilla IRL Fund, African Union Civic Tech Fund 2.0, ECO-MICAIA</strong>), demonstrating commitment to technology-driven social innovation and community empowerment.</p>
+
+                <p class="about-content"><strong>Results-oriented professional</strong> with an <strong>execution-driven and entrepreneurial mindset</strong>, focused on delivering sustainable, scalable, and high-impact technology solutions. <strong>Fluent in English and Portuguese; currently learning German (Beginner)</strong> and <strong>highly motivated to relocate to Germany for IT opportunities</strong>.</p>
             </div>
         </div>
-        
+
         <div class="content-section">
-            <h2 class="section-title">Experiência Profissional</h2>
-            
-            <div class="job">
-                <h3 class="job-title">Gestor de TI</h3>
-                <div class="job-company">Associação Empoderando Moçambique (Equip Mozambique)</div>
-                <div class="job-date">Setembro 2022 – Atualmente</div>
-                <ul class="job-description">
-                    <li>Liderança de uma equipe de até 17 jovens profissionais</li>
-                    <li>Coordenação de projetos tecnológicos inovadores e fortalecimento da colaboração interdepartamental</li>
-                    <li>Configuração e administração de sistemas (Google Workplace, Microsoft 365, AWS, GCP, Azure)</li>
-                    <li>Implementação e manutenção de sistemas de monitorização de rede, alcançando 98-99,9% de disponibilidade de serviço</li>
-                    <li>Estabelecimento de políticas e procedimentos de TI para melhorar a comunicação e o desempenho da equipe</li>
-                    <li>Fornecimento de formação técnica para a equipe em vários domínios de TI</li>
-                </ul>
-            </div>
-            
-            <div class="job">
-                <h3 class="job-title">Programador e Analista de Sistemas</h3>
-                <div class="job-company">TechSolutions, LDA</div>
-                <div class="job-date">Fevereiro 2022 – Junho 2022</div>
-                <ul class="job-description">
-                    <li>Contribuição para análise e desenvolvimento de sistemas</li>
-                    <li>Participação em projetos de configuração de servidores na nuvem</li>
-                    <li>Integração de novos sistemas garantindo compatibilidade e desempenho ideal</li>
-                </ul>
-            </div>
-            
-            <div class="job">
-                <h3 class="job-title">Técnico e Programador Informático</h3>
-                <div class="job-company">Associação Empoderando Moçambique (Equip Mozambique)</div>
-                <div class="job-date">Julho 2019 – Setembro 2022</div>
-                <ul class="job-description">
-                    <li>Participação no desenvolvimento de sistemas e programação</li>
-                    <li>Prestação de suporte técnico e operações de helpdesk</li>
-                    <li>Realização de manutenção preventiva e corretiva de hardware e software</li>
-                    <li>Colaboração com clientes para garantir satisfação</li>
-                </ul>
-            </div>
-            
-            <div class="job">
-                <h3 class="job-title">Estagiário de TI</h3>
-                <div class="job-company">Associação Empoderando Moçambique (Equip Mozambique)</div>
-                <div class="job-date">Maio 2019 – Julho 2019</div>
-                <ul class="job-description">
-                    <li>Introdução ao desenvolvimento de sistemas e programação</li>
-                    <li>Assistência em tarefas básicas de TI e operações</li>
-                    <li>Aprendizagem de sistemas e protocolos organizacionais</li>
-                </ul>
-            </div>
-            
-            <div class="job">
-                <h3 class="job-title">Estagiário de TI</h3>
-                <div class="job-company">ENSYS (Enterprise Systems and Development), LDA</div>
-                <div class="job-date">Outubro 2018 – Novembro 2018</div>
-                <ul class="job-description">
-                    <li>Operador no Departamento Técnico de Controle e Monitoramento de Veículos e Videovigilância</li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="content-section">
-            <h2 class="section-title">Educação e Formação</h2>
-            
-            <div class="education">
-                <h3 class="education-title">Engenharia Informática</h3>
-                <div class="education-institution">Universidade Zambeze, Beira</div>
-                <div class="education-date">Conclusão prevista: 2025</div>
-                <div>Finalista – Aguardando Defesa de Monografia</div>
-            </div>
-            
-            <div class="education">
-                <h3 class="education-title">Ensino Secundário</h3>
-                <div class="education-institution">Escola Secundária Samora Moisés Machel, Beira</div>
-                <div class="education-date">2012</div>
-            </div>
-            
-            <div class="education">
-                <h3 class="education-title">Ensino Primário</h3>
-                <div class="education-institution">Escola Primária Bons Sonhos, Beira</div>
-                <div class="education-date">2007</div>
-            </div>
-        </div>
-        
-        <div class="content-section">
-            <h2 class="section-title">Competências</h2>
-            
+            <h2 class="section-title">Key Skills</h2>
+
             <div class="skills-section">
                 <div class="skill-category">
-                    <h3>Línguas</h3>
-                    <div class="skill-item">Português: Nativo</div>
-                    <div class="skill-item">Inglês: Avançado</div>
-                    <div class="skill-item">Espanhol: Básico</div>
-                    <div class="skill-item">Alemão: Básico</div>
-                </div>
-                
-                <div class="skill-category">
-                    <h3>Competências Digitais</h3>
-                    <div class="skill-item">Desenvolvimento de Software</div>
-                    <div class="skill-item">Redes e Telecomunicações</div>
-                    <div class="skill-item">Administração de Sistemas</div>
-                    <div class="skill-item">Serviços em Nuvem: AWS, GCP, Azure</div>
-                    <div class="skill-item">Administração de Suítes de Escritório: Google Workplace e Microsoft 365</div>
-                    <div class="skill-item">Design de Banco de Dados</div>
-                    <div class="skill-item">Gestão de Projetos de TI</div>
-                    <div class="skill-item">Metodologias Ágeis, Scrum e KanBan</div>
-                    <div class="skill-item">Conhecimento extenso em criação e integração de API</div>
-                </div>
-                
-                <div class="skill-category">
-                    <h3>Stack Tecnológica</h3>
-                    <div class="skill-item">PHP, Javascript, Typescript, LAMP, Postman</div>
-                    <div class="skill-item">Laravel, Livewire, jQuery, JSON</div>
-                    <div class="skill-item">Quasar Framework, VueJS</div>
-                    <div class="skill-item">MySQL, PostgreSQL, MongoDB</div>
-                    <div class="skill-item">MacOS, Linux (Ubuntu/CentOS), Windows</div>
-                </div>
-                
-                <div class="skill-category">
-                    <h3>Competências Interpessoais</h3>
-                    <div class="skill-item">Liderança eficaz e exemplar</div>
-                    <div class="skill-item">Pensamento estratégico e julgamento crítico</div>
-                    <div class="skill-item">Tomada de decisão rápida</div>
-                    <div class="skill-item">Integração em equipe e adaptabilidade</div>
-                    <div class="skill-item">Abordagem dinâmica para resolução de problemas</div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="content-section projects-section">
-            <h2 class="section-title">Projetos</h2>
-            
-            <div class="project-item">
-                <h3>Consultor de Soluções de TIC na Agricultura e Líder de Desenvolvimento Técnico e Estratégico</h3>
-                <p>FAMS (Sistema de Gestão de Agricultores e Agentes), financiado pela GIZ e COMO Consult</p>
-                <div class="project-links">
-                    <a href="https://equipmoz.org/projects/tech-team/farmer-agent-management-system" target="_blank">Detalhes</a> |
-                    <a href="https://fams.co.mz/en" target="_blank">Site Oficial</a> |
-                    <a href="./assets/FAMS_Note_2023.pdf" target="_blank">Notas de Consultor (2023)</a>
-                </div>
-            </div>
-            
-            <div class="project-item">
-                <h3>Criador de Soluções Digitais com Impacto Social</h3>
-                <ul class="job-description">
-                    <li>
-                        FONTE DA VIDA
-                        <div class="project-links">
-                            <a href="https://web.fontedavida.org" target="_blank">Web App</a> |
-                            <a href="https://equipmoz.org/projects/tech-team/fountain-of-life-bible-app/" target="_blank">Detalhes</a>
-                        </div>
-                    </li>
-                    <li>
-                        AIDAI
-                        <div class="project-links">
-                            <a href="https://equipmoz.org/projects/tech-team/other-apps/" target="_blank">Detalhes</a>
-                        </div>
-                    </li>
-                    <li>
-                        JURIS
-                        <div class="project-links">
-                            <a href="https://juris.co.mz/en/" target="_blank">Site Oficial</a> |
-                            <a href="https://equipmoz.org/projects/tech-team/juris-law-rights-app" target="_blank">Detalhes</a>
-                        </div>
-                    </li>
-                    <li>
-                        KULTUARE
-                        <div class="project-links">
-                            <a href="https://equipmoz.org/projects/tech-team/other-apps" target="_blank">Detalhes</a>
-                        </div>
-                    </li>
-                    <li>
-                        HLINK
-                        <div class="project-links">
-                            <a href="https://hlink.app" target="_blank">Website</a> |
-                            <a href="https://equipmoz.org/projects/tech-team/other-apps" target="_blank">Detalhes</a>
-                        </div>
-                    </li>
-                    <li>
-                        CONSULTARE
-                        <div class="project-links">
-                            <a href="https://web.consultare.app" target="_blank">Web App</a> |
-                            <a href="https://consultare.app/en/index.html" target="_blank">Site Oficial</a> |
-                            <a href="https://equipmoz.org/projects/tech-team/consultare-health-app" target="_blank">Detalhes</a>
-                        </div>
-                    </li>
-                    <li>
-                        KUKURA
-                        <div class="project-links">
-                            <!-- <a href="https://github.com/edsonjorgef1/kukura" target="_blank">GitHub</a> | -->
-                            <a href="https://play.google.com/store/apps/details?id=kukura.equipmoz.org" target="_blank">Google Play</a> |
-                            <a href="https://xd.adobe.com/view/348a0ff6-0b41-438b-b218-97047ae23467-61d9" target="_blank">Protótipo</a>
-                        </div>
-                    </li>
-                    <li>
-                        SEMMO
-                        <div class="project-links">
-                            <a href="https://play.google.com/store/apps/details?id=org.equipmoz.guia_de_urgencia" target="_blank">Google Play</a> |
-                            <a href="https://xd.adobe.com/view/348a0ff6-0b41-438b-b218-97047ae23467-61d9/" target="_blank">Protótipo</a>
-                        </div>
-                    </li>
-                    <li>
-                        DJOBAR
-                        <div class="project-links">
-                            <a href="https://djobar.co.mz" target="_blank">Website</a>
-                        </div>
-                    </li>
-                    <li>
-                        CASA MSIKA
-                        <div class="project-links">
-                            <a href="https://casamsika.com" target="_blank">Website</a>
-                        </div>
-                    </li>
-                    <li>
-                        MUNICÍPIO DO DONDO
-                        <div class="project-links">
-                            <a href="https://municipiododondo.gov.mz" target="_blank">Website</a>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="content-section achievements-section">
-            <h2 class="section-title">Conquistas e Avaliações</h2>
-            
-            <div class="achievement-category">
-                <h3>Avaliação de Pontos Fortes (Gallup, 2024)</h3>
-                <ul class="achievement-items">
-                    <li>Estratégico: Criação de abordagens alternativas e identificação de padrões</li>
-                    <li>Positividade: Manutenção de entusiasmo contagiante e atitude otimista</li>
-                    <li>Persuasão: Construção de conexões e conquista de pessoas</li>
-                    <li>Organizador: Organização de recursos para máxima produtividade</li>
-                    <li>Maximizador: Transformação de pontos fortes em excelência</li>
-                </ul>
-            </div>
-            
-            <div class="achievement-category">
-                <h3>Certificado HIGH5 Strengths (2025)</h3>
-                <ul class="achievement-items">
-                    <li>Catalisador: Criação de impulso em ambientes estagnados</li>
-                    <li>Coach: Apoio ao crescimento pessoal dos outros</li>
-                    <li>Estrategista: Pensamento amplo e tomada de decisões</li>
-                    <li>Filomata: Aprendizagem contínua e exploração</li>
-                    <li>Solucionador de Problemas: Diagnóstico de problemas e desenvolvimento de soluções</li>
-                </ul>
-            </div>
-            
-            <div class="achievement-category">
-                <h3>Projetos Pessoais e Conquistas</h3>
-                <ul class="achievement-items">
-                    <li>2022 - Participação no Hackability4Moz Hackathon organizado pela UEM com dois projetos: KUKANELA (aplicativo Android para aprender linguagem de sinais) e W11P (plugin web para ajudar pessoas com deficiência)</li>
-                    <li>🥈 2021 - Segundo lugar na 2a Edição do #HACK Beira Hackathon com o projeto "DONANTE" (Conceito de marketplace para conectar doadores, instituições e pessoas com necessidades reais)</li>
-                    <li>🥇 2020 - Primeiro lugar na 1a Edição do #HACK Beira Hackathon com o projeto "C-YANGA" (My Church App)</li>
-                    <li>2020 - Participação no MIT COVID19 Challenge Hackathon: Africa takes on COVID19</li>
-                    <li>2019 - Participação nas VIII Jornadas Científicas na Universidade Zambeze, com a apresentação do Sistema Metamorphose Gymnasium</li>
-                    <li>2018 - Participação nas VII Jornadas Científicas na Universidade Zambeze, com o aplicativo móvel Moz+Saude</li>
-                </ul>
-            </div>
-            
-            <div class="achievement-category">
-                <h3>Outras Conquistas</h3>
-                <ul class="achievement-items">
-                    <li>Excelência reconhecida em Hackathons locais e desafios tecnológicos</li>
-                    <li>2023: Participação na FACIM como expositor em representação dos projectos da Associação Empoderando Moçambique</li>
-                    <li>2023: Especialista em Transformação Digital e Consultoria em AgriTech - Desenvolvimento, Instalação, Configuração e Treinamento de Sistema FAMS em 10 empresas de diferentes cadeias de valor em 4 províncias: Manica, Zambézia, Nampula e Inhambane</li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="content-section references-section">
-            <h2 class="section-title">Referências</h2>
-            
-            <div class="references-list">
-                <div class="reference-item">
-                    <div class="reference-name">Adérito Mutane</div>
-                    <div class="reference-position">Scrum Master na MPESA - Vodacom Moçambique</div>
-                    <!-- <div class="reference-contact">+258 847922831</div> -->
-                </div>
-                
-                <div class="reference-item">
-                    <div class="reference-name">Augusto Gonҫalves Massuine</div>
-                    <div class="reference-position">Cloud Infrastructure IT na ISUTC</div>
-                    <div class="reference-contact">augustomassuine@gmail.com</div>
-                </div>
-                
-                <div class="reference-item">
-                    <div class="reference-name">Bernardo Magira</div>
-                    <div class="reference-position">CEO da B&D Consultorias (ex-diretor da AEM)</div>
-                    <!-- <div class="reference-contact">+258 847432009</div> -->
-                </div>
-                
-                <div class="reference-item">
-                    <div class="reference-name">Edilson Marcelino</div>
-                    <div class="reference-position">Diretor Executivo da Tech Solutions</div>
-                    <!-- <div class="reference-contact">+258 826456747</div> -->
-                </div>
-                
-                <div class="reference-item">
-                    <div class="reference-name">Ivan Vilanculos</div>
-                    <div class="reference-position">Lead Web App na Vodacom Moçambique</div>
-                    <div class="reference-contact">ivan.vilanculo@vm.co.mz</div>
+                    <h3>Project & Delivery</h3>
+                    <div class="skill-item">IT Project Management (Planning, Execution, Monitoring & Delivery)</div>
+                    <div class="skill-item">Stakeholder, Risk & Change Management</div>
+                    <div class="skill-item">Agile & Hybrid Methodologies (Scrum, Kanban)</div>
+                    <div class="skill-item">Multidisciplinary Team Leadership</div>
+                    <div class="skill-item">Budget & Resource Management</div>
+                    <div class="skill-item">Multi-site Project Coordination</div>
                 </div>
 
-                <div class="reference-item">
-                    <div class="reference-name">Jon Reinagel</div>
-                    <div class="reference-position">CEO na Equip Moambique</div>
-                    <div class="reference-contact">jon@equipmoz.org</div>
+                <div class="skill-category">
+                    <h3>Technology</h3>
+                    <div class="skill-item">IT Infrastructure & Cloud Platforms (AWS, Azure, GCP)</div>
+                    <div class="skill-item">Software Development Lifecycle (SDLC)</div>
+                    <div class="skill-item">Systems Implementation & Digital Transformation</div>
+                    <div class="skill-item">DevOps & Continuous Deployment (CD)</div>
+                    <div class="skill-item">Database Design & Management (MySQL, PostgreSQL, MongoDB)</div>
+                    <div class="skill-item">API Development & Integration</div>
                 </div>
-                
-                <div class="reference-item">
-                    <div class="reference-name">Nelson Soares de Sousa José</div>
-                    <div class="reference-position"> ICT Advisor na GIZ </div>
-                    <!-- <div class="reference-contact">+258 843182965</div> -->
+
+                <div class="skill-category">
+                    <h3>Tech Stack</h3>
+                    <div class="skill-item">PHP, JavaScript, TypeScript, Python</div>
+                    <div class="skill-item">Laravel, Livewire, VueJS, Quasar Framework</div>
+                    <div class="skill-item">Google Workspace, Microsoft 365</div>
+                    <div class="skill-item">Linux (Ubuntu/CentOS), macOS, Windows</div>
+                    <div class="skill-item">Git, Docker, LAMP Stack</div>
                 </div>
-                
-                <div class="reference-item">
-                    <div class="reference-name">Ralph Elsasser</div>
-                    <div class="reference-position">CEO da Geo-Solutions / Consultor Especialista na GIZ</div>
-                    <div class="reference-contact">ralph.elsasser@geolutions.de</div>
+
+                <div class="skill-category">
+                    <h3>Operations</h3>
+                    <div class="skill-item">Helpdesk & Technical Support Management</div>
+                    <div class="skill-item">Documentation & Process Standardisation</div>
+                    <div class="skill-item">User Training & Adoption</div>
+                    <div class="skill-item">Service Level Achievement (98–99.9% Uptime)</div>
+                    <div class="skill-item">IT Policy & Governance</div>
                 </div>
+
+                <div class="skill-category">
+                    <h3>Languages</h3>
+                    <div class="skill-item">Portuguese: Native</div>
+                    <div class="skill-item">English: Advanced</div>
+                    <div class="skill-item">German: Beginner (Currently Learning)</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2 class="section-title">Key Project Experience</h2>
+
+            <div class="job">
+                <h3 class="job-title">VAMOZ COMPETIR – FAMS</h3>
+                <div class="job-company">Digitalisation Specialist | Funder: GIZ | Subcontractor: NIRAS</div>
+                <div class="job-date">2025 | Region: Nampula, Niassa, Zambézia, Sofala, Manica</div>
+                <ul class="job-description">
+                    <li>Led the implementation of FAMS in 7 companies across multiple provinces</li>
+                    <li>Coordinated digitalisation activities, system configuration, and user adoption</li>
+                    <li>Supported data structures, operational workflows, and reporting</li>
+                    <li>Worked directly with stakeholders to ensure quality delivery and measurable impact</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <h3 class="job-title">FUNAE – Grievance & Complaints Digital Platform (GRM)</h3>
+                <div class="job-company">Programmer & Technical Lead | Funder: Enabel (Belgian Development Agency) | Subcontractor: TechSolutions LDA</div>
+                <div class="job-date">2025</div>
+                <ul class="job-description">
+                    <li>Technical leadership in the design and development of the GRM platform</li>
+                    <li>Developed backend functionalities, including advanced automatic assignment algorithms</li>
+                    <li>Ensured clean, scalable architecture and technical documentation</li>
+                    <li>Coordinated weekly sprints and managed the Continuous Deployment (CD) pipeline</li>
+                    <li>Maintained close communication with stakeholders to ensure alignment and quality</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <h3 class="job-title">PROECON – FAMS</h3>
+                <div class="job-company">ICT Consultant for Agricultural Solutions & Technical Lead | Funder: GIZ | Subcontractor: COMO Consult</div>
+                <div class="job-date">2023 – 2024 | Region: Nampula, Zambézia, Inhambane</div>
+                <ul class="job-description">
+                    <li>Led strategy and consulting for adoption of digital solutions in agribusiness</li>
+                    <li>Successfully implemented FAMS in 8 agribusiness companies</li>
+                    <li>Developed customised modules and workflows using agile methodologies</li>
+                    <li>Coordinated internal teams and external consultants, ensuring delivery within scope and budget</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <h3 class="job-title">KUKURA – Digital Platform for Community-Based Organizations</h3>
+                <div class="job-company">IT Tech Lead & IT Advisor | Partners/Donors: ECO-MICAIA, Doar Para Transformar</div>
+                <div class="job-date">2023 – Present | Launch: 2025</div>
+                <ul class="job-description">
+                    <li>Technical leadership in system architecture and platform evolution (MVP → production-ready version)</li>
+                    <li>Advisory role on digital strategy and process formalization for community organizations</li>
+                    <li>Design and implementation of mobile and web-based solutions for operational efficiency</li>
+                    <li>Led capacity building and digital training programs for community-based organizations</li>
+                    <li>Ensured data management, reporting, and workflow standardization</li>
+                    <li>Close coordination with donor partners to ensure impact and sustainability</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <h3 class="job-title">JURIS Platform – Law & Rights</h3>
+                <div class="job-company">Technology Team Lead & Co-creator | Funders: Mozilla IRL Fund, African Union Civic Tech Fund 2.0</div>
+                <div class="job-date">2023 – 2025</div>
+                <ul class="job-description">
+                    <li>Co-created and led the technical development of the JURIS platform</li>
+                    <li>Developed grievance and complaints mechanisms connecting citizens to legal support</li>
+                    <li>Supported multi-channel legal education campaigns for rural communities</li>
+                    <li>Recognised as an innovative civic-tech solution in governance and access to justice</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <h3 class="job-title">FAMS Development (Core System)</h3>
+                <div class="job-company">Backend Programmer, Systems Analyst & SysAdmin | Funder: GIZ | Subcontractor: COMO Consult</div>
+                <div class="job-date">2021 – 2022 | Region: Sofala, Manica</div>
+                <ul class="job-description">
+                    <li>Contributed to the initial development of FAMS Core</li>
+                    <li>Led backend development and system architecture</li>
+                    <li>Acted as Systems Analyst, translating complex requirements into scalable solutions</li>
+                    <li>Managed infrastructure, cloud deployment, and DevOps operations</li>
+                    <li>Supported system rollout (Web, Mobile, Desktop) and end-user training</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2 class="section-title">Professional Experience</h2>
+
+            <div class="job">
+                <h3 class="job-title">IT Manager | IT Project Lead</h3>
+                <div class="job-company">EQUIP MOZAMBIQUE – Associação Empoderando Moçambique</div>
+                <div class="job-date">September 2022 – Present</div>
+                <ul class="job-description">
+                    <li>Lead and manage multiple end-to-end IT projects, ensuring alignment with organisational objectives</li>
+                    <li>Coordinate and supervise multidisciplinary teams (16+ professionals)</li>
+                    <li>Manage scope, timelines, risks, deliverables, and reporting to senior management</li>
+                    <li>Oversee IT infrastructure, cloud services (AWS, Azure, GCP), Google Workspace, and Microsoft 365</li>
+                    <li>Lead software development and digital transformation initiatives</li>
+                    <li>Implement monitoring and operational strategies, achieving 98–99.9% service availability</li>
+                    <li>Define and enforce IT policies, procedures, and technical documentation</li>
+                    <li>Provide strategic technical leadership, mentoring, and continuous training</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <h3 class="job-title">Programmer & Systems Analyst</h3>
+                <div class="job-company">TECHSOLUTIONS, LDA</div>
+                <div class="job-date">February 2022 – June 2024</div>
+                <ul class="job-description">
+                    <li>Participated in system analysis, design, and development</li>
+                    <li>Supported cloud server configuration and system integration</li>
+                    <li>Collaborated with project teams to ensure performance, compatibility, and on-time delivery</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <h3 class="job-title">IT Technician & Programmer</h3>
+                <div class="job-company">EQUIP MOZAMBIQUE – Associação Empoderando Moçambique</div>
+                <div class="job-date">July 2019 – September 2022</div>
+                <ul class="job-description">
+                    <li>Supported implementation of IT systems, infrastructure, and software solutions</li>
+                    <li>Participated in system development and programming activities</li>
+                    <li>Provided technical support and troubleshooting (hardware & software)</li>
+                    <li>Performed preventive and corrective maintenance of IT equipment</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <h3 class="job-title">IT Intern</h3>
+                <div class="job-company">EQUIP MOZAMBIQUE – Associação Empoderando Moçambique</div>
+                <div class="job-date">May 2019 – July 2019</div>
+                <ul class="job-description">
+                    <li>Supported helpdesk operations and basic system administration</li>
+                    <li>Assisted daily IT operations and end-user support</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <h3 class="job-title">IT Intern</h3>
+                <div class="job-company">ENSYS (Enterprise Systems & Development), LDA</div>
+                <div class="job-date">October 2018 – November 2018</div>
+                <ul class="job-description">
+                    <li>Internship in the Technical Department focused on vehicle control, monitoring, and video surveillance</li>
+                    <li>Supported system operations and monitoring tools</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2 class="section-title">Education</h2>
+
+            <div class="education">
+                <h3 class="education-title">Bachelor's Degree in Computer Engineering</h3>
+                <div class="education-institution">Universidade Zambeze – Beira</div>
+                <div class="education-date">Finalist – Thesis Defense Pending</div>
+            </div>
+
+            <div class="education">
+                <h3 class="education-title">Secondary Education (Grade 12)</h3>
+                <div class="education-institution">Escola Secundária Samora Moisés Machel – Beira</div>
+                <div class="education-date">2012</div>
+            </div>
+        </div>
+
+        <div class="content-section projects-section">
+            <h2 class="section-title">Additional Digital Solutions & Social Impact Projects</h2>
+
+            <div class="project-item">
+                <h3>Co-creator of Social Impact Digital Solutions</h3>
+                <p>Portfolio of civic-tech, health-tech, and social innovation platforms</p>
+                <ul class="job-description">
+                    <li>
+                        <strong>JURIS</strong> – Law & Rights Platform
+                        <div class="project-links">
+                            <a href="https://juris.co.mz/en/" target="_blank">Official Website</a> |
+                            <a href="https://equipmoz.org/projects/tech-team/juris-law-rights-app" target="_blank">Details</a>
+                        </div>
+                    </li>
+                    <li>
+                        <strong>CONSULTARE</strong> – Healthcare Management
+                        <div class="project-links">
+                            <a href="https://web.consultare.app" target="_blank">Web App</a> |
+                            <a href="https://consultare.app/en/index.html" target="_blank">Official Website</a>
+                        </div>
+                    </li>
+                    <li>
+                        <strong>FONTE DA VIDA</strong> – Bible & Spiritual Resources
+                        <div class="project-links">
+                            <a href="https://web.fontedavida.org" target="_blank">Web App</a> |
+                            <a href="https://equipmoz.org/projects/tech-team/fountain-of-life-bible-app/" target="_blank">Details</a>
+                        </div>
+                    </li>
+                    <li>
+                        <strong>HLINK</strong> – Digital Networking
+                        <div class="project-links">
+                            <a href="https://hlink.app" target="_blank">Website</a>
+                        </div>
+                    </li>
+                    <li>
+                        <strong>OTHER APPS:</strong> KUKURA, SEMMO, AIDAI, KULTUARE
+                        <div class="project-links">
+                            <a href="https://equipmoz.org/projects/tech-team/other-apps" target="_blank">Details</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section achievements-section">
+            <h2 class="section-title">Certifications & Recognition</h2>
+
+            <div class="achievement-category">
+                <h3>Professional Strengths & Assessments</h3>
+                <ul class="achievement-items">
+                    <li><strong>Gallup CliftonStrengths (2024):</strong> Strategic | Positivity | Persuasion | Arranger | Maximizer</li>
+                    <li><strong>HIGH5 Strengths (2025):</strong> Catalyst | Coach | Strategist | Philomath | Problem Solver</li>
+                </ul>
+            </div>
+
+            <div class="achievement-category">
+                <h3>Hackathons & Technology Challenges</h3>
+                <ul class="achievement-items">
+                    <li>🥇 2020 – 1st Place: #HACK Beira Hackathon (C-YANGA Project)</li>
+                    <li>🥈 2021 – 2nd Place: #HACK Beira Hackathon 2nd Edition (DONANTE Project)</li>
+                    <li>2022 – Participation: Hackability4Moz Hackathon (KUKANELA & W11P Projects)</li>
+                    <li>2020 – Participation: MIT COVID19 Challenge Hackathon: Africa takes on COVID19</li>
+                </ul>
+            </div>
+
+            <div class="achievement-category">
+                <h3>Other Highlights</h3>
+                <ul class="achievement-items">
+                    <li>Participant in SPRINT 2025 for Founders – Renew Capital</li>
+                    <li>2023: Exhibitor at FACIM representing Equip Mozambique digital projects</li>
+                    <li>Driving License: Heavy Vehicles – Category C</li>
+                </ul>
             </div>
         </div>
     </div>
-    
+
     <footer>
-        <p>&copy; 2025 Edson Jorge Francisco. Todos os direitos reservados.</p>
+        <p>&copy; 2025 Edson Jorge Francisco. All rights reserved. | Available for Relocation to Germany & EU</p>
     </footer>
 
     <script src="translations.js"></script>
@@ -943,27 +956,34 @@
 
         // Mapeamento de seções para evitar múltiplas verificações de strings
         const SECTION_MAPPING = {
+            'professional summary': 'about',
             'about me': 'about',
             'about': 'about',
+            'key skills': 'skills',
+            'skills': 'skills',
+            'key project experience': 'keyProjects',
             'professional experience': 'experience',
             'experience': 'experience',
-            'education and training': 'education',
             'education': 'education',
-            'skills': 'skills',
+            'additional digital solutions & social impact projects': 'projects',
             'projects': 'projects',
-            'achievements and assessments': 'achievements',
+            'certifications & recognition': 'achievements',
             'achievements': 'achievements',
-            'references': 'references',
-            'tech stack': 'techStack',
-            // Mapeamentos em português para compatibilidade
+            'additional information': 'achievements',
+            // Mapeamentos em português
+            'resumo profissional': 'about',
             'sobre mim': 'about',
-            'experiência profissional': 'experience',
-            'educação e formação': 'education',
+            'competências principais': 'skills',
             'competências': 'skills',
+            'principais projectos': 'keyProjects',
+            'experiência profissional': 'experience',
+            'educação': 'education',
+            'educação e formação': 'education',
+            'soluções digitais adicionais': 'projects',
             'projetos': 'projects',
-            'conquistas e avaliações': 'achievements',
-            'referências': 'references',
-            'stack tecnológica': 'techStack'
+            'certificações e reconhecimento': 'achievements',
+            'conquistas': 'achievements',
+            'informação adicional': 'achievements'
         };
 
         // Cache para traduções
@@ -1014,7 +1034,7 @@
         // Função para animar transição de texto com tratamento de erros
         function animateTextTransition(element, newText, delay = 100) {
             if (!element) return;
-            
+
             try {
                 element.style.opacity = '0';
                 setTimeout(() => {
@@ -1033,19 +1053,19 @@
                 console.warn('Seção não encontrada para atualização');
                 return;
             }
-            
+
             try {
                 // Adicionar classe de transição
                 section.classList.add('section-transition');
-                
+
                 // Calcular delay baseado no índice
                 const baseDelay = 100;
                 const delay = baseDelay + (index * 50);
-                
+
                 // Fade out
                 section.style.opacity = '0';
                 section.style.transform = 'translateY(-10px)';
-                
+
                 setTimeout(() => {
                     try {
                         // Atualizar conteúdo
@@ -1054,7 +1074,7 @@
                         } else {
                             section.innerHTML = newContent;
                         }
-                        
+
                         // Fade in com transformação
                         requestAnimationFrame(() => {
                             section.style.opacity = '1';
@@ -1064,7 +1084,7 @@
                         console.error('Erro ao atualizar conteúdo da seção:', contentError);
                     }
                 }, delay);
-                
+
                 // Remover classe de transição após a animação
                 setTimeout(() => {
                     section.classList.remove('section-transition');
@@ -1086,13 +1106,13 @@
                 const body = document.body;
                 const currentTheme = body.getAttribute('data-theme');
                 const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-                
+
                 body.style.transition = 'background-color 0.3s, color 0.3s';
                 body.setAttribute('data-theme', newTheme);
                 localStorage.setItem('theme', newTheme);
-                
-                const themeText = newTheme === 'dark' ? 
-                    getTranslation(currentLang, 'theme.darkMode', 'Modo Escuro') : 
+
+                const themeText = newTheme === 'dark' ?
+                    getTranslation(currentLang, 'theme.darkMode', 'Modo Escuro') :
                     getTranslation(currentLang, 'theme.lightMode', 'Modo Claro');
                 animateTextTransition(DOMCache.themeToggle, themeText);
             } catch (error) {
@@ -1187,7 +1207,7 @@
                 DOMCache.roleElement = document.querySelector('.header-left h2');
                 DOMCache.sectionTitles = Array.from(document.querySelectorAll('.section-title'));
                 DOMCache.aboutSection = document.querySelector('.about-section');
-                
+
                 // Elementos de seção
                 DOMCache.jobs = Array.from(document.querySelectorAll('.job'));
                 DOMCache.educations = Array.from(document.querySelectorAll('.education'));
@@ -1195,7 +1215,7 @@
                 DOMCache.projectItems = Array.from(document.querySelectorAll('.project-item'));
                 DOMCache.achievementCategories = Array.from(document.querySelectorAll('.achievement-category'));
                 DOMCache.referenceItems = Array.from(document.querySelectorAll('.reference-item'));
-                
+
                 // Elementos de controle
                 DOMCache.downloadText = document.getElementById('download-text');
                 DOMCache.themeToggle = document.querySelector('.theme-toggle');
@@ -1217,7 +1237,7 @@
         // Função para atualizar a seção Sobre Mim
         function updateAbout(lang) {
             if (!DOMCache.aboutSection) return;
-            
+
             updateSectionWithAnimation(DOMCache.aboutSection, () => {
                 const aboutData = getTranslation(lang, 'about');
                 if (aboutData) {
@@ -1297,7 +1317,7 @@
                 try {
                     const currentText = title.textContent.trim();
                     const sectionKey = titleToKey[currentText] || SECTION_MAPPING[currentText.toLowerCase()];
-                    
+
                     if (sectionKey) {
                         const translation = getTranslation(lang, `sections.${sectionKey}`);
                         if (translation) {
@@ -1328,7 +1348,7 @@
                         job.querySelector('.job-title').textContent = exp.title;
                         job.querySelector('.job-company').textContent = exp.company;
                         job.querySelector('.job-date').textContent = exp.date;
-                        
+
                         const responsibilities = exp.responsibilities;
                         const listItems = job.querySelectorAll('.job-description li');
                         listItems.forEach((item, i) => {
@@ -1460,17 +1480,17 @@
             try {
                 const savedTheme = localStorage.getItem('theme') || 'light';
                 const savedLang = localStorage.getItem('language') || 'en';
-                
+
                 document.body.setAttribute('data-theme', savedTheme);
                 document.documentElement.lang = savedLang;
                 currentLang = savedLang;
-                
+
                 // Selecionar o idioma correto no dropdown
                 const langSelect = document.querySelector('.lang-toggle');
                 if (langSelect) {
                     langSelect.value = savedLang;
                 }
-                
+
                 // Inicializar o conteúdo no idioma correto
                 changeLanguage(savedLang);
             } catch (error) {
